@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Global/globals.css" />
+    <link rel="stylesheet" href="../Global/styleguide.css" />
+    <link rel="stylesheet" href="style-contact.css" />
+    <script src="contact.js"></script>
+  </head>
+
+<body>
+ <header class="header-desktop">
+    <div class="header-box-desktop">
+      <div class="dropdown-desktop">
+       <button class="primary-button-dropdown-desktop" id="projectsDropdownButton" onclick="toggleDropdown()">Projects</button>
+        <div class="dropdown-content-desktop" id="projectsDropdownContent">
+         <a href="/leksoro">Leksoro</a>
+         <a href="/dlm">DLM</a>
+         <a href="/atlas">Atlas</a>
+         <a href="/iskrica-srece">Iskrica Sreče</a>
+        </div>
+      </div>
+      <a class="primary-button-desktop" href="/about-me"><div>About Me</div></a>
+      <a class="header-box-log" href="/home.html">
+        <div class="log-kristina"><img class="log-kristina" src="../img/logo-kristina.svg" /></div>
+      </a>
+      <a class="primary-button-desktop" href="/contact"><div>Contact</div></a>
+      <a href="../cv/Kristina_Stepan_CV.pdf" download="Kristina_Stepan_CV.pdf" class="primary-button-link-desktop">
+        <div>Get CV</div>
+      </a>
+     </div>
+ </header>
+
+ <header class="header-mobile">
+    <div class="header-box-mobile">
+        <a href="../cv/Kristina_Stepan_CV.pdf" download="Kristina_Stepan_CV.pdf" class="primary-button-link-desktop">
+            <div>Get CV</div>
+        </a>
+       <a class="header-box-log" href="/home.html">
+            <div class="log-kristina"><img class="log-kristina" src="../img/logo-kristina.svg" /></div>
+       </a>
+        <a class="header-burger">
+            <div class="burger-button" onclick="toggleMenu()">
+             <img class="burger-icon" src="../img/menu.svg" alt="Menu" />
+            </div>
+         </a>
+
+    </div>
+
+    <div class="header-links" id="headerLinksMobile">
+     <a href="/about-me">About Me</a>
+     <a href="/contact/">Contact</a>
+     <a href="/leksoro">Leksoro</a>
+     <a href="/dlm">DLM</a>
+     <a href="/atlas">Atlas</a>
+     <a href="/iskrica-srece">Iskrica Sreče</a>
+    </div>
+</header>
+
+
+
+
+    <div class="contact">
+      <div class="page-footer">
+        <div class="page">
+          <div class="contact-hero">
+            <div class="contact-box">
+              <img class="contact-art" src="../img/contact.svg"/>
+              <span class="hover-text"> a original graphics</span>
+            </div>
+            <div class="contact-text-box">
+              <div class="contact_text_box_title_box">
+                <div class="text-wrapper">Reach Out Anytime</div>
+                <p class="have-an-idea-just">
+                  Have an idea? <br />Just let me know, and we can start the conversation from there. Send me a message,
+                  and let’s turn it into something amazing.
+                </p>
+              </div>
+              <div class="Get-t-box">
+                <div class="text-wrapper-box">
+                  <div class="text-wrapper-2">Get in Touch</div>
+                  <div class="contact-button-box">
+                    <a class="component-button-mail" href="mailto:stepankristina419@gmail.com" target="_blank">
+                      <img class="mail" src="../img/mail.svg" />
+                      <div class="mail_text">
+                        <img class="mail-line" src="../img/mail_line.svg">
+                        <div class="text-wrapper-3">stepankristina419@gmail.com</div>
+                      </div>
+                    </a>
+                    <a class="component-button-linkedIn" href="https://www.linkedin.com/in/kristina-stepan/" target="_blank">
+                      <img class="vector-2" src="../img/vector.svg" />
+                      <div class="mail_text">
+                        <img class="mail-line" src="../img/mail_line.svg">
+                        <div class="text-wrapper-4">Kristina Stepan</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="collaboration">
+            <div class="collaboration-text">
+              <div class="text-wrapper-6">What our</div>
+              <div class="primary-mark-text"><div class="text-wrapper-5">Collaboration Will Look Like</div></div>
+            </div>
+
+            <div class="collaboration-step">
+              <div class="collaboration-steps" onclick="toggleAccordion(this)">
+                <div class="header-content-wrapper">
+                    <div class="collaboration-steps-2">Reach Out</div>
+                    <img class="keyboard-arrow-down" src="../img/keyboard_arrow_down.svg" />
+                </div>
+                <div class="collaboration-steps-content">
+                    <p class="collaboration-text-details">
+                        You send me a message with your project details or ideas. We will briefly discuss what you need and clarify the main goals of the project to ensure we are on the same page.
+                    </p>
+                </div>
+              </div>
+              <div class="collaboration-steps" onclick="toggleAccordion(this)">
+                <div class="header-content-wrapper">
+                    <div class="collaboration-steps-2">Get-to-Know Meeting</div>
+                    <img class="keyboard-arrow-down" src="../img/keyboard_arrow_down.svg" />
+                </div>
+                <div class="collaboration-steps-content">
+                    <p class="collaboration-text-details">
+                        We will have a meeting where I will ask questions about your project and goals. You will also share your expectations, and together we will outline the scope of work to understand exactly what needs to be done.
+                    </p>
+                </div>
+              </div>
+              <div class="collaboration-steps" onclick="toggleAccordion(this)">
+                <div class="header-content-wrapper">
+                    <div class="collaboration-steps-2">Onboarding</div>
+                    <img class="keyboard-arrow-down" src="../img/keyboard_arrow_down.svg" />
+                </div>
+                <div class="collaboration-steps-content">
+                    <p class="collaboration-text-details">
+                      In this step, I will explain the process, tools, and timelines we will follow. I will make sure you understand how we will work together and what’s required to get started, so we both know what to expect.
+                    </p>
+                </div>
+              </div>
+              <div class="collaboration-steps" onclick="toggleAccordion(this)">
+                <div class="header-content-wrapper">
+                    <div class="collaboration-steps-2">Project Work Begins</div>
+                    <img class="keyboard-arrow-down" src="../img/keyboard_arrow_down.svg" />
+                </div>
+                <div class="collaboration-steps-content">
+                    <p class="collaboration-text-details">
+                      With everything in place, I will start the actual work on your project. During this phase, I will focus on the tasks at hand while keeping you updated on progress, and we will adjust anything if needed as we go along.
+                    </p>
+                </div>
+              </div>
+              <div class="collaboration-steps" onclick="toggleAccordion(this)">
+                <div class="header-content-wrapper">
+                    <div class="collaboration-steps-2">Follow-Up Meeting</div>
+                    <img class="keyboard-arrow-down" src="../img/keyboard_arrow_down.svg" />
+                </div>
+                <div class="collaboration-steps-content">
+                    <p class="collaboration-text-details">
+                      After some work is done, we will have a meeting to review everything so far. You will have a chance to give feedback, ask any questions, and we will make any changes needed based on your input.
+                    </p>
+                </div>
+              </div>
+              <div class="collaboration-steps" onclick="toggleAccordion(this)">
+                <div class="header-content-wrapper">
+                    <div class="collaboration-steps-2">Handover Meeting</div>
+                    <img class="keyboard-arrow-down" src="../img/keyboard_arrow_down.svg" />
+                </div>
+                <div class="collaboration-steps-content">
+                    <p class="collaboration-text-details">
+                      In the final meeting, I will present the finished project and go over how everything works. I will provide the necessary files and documents, and we will make sure all the details are clear so you can move forward with what’s been delivered.
+                    </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+
+  <footer class="footer" data-model-id="311:4020">
+    <img class="background" src="../img/background.svg" />
+    <div class="footer-box-photo">
+      <div class="footer-box">
+         <p class="footer-title">
+          <span class="text-title-regular">Let&#39;s work</span>
+           <span class="span">&nbsp;</span>
+          <span class="text-title-bold">together</span>
+         </p>
+        <div class="footer-text-box">
+           <div class="footer-link-box">
+             <a class="footer-link-button" href="mailto:stepankristina419@gmail.com" target="_blank">
+               <img class="mail-footer" src="../img/mail-footer.svg" />
+               <div class="text-link-box-line">stepankristina419@gmail.com</div>
+              </a>
+              <a class="footer-link-button" href="https://www.linkedin.com/in/kristina-stepan/" target="_blank">
+               <img class="linkedin-footer" src="../img/linkedin-footer.svg" />
+               <div class="text-link-box-line">Kristina Stepan</div>
+              </a>
+          </div>
+          <p class="footer-text">
+              Working on a digital product or need design advice? <br />Ping me for a collaboration or just to chat
+              things through.
+          </p>
+        </div>
+      </div>      
+    </div>
+  </footer>
+</body>
+</html>
+

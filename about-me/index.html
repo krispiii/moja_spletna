@@ -1,3 +1,137 @@
-<p>
-  hello
-</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Global/globals.css" />
+    <link rel="stylesheet" href="../Global/styleguide.css" />
+    <link rel="stylesheet" href="style-about-me.css" />
+    <script src="about-me.js"></script>
+  </head>
+
+<body>
+ <header class="header-desktop">
+    <div class="header-box-desktop">
+      <div class="dropdown-desktop">
+       <button class="primary-button-dropdown-desktop" id="projectsDropdownButton" onclick="toggleDropdown()">Projects</button>
+        <div class="dropdown-content-desktop" id="projectsDropdownContent">
+         <a href="/leksoro">Leksoro</a>
+         <a href="/dlm">DLM</a>
+         <a href="/atlas">Atlas</a>
+         <a href="/iskrica-srece">Iskrica Sreče</a>
+        </div>
+      </div>
+      <a class="primary-button-desktop" href="/about-me"><div>About Me</div></a>
+      <a class="header-box-log" href="/home.html">
+        <div class="log-kristina"><img class="log-kristina" src="../img/logo-kristina.svg" /></div>
+      </a>
+      <a class="primary-button-desktop" href="/contact"><div>Contact</div></a>
+      <a href="../cv/kristina-stepan-cv.pdf" download="STEPAN-Kristina-CV" class="primary-button-link-desktop">
+        <div>Get CV</div>
+      </a>
+     </div>
+ </header>
+
+ <header class="header-mobile">
+    <div class="header-box-mobile">
+        <a href="../cv/kristina-stepan-cv.pdf" download="STEPAN-Kristina-CV" class="primary-button-link-desktop">
+            <div>Get CV</div>
+        </a>
+       <a class="header-box-log" href="/home.html">
+            <div class="log-kristina"><img class="log-kristina" src="../img/logo-kristina.svg" /></div>
+       </a>
+        <a class="header-burger">
+            <div class="burger-button" onclick="toggleMenu()">
+             <img class="burger-icon" src="../img/menu.svg" alt="Menu" />
+            </div>
+         </a>
+
+    </div>
+
+    <div class="header-links" id="headerLinksMobile">
+     <a href="/about-me">About Me</a>
+     <a href="/contact/">Contact</a>
+     <a href="/leksoro">Leksoro</a>
+     <a href="/dlm">DLM</a>
+     <a href="/atlas">Atlas</a>
+     <a href="/iskrica-srece">Iskrica Sreče</a>
+    </div>
+</header>
+    <div class="page-about" data-model-id="124:713">
+      <div class="three-columns-together-about-me">
+        <div class="three-columns-the-first-column">
+          <div class="about-me-title-boc">
+            <div class="page-title-about-me">ABOUT ME</div>
+            <div class="contact-icons-box">
+              <img class="icon-only-button-linkedin" src="../img/button-only-linkedin.svg" />
+              <img class="icon-only-button-mail" src="../img/button-only-mail.svg" />
+            </div>
+          </div>
+          <div class="box-decorated-line-and-text">
+            <div class="three-lines">///</div>
+            <div class="about-me-text-box">
+              <div class="primary-mark-text-small"><div class="miniature-tertiary-title-yellow-small">What Inspires Me</div></div>
+              <p class="introducing-myself-text">
+                I’m driven by new technologies and how they shape user experiences. Combining research with design make
+                decisions based on real data, so the result works the way people actually use it.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="about-me-photo-box">
+          <img class="about-me-kristina-photo" src="../img/kristina-photo.png" />
+        </div>
+        <div class="three-columns-the-third-column">
+          <div class="about-me-text-box">
+            <div class="primary-mark-text-small"><div class="miniature-tertiary-title-yellow-small">Currently</div></div>
+            <p class="introducing-myself-text">
+              I’m currently in an international company specializing in enterprise systems for logistics and management.
+              Outside of my main role, I dive into smaller projects as a freelancer, tackling diverse challenges and
+              refining my skills.
+            </p>
+          </div>
+          <div class="about-me-text-box">
+            <div class="primary-mark-text-small"><div class="miniature-tertiary-title-yellow-small">Fields I Work In</div></div>
+            <p class="introducing-myself-text">
+              I have crafted digital platforms for wedding planning and invitations, designed HR analytics platforms,
+              and built websites for law schools. Now, I’m focusing on developing large-scale software for logistics and
+              warehouse management.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <footer class="footer" data-model-id="311:4020">
+  <img class="footer-background" src="../img/background.svg" alt="Desktop Background" />
+  <img class="footer-background-mobile" src="../img/background-small.svg" alt="Mobile Background" />
+  <div class="footer-box-photo">
+    <div class="footer-box">
+      <p class="footer-title">
+        <span class="text-title-regular">Let&#39;s work&nbsp;</span>
+        <span class="text-title-bold">together</span>
+      </p>
+      <div class="footer-text-box">
+        <div class="footer-link-box">
+          <a class="footer-link-button" href="mailto:stepankristina419@gmail.com" target="_blank">
+            <img class="mail-footer" src="../img/mail-footer.svg" alt="Mail" />
+            <div class="text-link-box-line">stepankristina419@gmail.com</div>
+          </a>
+          <a class="footer-link-button" href="https://www.linkedin.com/in/kristina-stepan/" target="_blank">
+            <img class="linkedin-footer" src="../img/linkedin-footer.svg" alt="LinkedIn" />
+            <div class="text-link-box-line">Kristina Stepan</div>
+          </a>
+        </div>
+        <p class="footer-text">
+          Working on a digital product or need design advice? <br />Ping me for a collaboration or just to chat things
+          through.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+

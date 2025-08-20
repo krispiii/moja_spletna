@@ -342,7 +342,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14rem; /* Converted from 224px */
   position: relative;
   align-self: stretch;
   width: 80%;
@@ -358,7 +357,22 @@
   align-items: flex-end;
   justify-content: center;
   position: relative;
+  height: 80vh;
   gap: 6.5rem; /* Converted from 104px */
+}
+
+@media (max-width: 1100px) {
+  .three-columns-together-about-me{
+    gap: 3rem; /* Converted from 64px */
+  }
+
+  .about-me-photo-box{
+    height: 50%;
+  }
+
+  .about-me-kristina-photo{
+    height: 60%;
+  }
 }
 
 .three-columns-the-first-column{
@@ -367,12 +381,11 @@
   align-items: flex-start;
   gap: 3rem; /* Converted from 48px */
   position: relative;
-  flex: 1;
   align-self: stretch;
-  flex-grow: 1;
+  width: 30%;
 }
 
-.page-about .about-me-title-boc {
+.about-me-title-box {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
@@ -389,7 +402,7 @@
   font-size: var( --heading-400-bold-font-size);
 }
 
-.page-about .contact-icons-box {
+.contact-icons-box {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -409,13 +422,10 @@
 .box-decorated-line-and-text {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: space-between;
   position: relative;
-  flex: 1;
-  align-self: stretch;
   width: 100%;
-  flex-grow: 1;
+  height: 100%;
 }
 
 .three-lines {
@@ -425,7 +435,7 @@
   font-size: var(--heading-200-bold-font-size);
 }
 
-.page-about .about-me-text-box {
+.about-me-text-box {
   display: flex;
   flex-direction: column;
   width:  fit-content;
@@ -451,14 +461,15 @@
   position: relative;
   width: fit-content;
   margin-top: -1.00px;
-  font-weight: var(--text-m-semibold-font-weight);
+  font-weight: var(--text-m-regular-font-weight);
   color: var(--font-500-primary);
-  font-size: var(--text-m-semibold-font-size);
+  font-size: var(--text-m-regular-font-size);
 }
 
 .introducing-myself-text {
   position: relative;
   align-self: stretch;
+  width: 100%;
   font-weight: var(--text-s-regular-font-weight);
   color: var(--font-500-primary);
   font-size: var(--text-s-regular-font-size);
@@ -467,7 +478,7 @@
 .about-me-photo-box {
   position: relative;
   width: 30%;
-  height: 60vh;
+  height: 70%;
   background-color: var(--neutral-200);
   border-radius: 16px;
   overflow: hidden;
@@ -486,12 +497,54 @@
 .three-columns-the-third-column {
   display: flex;
   flex-direction: column;
-  width: 30%;
   align-items: flex-start;
-  gap: 217px;
-  padding: 102px 0px 0px;
+  justify-content: space-between;
+  margin-top: 5%;
   position: relative;
   align-self: stretch;
+  width: 30%;
+}
+
+/* MOBILE ABOUT ME */
+@media (max-width: 612px) {
+
+  .page-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rem; /* Converted from 96px */
+  position: relative;
+  align-self: stretch;
+  width: 90%;
+  flex: 0 0 auto;
+  margin-top: 5rem; 
+  margin-left: 5%; 
+  margin-right: 5%; 
+ }
+
+ .three-columns-together-about-me {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  justify-self: center;
+  gap: 2rem; /* Converted from 32px */
+  flex-direction: column;
+  flex: 0 0 auto;
+  align-items: stretch;
+ }
+ .three-columns-the-first-column,
+ .three-columns-the-third-column {
+  gap: 2rem; 
+  width: 100%;
+ }
+
+ .about-me-photo-box{
+  width: 100%;
+  height: 50%;
+  align-self: center;
+  margin-top: 2rem; /* Converted from 32px */
+ }
 }
 
 

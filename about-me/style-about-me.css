@@ -484,9 +484,9 @@
 }
 
 .about-me-photo-box {
-  position: relative;
-  width: 30%;
-  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--neutral-200);
   border-radius: 16px;
   overflow: hidden;
@@ -495,12 +495,8 @@
 }
 
 .about-me-kristina-photo{
-  position: relative;
-  bottom: 0rem;
-  height: 100%;
-  object-fit: cover;
-  justify-content: center;
-  align-items: center;
+  width: 92%;
+  object-fit: contain;
 }
 
 .three-columns-the-third-column {
@@ -514,9 +510,64 @@
   width: 30%;
 }
 
+/* Table-big ABOUT ME */
+@media (max-width: 1060px) {
+  .three-columns-together-about-me {
+    gap: 2rem; /* Converted from 32px */
+    height: 100%;
+  }
+
+  .three-columns-the-third-column {
+    gap: 2rem; /* Converted from 32px */
+    height: 100%;
+    margin-top: 0rem;
+  }
+
+  .about-me-kristina-photo{
+  width: 70%;
+  object-fit: contain;
+ }
+}
+
+
+/* Table-small ABOUT ME */
+@media (max-width: 850px) {
+  .three-columns-together-about-me {
+    gap: 3.5rem;
+    height: 100%;
+    flex-direction: column; /* Stack columns vertically */
+    align-items: stretch; /* Make columns full width */
+    justify-self: center;
+  }
+
+  .three-columns-the-first-column{
+   width: 100%;
+    gap: 1rem; /* Converted from 16px */
+  }
+
+  .box-decorated-line-and-text {
+    width: 100%;
+    gap: 3rem; /* Converted from 48px */
+    align-items: end;
+  }
+
+  .about-me-kristina-photo{
+    width: 30%;
+  }
+
+  .three-columns-the-third-column {
+    gap: 2rem; /* Converted from 32px */
+    height: 100%;
+    margin-top: 0rem;
+    flex-direction: row;
+   width: 100%;
+  }
+}
+
+
 /* MOBILE ABOUT ME */
 @media (max-width: 612px) {
-
+  
   .page-about {
   display: flex;
   flex-direction: column;
@@ -532,28 +583,26 @@
  }
 
  .three-columns-together-about-me {
-  display: flex;
-  width: 100%;
   height: 100%;
-  position: relative;
   justify-self: center;
   gap: 2rem; /* Converted from 32px */
   flex-direction: column;
-  flex: 0 0 auto;
   align-items: stretch;
  }
+
  .three-columns-the-first-column,
  .three-columns-the-third-column {
   gap: 2rem; 
-  width: 100%;
  }
-
-  .three-columns-the-first-column{
-    gap: 5.125rem; /* Converted from 82px */
-  }
 
   .about-me-title-box{
     gap: 0.5rem; /* Converted from 8px */
+  }
+
+  .three-columns-the-third-column{
+    gap: 3rem; /* Converted from 48px */
+    flex-direction: column;
+   width: 100%;
   }
 
   .page-title-about-me{
@@ -570,8 +619,14 @@
   height: 23rem; /* Converted from 368px */
   align-self: center;
   margin-top: 2rem; /* Converted from 32px */
+  margin-bottom: 1rem; /* Converted from 16px */
  }
 
+ .about-me-kristina-photo{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+ }
 }
 
 
@@ -994,19 +1049,22 @@
 
 @media (max-width: 612px) {
    .footer .footer-text-box{
-    gap: 16rem; /* Converted from 48px */
+    gap: 18rem; /* Converted from 48px */
   }
 
-   .footer-text{
+  .footer-text{
    display: flex;
+    width: 100%;
+  }
+
+  .footer-link-button{
+    width: 100%;
   }
 }
 
-
-
 @media (max-width: 583px) {
    .footer .footer-text-box{
-    gap: 14rem; /* Converted from 48px */
+    gap: 16rem; /* Converted from 48px */
   }
 
    .footer-text{
@@ -1016,19 +1074,19 @@
 
 @media (max-width: 543px) {
    .footer .footer-text-box{
-    gap: 12rem; /* Converted from 48px */
+    gap: 14rem; /* Converted from 48px */
   }
 }
 
 @media (max-width: 509px) {
    .footer .footer-text-box{
-    gap: 10rem; /* Converted from 48px */
+    gap: 12rem; /* Converted from 48px */
   }
 }
 
 @media (max-width: 476px) {
    .footer .footer-text-box{
-    gap: 8rem; /* Converted from 48px */
+    gap: 9rem; /* Converted from 48px */
   }
 }
 
@@ -1053,5 +1111,13 @@
 @media (max-width: 355px) {
    .footer .footer-text-box{
     gap: 1rem; /* Converted from 48px */
+  }
+
+  .footer-text{
+    width: 100%;
+  }
+
+  .footer-link-button{
+    width: 100%;
   }
 }

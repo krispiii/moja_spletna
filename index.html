@@ -1,3 +1,293 @@
-<p>
-  home.html
-</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Global/globals.css" />
+    <link rel="stylesheet" href="../Global/styleguide.css" />
+    <link rel="stylesheet" href="style-home.css" />
+    <script src="home.js"></script>
+  </head>
+
+<body>
+ <header class="header-desktop">
+    <div class="header-box-desktop">
+      <div class="dropdown-desktop">
+       <button class="primary-button-dropdown-desktop" id="projectsDropdownButton" onclick="toggleDropdown()">Projects</button>
+        <div class="dropdown-content-desktop" id="projectsDropdownContent">
+         <a href="/leksoro">Leksoro</a>
+         <a href="/dlm">DLM</a>
+         <a href="/atlas">Atlas</a>
+         <a href="/iskrica-srece">Iskrica Sreče</a>
+        </div>
+      </div>
+      <a class="primary-button-desktop" href="/about-me"><div>About Me</div></a>
+      <a class="header-box-log" href="/home.html">
+        <div class="log-kristina"><img class="log-kristina" src="../img/logo-kristina.svg" /></div>
+      </a>
+      <a class="primary-button-desktop" href="/contact"><div>Contact</div></a>
+      <a href="../cv/kristina-stepan-cv.pdf" download="STEPAN-Kristina-CV" class="primary-button-link-desktop">
+        <div>Get CV</div>
+      </a>
+     </div>
+ </header>
+
+ <header class="header-mobile">
+    <div class="header-box-mobile">
+        <a href="../cv/kristina-stepan-cv.pdf" download="STEPAN-Kristina-CV" class="primary-button-link-desktop">
+            <div>Get CV</div>
+        </a>
+       <a class="header-box-log" href="/home.html">
+            <div class="log-kristina"><img class="log-kristina" src="../img/logo-kristina.svg" /></div>
+       </a>
+        <a class="header-burger">
+            <div class="burger-button" onclick="toggleMenu()">
+             <img class="burger-icon" src="../img/menu.svg" alt="Menu" />
+            </div>
+         </a>
+
+    </div>
+
+    <div class="header-links" id="headerLinksMobile">
+     <a href="/about-me">About Me</a>
+     <a href="/contact/">Contact</a>
+     <a href="/leksoro">Leksoro</a>
+     <a href="/dlm">DLM</a>
+     <a href="/atlas">Atlas</a>
+     <a href="/iskrica-srece">Iskrica Sreče</a>
+    </div>
+</header>
+ 
+      <div class="page-home">
+        <div class="grid-box">
+          <div class="widget-program">
+            <div class="frame">
+              <p class="technologies-i-have">Technologies I have <br />worked with</p>
+            </div>
+            <img class="line" src="https://c.animaapp.com/prZiLh4l/img/line-1.svg" />
+            <img class="program-logo-box" src="https://c.animaapp.com/prZiLh4l/img/program-logo-box.svg" />
+          </div>
+          <div class="widget-art">
+            <img class="untitled-artwork" src="https://c.animaapp.com/prZiLh4l/img/untitled-artwork--5--1@2x.png" />
+          </div>
+          <div class="widget-about-me">
+            <div class="div">About me</div>
+            <p class="p">
+              I’m a UX/UI Designer specializing in user research and usability testing. I modernize legacy systems and
+              design enterprise software, working with global corporations, agile start-ups, and as a freelancer. My
+              research-driven approach ensures that business goals align with user needs for effective solutions.
+            </p>
+          </div>
+          <div class="widget-location">
+            <div class="widget-location-2">
+              <div class="widget-location-year">
+                <div class="text-wrapper-2">4</div>
+                <div class="text-wrapper-2">+</div>
+              </div>
+              <div class="text-wrapper-3">years of experience</div>
+            </div>
+            <div class="widget-location-2">
+              <img class="globe-location-pin" src="https://c.animaapp.com/prZiLh4l/img/globe-location-pin@2x.png" />
+              <div class="text-wrapper-3">Base in Ljubljana, Sloveni</div>
+            </div>
+          </div>
+          <img class="widget-center" src="https://c.animaapp.com/prZiLh4l/img/widget-center.svg" />
+          <div class="widget-job">
+            <p class="UX-UI-designer-user">UX/UI designer <br />User researcher <br />Freelancer</p>
+          </div>
+          <img class="widget-xo" src="https://c.animaapp.com/prZiLh4l/img/widget-xo.svg" />
+          <div class="contac-button">
+            <div class="text-wrapper-4">Contact me</div>
+            <img class="vector" src="https://c.animaapp.com/prZiLh4l/img/vector-5.svg" />
+          </div>
+        </div>
+        <div class="all-under-hero">
+          <div class="unther-herp-project">
+            <div class="unther-herp">
+              <div class="cart-box">
+                <div class="cart-design">
+                  <div class="text-wrapper-5">UX Research</div>
+                  <div class="flexcontainer">
+                    <p class="p">
+                      <span class="span">I use a structured process to understand users and their needs. <br /></span>
+                    </p>
+                    <p class="p">
+                      <span class="span">Then I analyze their struggles to find pain points and ways to improve.</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="cart-design-2">
+                  <div class="text-wrapper-5">Post-Implementation Research</div>
+                  <div class="flexcontainer-2">
+                    <p class="p">
+                      <span class="span">Test designs to see what works and what doesn’t.<br /></span>
+                    </p>
+                    <p class="p">
+                      <span class="span"
+                        >Use numbers to measure results and understand how changes improve the product.</span
+                      >
+                    </p>
+                  </div>
+                </div>
+                <div class="cart-design-3">
+                  <div class="text-wrapper-5">Design Process</div>
+                  <div class="flexcontainer">
+                    <p class="p">
+                      <span class="span"
+                        >Design modular components that can be reused across the interface. <br
+                      /></span>
+                    </p>
+                    <p class="p">
+                      <span class="span">Make and test mock-ups, then improve them based on feedback.</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="concepts-into-box">
+                <div class="text-box-normal">
+                  <div class="text-wrapper-6">clarity and measurable success.</div>
+                  <div class="primary-text-box">
+                    <p class="text-wrapper-7">logical, result-driven systems that deliver</p>
+                  </div>
+                  <p class="text-wrapper-8">I take foundational ideas and build them into</p>
+                </div>
+                <div class="concepts-into">Concepts into Structured</div>
+              </div>
+            </div>
+            <img class="project-overview" src="https://c.animaapp.com/prZiLh4l/img/project-overview.svg" />
+          </div>
+          <div class="grupe-project">
+            <div class="project-overview-2">
+              <img class="img" src="https://c.animaapp.com/prZiLh4l/img/project-overview-photo-1.png" />
+              <div class="project-overview-3">
+                <div class="project-overview-4">
+                  <div class="text-wrapper-9">Leksoro</div>
+                  <div class="project-overview-5">
+                    <div class="text-wrapper-10">Year</div>
+                    <div class="text-wrapper-11">2025</div>
+                  </div>
+                </div>
+                <div class="project-overview-wrapper">
+                  <p class="project-overview-6">
+                    A platform that helps people quickly find and connect with personal trainers based on their
+                    location, specialty, pricing, and certifications. Trainers can present their unique approach and
+                    verified credentials, while users can filter, compare, and book with confidence. Everything is
+                    structured to reduce back-and-forth and make the whole process feel easy, clear, and trustworthy.
+                  </p>
+                </div>
+                <div class="to-project-button">
+                  <div class="text-wrapper-12">DIVE DEEPER</div>
+                  <img class="vector-2" src="https://c.animaapp.com/prZiLh4l/img/vector-5-4.svg" />
+                </div>
+              </div>
+            </div>
+            <div class="project-overview-2">
+              <img class="img" src="https://c.animaapp.com/prZiLh4l/img/project-overview-photo-1.png" />
+              <div class="project-overview-3">
+                <div class="project-overview-4">
+                  <div class="text-wrapper-9">DLM</div>
+                  <div class="project-overview-5">
+                    <div class="text-wrapper-10">Year</div>
+                    <div class="text-wrapper-11">2025</div>
+                  </div>
+                </div>
+                <div class="project-overview-wrapper">
+                  <p class="project-overview-6">
+                    A centralized platform developed for managing delivery routes, vehicles, and drivers at scale. It
+                    calculates the most efficient paths, adapts in real time to traffic and delays, and helps users
+                    handle daily planning with ease. All key data orders, times, trucks is shown in one visual hub,
+                    allowing for faster decision-making and better logistics coordination.
+                  </p>
+                </div>
+                <div class="to-project-button">
+                  <div class="text-wrapper-12">DIVE DEEPER</div>
+                  <img class="vector-2" src="https://c.animaapp.com/prZiLh4l/img/vector-5-4.svg" />
+                </div>
+              </div>
+            </div>
+            <div class="project-overview-2">
+              <img class="img" src="https://c.animaapp.com/prZiLh4l/img/project-overview-photo-2.png" />
+              <div class="project-overview-3">
+                <div class="project-overview-4">
+                  <div class="text-wrapper-9">Atlas</div>
+                  <div class="project-overview-5">
+                    <div class="text-wrapper-10">Year</div>
+                    <div class="text-wrapper-11">2024</div>
+                  </div>
+                </div>
+                <div class="project-overview-wrapper">
+                  <p class="project-overview-6">
+                    A digital tool built to support daily warehouse tasks across various industries, from food to metal.
+                    It simplifies shipment tracking, inventory management, and goods inspection by keeping everything
+                    clear and task-focused. Designed to reduce confusion and errors, the platform keeps cognitive load
+                    low and guides users through actions even when problems arise.
+                  </p>
+                </div>
+                <div class="to-project-button">
+                  <div class="text-wrapper-12">DIVE DEEPER</div>
+                  <img class="vector-2" src="https://c.animaapp.com/prZiLh4l/img/vector-5-4.svg" />
+                </div>
+              </div>
+            </div>
+            <div class="project-overview-2">
+              <img class="img" src="https://c.animaapp.com/prZiLh4l/img/project-overview-photo-3.png" />
+              <div class="project-overview-3">
+                <div class="project-overview-4">
+                  <div class="text-wrapper-9">Iskrica Sreče</div>
+                  <div class="project-overview-5">
+                    <div class="text-wrapper-10">Year</div>
+                    <div class="text-wrapper-11">2024</div>
+                  </div>
+                </div>
+                <div class="project-overview-wrapper">
+                  <p class="project-overview-6">
+                    I’m a UX/UI Designer specializing in user research and usability testing. I modernize legacy systems
+                    and design enterprise software, working with global corporations, agile startups, and as a
+                    freelancer. My research-driven approach
+                  </p>
+                </div>
+                <div class="to-project-button">
+                  <div class="text-wrapper-12">DIVE DEEPER</div>
+                  <img class="vector-2" src="https://c.animaapp.com/prZiLh4l/img/vector-5-4.svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <footer class="footer" data-model-id="311:4020">
+  <img class="footer-background" src="../img/background.svg" alt="Desktop Background" />
+  <img class="footer-background-mobile" src="../img/background-small.svg" alt="Mobile Background" />
+  <div class="footer-box-photo">
+    <div class="footer-box">
+      <p class="footer-title">
+        <span class="text-title-regular">Let&#39;s work&nbsp;</span>
+        <span class="text-title-bold">together</span>
+      </p>
+      <div class="footer-text-box">
+        <div class="footer-link-box">
+          <a class="footer-link-button" href="mailto:stepankristina419@gmail.com" target="_blank">
+            <img class="mail-footer" src="../img/mail-footer.svg" alt="Mail" />
+            <div class="text-link-box-line">stepankristina419@gmail.com</div>
+          </a>
+          <a class="footer-link-button" href="https://www.linkedin.com/in/kristina-stepan/" target="_blank">
+            <img class="linkedin-footer" src="../img/linkedin-footer.svg" alt="LinkedIn" />
+            <div class="text-link-box-line">Kristina Stepan</div>
+          </a>
+        </div>
+        <p class="footer-text">
+          Working on a digital product or need design advice? <br />Ping me for a collaboration or just to chat things
+          through.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+

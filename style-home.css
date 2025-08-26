@@ -609,6 +609,7 @@
   color: var(--font-500-primary);
   font-size: var(--heading-100-bold-font-size);
   text-align: center;
+  margin: 0px;
 }
 
 .grid-box .widget-xo {

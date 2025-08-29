@@ -132,3 +132,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   board.forEach(cell => cell.addEventListener("click", handleClick));
 });
+
+// ...existing code...
+document.addEventListener("DOMContentLoaded", () => {
+  // Existing Tic Tac Toe setup stays (do not remove)
+  // (Your existing DOMContentLoaded block is already here)
+
+  // AFTER your current logic finishes, trigger animations next frame:
+  requestAnimationFrame(() => {
+    document.body.classList.add('anim-start');
+  });
+});
+// ...existing code...
+

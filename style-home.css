@@ -398,6 +398,7 @@
   color: var(--font-500-primary);
   font-size: var(--heading-100-bold-font-size);
   margin: 0px;
+  flex-wrap: wrap;
 }
 
 .grid-box .program-logo-box {
@@ -413,7 +414,7 @@
 
 .grid-box .program-logo-img {
   width: auto;
-  height: 34px;
+  height: 30px;
   position: relative;
   display: inline-block;
 }
@@ -539,7 +540,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 0.875rem; /* Converted from 14px */
   background-color: var(--white);
   border-radius: 16px;
   padding: 0rem 2rem;
@@ -754,6 +755,147 @@
   background-color: var(--brand-300-primary);
 }
 
+/* --- Widget entrance animations --- */
+@keyframes slideInLeft {
+  from { opacity:0; transform:translateX(-70px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity:0; transform:translateX(70px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+
+/* Initial (off–screen) state for non‑center widgets */
+.widget-program,
+.widget-about-me,
+.widget-xo {
+  opacity:0;
+  transform:translateX(-70px);
+  will-change:transform,opacity;
+}
+
+.widget-location,
+.widget-art,
+.widget-job,
+.contact-button {
+  opacity:0;
+  transform:translateX(70px);
+  will-change:transform,opacity;
+}
+
+/* Animate in after body gets .anim-start */
+body.anim-start .widget-program  { animation:slideInLeft .6s .05s cubic-bezier(.77,0,.18,1) forwards; }
+body.anim-start .widget-about-me { animation:slideInLeft .6s .10s cubic-bezier(.77,0,.18,1) forwards; }
+body.anim-start .widget-xo       { animation:slideInLeft .6s .15s cubic-bezier(.77,0,.18,1) forwards; }
+
+body.anim-start .widget-location { animation:slideInRight .6s .05s cubic-bezier(.77,0,.18,1) forwards; }
+body.anim-start .widget-art      { animation:slideInRight .6s .10s cubic-bezier(.77,0,.18,1) forwards; }
+body.anim-start .widget-job      { animation:slideInRight .6s .15s cubic-bezier(.77,0,.18,1) forwards; }
+body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(.77,0,.18,1) forwards; }
+
+/* Center widget (e.g. .widget-center) stays static (no rules needed) */
+
+/* Accessibility: disable for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .widget-program,
+  .widget-about-me,
+  .widget-xo,
+  .widget-location,
+  .widget-art,
+  .widget-job,
+  .contact-button {
+    opacity:1 !important;
+    transform:none !important;
+    animation:none !important;
+  }
+}
+
+
+/*Screen desktop smaller */ 
+
+@media (max-width: 1300px) {
+  .grid-box .program-logo-img {
+   height: 26px;
+  }
+
+  .grid-box .technologies-i-have, 
+  .grid-box .UX-UI-designer-user, 
+  .grid-box .text-wrapper-about-me,
+  .grid-box .contact-wrapper-text {
+  font-weight: var(--text-l-bold-font-weight);
+  font-size: var(--text-l-bold-font-size);
+  }
+}
+
+/*Screen desktop smaller smaller */ 
+
+@media (max-width: 1030px) {
+  .grid-box .program-logo-box{
+   padding: 1.25rem 1rem 0.5rem 1rem; 
+  }
+  
+  .grid-box .program-logo-img {
+   height: 24px;
+  }
+
+  .grid-box .widget-center-photo {
+    width: 80%;
+    height: auto;
+  }
+
+  .grid-box .widget-location{
+     gap: 0.5rem; /* Converted from 8px */
+  }
+
+  .grid-box .years-and-location{
+    text-align: start;
+  }
+  
+  .grid-box .text-all-about-me {
+    margin: 0px;
+  }
+ 
+
+}
+
+/*Screen desktop smaller smaller */ 
+
+@media (max-width: 800px) {
+  .grid-box .technologies-title-box{
+    padding: 0.5rem 0.5rem 0.5rem; 
+  }
+  .grid-box .technologies-i-have, 
+  .grid-box .UX-UI-designer-user, 
+  .grid-box .text-wrapper-about-me,
+  .grid-box .contact-wrapper-text {
+  font-weight: var(--text-m-bold-font-weight);
+  font-size: var(--text-m-bold-font-size);
+  }
+
+  .grid-box .program-logo-img {
+   height: 22 px;
+  }
+
+  .grid-box .xo-board {
+  grid-template-columns: repeat(3, 26px);
+  grid-template-rows: repeat(3, 26px);
+  }
+
+  .grid-box .text-all-about-me {
+    font-weight: var(--text-XS-regular-font-weight);
+    font-size: var(--text-XS-regular-font-size);
+  }
+
+  .grid-box .widget-about-me {
+   padding: 1.25rem 1rem 0.5rem 1rem;
+  }
+
+  .grid-box .program-logo-box {
+   gap: 1rem; 
+  }
+
+}
+
 
 
 /* FOOTER */
@@ -883,69 +1025,12 @@
   font-size: var(--text-XS-regular-font-size);
 }
 
-
-
 .footer-text {
   position: relative;
   width: 402px;
   font-weight: var(--text-s-regular-font-weight);
   color: var(--font-100);
   font-size: var(--text-s-regular-font-size);
-}
-
-/* --- Widget entrance animations --- */
-@keyframes slideInLeft {
-  from { opacity:0; transform:translateX(-70px); }
-  to   { opacity:1; transform:translateX(0); }
-}
-@keyframes slideInRight {
-  from { opacity:0; transform:translateX(70px); }
-  to   { opacity:1; transform:translateX(0); }
-}
-
-/* Initial (off–screen) state for non‑center widgets */
-.widget-program,
-.widget-about-me,
-.widget-xo {
-  opacity:0;
-  transform:translateX(-70px);
-  will-change:transform,opacity;
-}
-
-.widget-location,
-.widget-art,
-.widget-job,
-.contact-button {
-  opacity:0;
-  transform:translateX(70px);
-  will-change:transform,opacity;
-}
-
-/* Animate in after body gets .anim-start */
-body.anim-start .widget-program  { animation:slideInLeft .6s .05s cubic-bezier(.77,0,.18,1) forwards; }
-body.anim-start .widget-about-me { animation:slideInLeft .6s .10s cubic-bezier(.77,0,.18,1) forwards; }
-body.anim-start .widget-xo       { animation:slideInLeft .6s .15s cubic-bezier(.77,0,.18,1) forwards; }
-
-body.anim-start .widget-location { animation:slideInRight .6s .05s cubic-bezier(.77,0,.18,1) forwards; }
-body.anim-start .widget-art      { animation:slideInRight .6s .10s cubic-bezier(.77,0,.18,1) forwards; }
-body.anim-start .widget-job      { animation:slideInRight .6s .15s cubic-bezier(.77,0,.18,1) forwards; }
-body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(.77,0,.18,1) forwards; }
-
-/* Center widget (e.g. .widget-center) stays static (no rules needed) */
-
-/* Accessibility: disable for reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .widget-program,
-  .widget-about-me,
-  .widget-xo,
-  .widget-location,
-  .widget-art,
-  .widget-job,
-  .contact-button {
-    opacity:1 !important;
-    transform:none !important;
-    animation:none !important;
-  }
 }
 
 

@@ -31,3 +31,10 @@ function toggleMenu() {
     const links = document.getElementById("headerLinksMobile");
     links.classList.toggle("show");
 }
+
+// PHOTO ANIMATION ON ABOUT ME PAGE
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.querySelector('.page-about')) {
+    requestAnimationFrame(() => document.body.classList.add('photo-in'));
+  }
+});

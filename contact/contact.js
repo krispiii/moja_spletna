@@ -58,3 +58,9 @@ function toggleMenu() {
     const links = document.getElementById("headerLinksMobile");
     links.classList.toggle("show");
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  requestAnimationFrame(() => {
+    document.body.classList.add('contact-buttons-in');
+  });
+});

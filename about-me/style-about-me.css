@@ -494,6 +494,32 @@
   border-color: var(--neutral-500);
 }
 
+/* ...existing code... */
+.about-me-photo-box {
+  /* ...existing code... */
+  opacity: 0;
+  transform: translateY(-40px);
+  will-change: transform, opacity;
+}
+
+body.photo-in .about-me-photo-box {
+  animation: aboutPhotoDrop .7s cubic-bezier(.25,.6,.2,1) forwards;
+}
+
+@keyframes aboutPhotoDrop {
+  0%   { opacity:0; transform:translateY(-40px); }
+  70%  { opacity:1; transform:translateY(6px); }  /* tiny overshoot */
+  100% { opacity:1; transform:translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-me-photo-box {
+    opacity:1 !important;
+    transform:none !important;
+    animation:none !important;
+  }
+}
+
 .about-me-kristina-photo{
   width: 92%;
   object-fit: contain;

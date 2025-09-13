@@ -1375,7 +1375,8 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
 .grupe-project .img-project-work {
   position: relative;
   align-self: stretch;
-  width: 64%
+  width: 64%;
+  border-radius: 12px;
 }
 
 .grupe-project .projekt-group-box-text {
@@ -1478,6 +1479,87 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   cursor: pointer;
 }
 
+/* 1. Base utility (icon itself) */
+.rotate-45 {
+  transition: transform .3s ease;
+}
+
+/* 2. If the icon is hovered directly */
+.rotate-45:hover {
+  transform: rotate(45deg);
+}
+/* Update: default transparent, hover white, active neutral-100 */
+.grupe-project .to-project-button {
+  background-color: transparent;
+  border: 1.5px solid var(--neutral-400-primary);
+  transition: background-color .25s ease, border-color .25s ease;
+}
+
+/* Hover: white */
+.grupe-project .to-project-button:hover {
+  background-color: var(--white);
+  border-color: var(--neutral-300);
+}
+
+/* Active (pressed): neutral-100 */
+.grupe-project .to-project-button:active {
+  background-color: var(--neutral-100);
+  border-color: var(--neutral-300);
+}
+
+/* Keep arrow rotation from before */
+.grupe-project .to-project-button .arrow-gray {
+  transition: transform .3s ease;
+}
+.grupe-project .to-project-button:hover .arrow-gray {
+  transform: rotate(45deg);
+}
+
+/* 3. If you want it to rotate when its parent (button/link) is hovered */
+.hover-rotate-45:hover .rotate-45 {
+  transform: rotate(45deg);
+}
+
+/* Apply to existing elements: */
+
+/* Contact button arrow (same behavior as .vector) */
+.grid-box .contact-button .vector {
+  transition: transform .3s ease;
+}
+.grid-box .contact-button:hover .vector {
+  transform: rotate(45deg);
+}
+/* CONTACT BUTTON (keep arrow rotate, change button color on hover) */
+.grid-box .contact-button {
+  background-color: var(--brand-400-primary);
+  transition: background-color .25s ease, box-shadow .25s ease;
+}
+
+/* Hover: change whole button background (arrow still rotates) */
+.grid-box .contact-button:hover {
+  background-color: var(--brand-500);
+}
+
+/* Arrow rotation stays */
+.grid-box .contact-button .vector {
+  transition: transform .3s ease;
+}
+
+.grid-box .contact-button:hover .vector {
+  transform: rotate(45deg);
+  /* removed the wrong background-color applied to the icon */
+}
+
+/* Project card arrow */
+.grupe-project .to-project-button .arrow-gray {
+  transition: transform .3s ease;
+}
+.grupe-project .to-project-button:hover .arrow-gray {
+  transform: rotate(45deg);
+  /* If you previously had translateX, remove it or combine:
+     transform: rotate(45deg) translateX(6px); */
+}
+
 .grupe-project .text-dive-deeper {
   position: relative;
   flex: 1;
@@ -1490,6 +1572,94 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   position: relative;
   width: 18.56px;
   height: 18.56px;
+}
+
+/* PROJECT OVERVIEW  Small Screens */
+
+@media (max-width: 1280px) {
+  .grupe-project .projekt-group-box-text {
+    width: 46%;
+  }
+  .grupe-project .img-project-work {
+    width: 54%;
+  }
+}
+
+/* PROJECT OVERVIEW  Small Screens */
+
+@media (max-width: 1280px) {
+  .grupe-project .projekt-group-box-text {
+    width: 46%;
+  }
+  .grupe-project .img-project-work {
+    width: 54%;
+  }
+}
+
+@media (max-width: 900px) {
+  .grupe-project .projekt-group-box-text {
+    width: 46%;
+  }
+  .grupe-project .img-project-work {
+    width: 54%;
+  }
+
+  .grupe-project .project-overview-2 {
+    padding: 1rem; /* Converted from 16px */
+  }
+
+  .grupe-project .project-title {
+    font-weight: var(--heading-100-bold-font-weight);
+    font-size: var(--heading-100-bold-font-size);
+  }
+
+  .grupe-project .project-year-text {
+    font-weight: var(--text-s-bold-font-weight);
+    font-size: var(--text-s-bold-font-size);
+  }
+
+  .grupe-project .project-year-number {
+    font-weight: var(--text-s-regular-font-weight);
+    font-size: var(--text-s-regular-font-size);
+  }
+
+ .grupe-project .project-overview-wrapper {
+    padding: 1rem; /* Converted from 16px */
+  }
+
+  .grupe-project .project-bio-text {
+    font-weight: var(--text-XS-regular-font-weight);
+    font-size: var(--text-XS-regular-font-size);
+  }
+}
+
+@media (max-width: 740px) {
+  .grupe-project .project-design {
+    flex-direction: column;
+    height: auto;
+    gap: 1.5rem; /* Converted from 24px */
+    padding: 1.5rem; /* Converted from 24px */
+  }
+
+    .grupe-project .projekt-group-box-text {
+    width: 100%;
+  }
+  .grupe-project .img-project-work {
+    width: 100%;
+  }
+}
+
+@media (max-width: 740px) {
+ .grupe-project{
+   width: 90%;
+   margin-left: 5%;
+   margin-right: 5%;
+ }
+
+   .grupe-project .project-bio-text {
+    font-weight: var(--text-s-regular-font-weight);
+    font-size: var(--text-s-regular-font-size);
+  }
 }
 
 
@@ -1628,6 +1798,9 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   color: var(--font-100);
   font-size: var(--text-s-regular-font-size);
 }
+
+
+
 
 
 /* Footer Mobile */

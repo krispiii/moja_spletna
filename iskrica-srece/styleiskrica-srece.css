@@ -461,28 +461,30 @@
   width: 100%;
 }
 
-.page .div-2 {
+.page .about-project-box {
   display: flex;
   width: 100%;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
   position: relative;
   flex: 0 0 auto;
+  gap: 6.75rem; /* Converted from 16px */
+  margin-top: 9.75rem; /* Converted from 56px */
+  margin-bottom: 3.5rem; /* Converted from 56px */
 }
 
-.page .about-project {
-  display: flex;
-  width: 269px;
-  justify-content: center;
-  gap: 10px;
-  padding: 0px 12px;
-  background-color: var(--brand-400-primary);
+.page .primary-mark-text {
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 0rem 0.75rem; /* Converted from 0px 12px */
   position: relative;
+  flex: 0 0 auto;
+  background-color: var(--brand-400-primary);
 }
 
-.page .text-wrapper-2 {
+.page .miniature-tertiary-title-yellow {
   position: relative;
   width: fit-content;
   font-weight: var(--heading-200-regular-font-weight);
@@ -494,35 +496,35 @@
 .page .about-project-only {
   display: flex;
   flex-direction: column;
-  width: 900px;
   align-items: flex-start;
   justify-content: flex-end;
   gap: 14px;
-  padding: 56px 0px 0px;
   position: relative;
   align-self: stretch;
+  margin-top: 3.5rem; /* Converted from 56px */
 }
 
-.page .p {
+.page .about-the-project-text {
   position: relative;
   align-self: stretch;
   color: var(--font-500-primary);
   font-size: var(--text-XL-regular-font-size);
   font-weight: var(--text-XL-regular-font-weight);
+  margin: 0px;
 }
 
-.page .project-main-info {
-  display: inline-flex;
+.page .project-main-info-group {
+  display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
   gap: 16px;
   position: relative;
-  flex: 0 0 auto;
 }
 
-.page .project-main-info-2 {
+.page .project-main-info-box {
   display: flex;
-  width: 308px;
+  width: 280px;
   height: 241px;
   align-items: flex-start;
   gap: 8px;
@@ -542,7 +544,7 @@
   background-color: var(--brand-400-primary);
 }
 
-.page .project-main-info-3 {
+.page .project-main-text-boxs{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -553,7 +555,7 @@
   flex-grow: 1;
 }
 
-.page .text-wrapper-3 {
+.page .project-main-title {
   position: relative;
   width: fit-content;
   font-weight: var(--text-xl-semibold-font-weight);
@@ -561,39 +563,14 @@
   font-size: var(--text-XL-semibold-font-size);
 }
 
-.page .text-wrapper-4 {
+.page .project-main-text-wrapper {
   position: relative;
   flex: 1;
   align-self: stretch;
+  margin-top: 0.5rem; /* Converted from 8px */
+  margin-bottom: 0px;
   font-weight: var(--text-m-regular-font-weight);
   color: var(--font-500-primary);
-  font-size: var(--text-m-regular-font-size);
-}
-
-.page .project-main-info-4 {
-  display: flex;
-  flex-direction: column;
-  width: 259px;
-  align-items: flex-start;
-  gap: 16px;
-  position: relative;
-  align-self: stretch;
-}
-
-.page .strategy-UX-aui {
-  position: relative;
-  align-self: stretch;
-  height: 108px;
-  font-weight: var(--text-m-regular-font-weight);
-  color: var(--font-500-primary);
-  font-size: var(--text-m-regular-font-size);
-}
-
-.page .text-wrapper-5 {
-  position: relative;
-  align-self: stretch;
-  font-weight: var(--text-m-regular-font-weight);
-  color: var(--variable-collection-font-500-primary);
   font-size: var(--text-m-regular-font-size);
 }
 
@@ -621,7 +598,7 @@
   position: relative;
 }
 
-.page .animation-formats-2 {
+.page .animation-formats-horizontally {
   height: 344px;
   align-items: center;
   gap: 64px;

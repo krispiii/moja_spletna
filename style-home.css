@@ -942,6 +942,11 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
    padding: 0rem 0.75rem;
   }
 
+  .grid-box .UX-UI-designer-user{
+   font-weight: var(--text-l-bold-font-weight);
+   font-size: var(--text-l-bold-font-size);
+  }
+
   .grid-box .widget-art{
    grid-column: 2;
    grid-row: 2/ span 2;

@@ -395,63 +395,239 @@
 
 }
 
-.page .hero-project-design-wrapper {
+/* --- Simple dual hero images (left + right) --- */
+.hero-project-design-wrapper {
   position: relative;
   width: 100%;
-  height: 702px;
-  background-color: var(--neutral-100);
+  height: auto;
+  background: var(--neutral-100);
+  border: 1px solid var(--neutral-400-primary);
   border-radius: 26px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: var(--neutral-400-primary);
-  align-items: center;
+  padding: 2rem clamp(1rem, 4vw, 3rem);
+  box-sizing: border-box;
+  overflow: hidden; /* keep images inside */
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.page .hero-project-design {
+
+.hero-project-design {
   position: relative;
   width: 100%;
-  height: 609px;
-  align-items: center;
+  max-width: 1400px;
+  min-height: 520px;
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.page .big-screen {
-  position: relative;
-  width: 80%;
-  border-radius: 11.11px;
-  border: 0.43px solid;
-  border-color: var(--neutral-400-primary);
-  aspect-ratio: 1.82;
-  background-image: url(https://c.animaapp.com/9JgdRVq9/img/big-screen.png);
-  background-size: cover;
-  background-position: 50% 50%;
+.hero-image-box {
+ position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  will-change: transform, opacity;
+  transition:  transform .75s cubic-bezier(.25,.6,.2,1), opacity .55s ease;
 }
 
-.page .project-info-box {
+/* Center stays on top */
+.hero-image-box.hero-center {
+  z-index: 5;
+  /* sit slightly higher so it “covers” the top edge of side images */
+  transform: translateY(-8px) scale(1);
+  opacity: 1;
+}
+
+/* Side images start hidden, a bit lower & smaller (tucked under) */
+.hero-image-box.hero-left,
+.hero-image-box.hero-right {
+  z-index: 3;                /* under center */
+  opacity: 0;
+  /* lower & slightly back (smaller) so center overlaps */
+  transform: translateY(32px) scale(.76);
+  pointer-events: none;
+}
+
+/* Horizontal anchor edges so they peek out */
+.hero-image-box.hero-left  { left: 50%; transform-origin: center; }
+.hero-image-box.hero-right { right: 50%; transform-origin: center; }
+
+/* Image sizing */
+.hero-image {
+  width: 58vw;
+  max-width: 760px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--neutral-400-primary);
+  box-shadow: 0 10px 30px -14px rgba(0,0,0,.18);
+  transition: box-shadow .6s, width .6s cubic-bezier(.25,.6,.2,1);
+}
+
+/* Side images smaller (always use smaller width) */
+.hero-image-box.hero-left  .hero-image,
+.hero-image-box.hero-right .hero-image {
+  width: 36vw;
+  max-width: 420px;
+  box-shadow: 0 8px 24px -16px rgba(0,0,0,.18);
+}
+
+/* HOVER: reveal sides under center; center stays large (no shrink now) */
+.hero-project-design:hover .hero-left {
+  opacity: 1;
+  /* move left image leftwards & keep lower so center overlaps upper part */
+  transform: translate(-38%, 28px) scale(.80);
+  pointer-events: auto;
+}
+.hero-project-design:hover .hero-right {
+  opacity: 1;
+  transform: translate(38%, 28px) scale(.80);
+  pointer-events: auto;
+}
+
+/* Optional slight lift & stronger shadow on side images when visible */
+.hero-project-design:hover .hero-left .hero-image,
+.hero-project-design:hover .hero-right .hero-image {
+  box-shadow: 0 16px 36px -18px rgba(0,0,0,.24);
+}
+
+/* If you STILL want the center to shrink a little when revealing, uncomment:
+.hero-project-design:hover .hero-center {
+  transform: translateY(-4px) scale(.94);
+}
+*/
+
+/* Mobile: just stack (no overlap complexity) */
+@media (max-width: 980px) {
+  .hero-project-design {
+    flex-direction: column;
+    min-height: auto;
+    gap: 1.25rem;
+    padding: 0;
+  }
+  .hero-image-box {
+    position: static;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto;
+  }
+  .hero-image {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Reduced motion: show all without transforms */
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-box {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+.hero-image-box.hero-center {
+  z-index: 3;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.hero-image-box.hero-left,
+.hero-image-box.hero-right {
+  opacity: 0;
+  transform: translateY(34px) scale(.60);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-image-box.hero-left  { left: 0; }
+.hero-image-box.hero-right { right: 0; }
+
+.hero-image {
+  width: 58vw;
+  max-width: 760px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--neutral-400-primary);
+  box-shadow: 0 10px 30px -14px rgba(0,0,0,.18);
+  transition: box-shadow .6s;
+}
+
+.hero-project-design:hover .hero-center {
+  transform: scale(.66);
+}
+
+.hero-project-design:hover .hero-left {
+  opacity: 1;
+  transform: translate(-66%,0) scale(.84);
+  pointer-events: auto;
+}
+
+.hero-project-design:hover .hero-right {
+  opacity: 1;
+  transform: translate(66%,0) scale(.84);
+  pointer-events: auto;
+}
+
+.hero-project-design:hover .hero-image-box:not(.hero-center) .hero-image {
+  box-shadow: 0 18px 40px -16px rgba(0,0,0,.22);
+}
+
+@media (max-width: 980px) {
+  .hero-project-design {
+    flex-direction: column;
+    min-height: auto;
+    gap: 1.25rem;
+  }
+  .hero-image-box {
+    position: static;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto;
+  }
+  .hero-image {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-box {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-project-design:hover .hero-center {
+    transform: none !important;
+  }
+}
+
+.project-info-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 156px;
+  gap: 124px;
   position: relative;
-  align-self: stretch;
-  width: 100%;
   flex: 0 0 auto;
+  width: 100%;
 }
 
-.page .about-project-all {
+/* ABOUT THE PROJECT */
+
+.about-project {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   gap: 124px;
   position: relative;
   flex: 0 0 auto;
-  margin-left: -1.00px;
-  margin-right: -1.00px;
+  margin: 0px;
   width: 100%;
 }
 
-.page .about-project-allbox {
+.about-project .about-project-allbox {
   display: inline-flex;
   gap: 56px;
   flex: 0 0 auto;
@@ -461,7 +637,7 @@
   width: 100%;
 }
 
-.page .about-project-box {
+.about-project .about-project-box {
   display: flex;
   width: 100%;
   align-items: start;
@@ -473,7 +649,7 @@
   margin-bottom: 3.5rem; /* Converted from 56px */
 }
 
-.page .primary-mark-text {
+.about-project .primary-mark-text {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -484,7 +660,7 @@
   background-color: var(--brand-400-primary);
 }
 
-.page .miniature-tertiary-title-yellow {
+.about-project .miniature-tertiary-title-yellow {
   position: relative;
   width: fit-content;
   font-weight: var(--heading-200-regular-font-weight);
@@ -493,7 +669,7 @@
   text-align: center;
 }
 
-.page .about-project-only {
+.about-project .about-project-only {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -504,7 +680,7 @@
   margin-top: 3.5rem; /* Converted from 56px */
 }
 
-.page .about-the-project-text {
+.about-project .about-the-project-text {
   position: relative;
   align-self: stretch;
   color: var(--font-500-primary);
@@ -513,7 +689,7 @@
   margin: 0px;
 }
 
-.page .project-main-info-group {
+.about-project .project-main-info-group {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -522,7 +698,7 @@
   position: relative;
 }
 
-.page .project-main-info-box {
+.about-project .project-main-info-box {
   display: flex;
   width: 280px;
   height: 241px;
@@ -537,14 +713,14 @@
   box-shadow: 0px 2px 6px #f5f5f5;
 }
 
-.page .primary-lime-small {
+.about-project .primary-lime-small {
   position: relative;
   width: 9px;
   height: 30px;
   background-color: var(--brand-400-primary);
 }
 
-.page .project-main-text-boxs{
+.about-project .project-main-text-boxs{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -555,7 +731,7 @@
   flex-grow: 1;
 }
 
-.page .project-main-title {
+.about-project .project-main-title {
   position: relative;
   width: fit-content;
   font-weight: var(--text-xl-semibold-font-weight);
@@ -563,7 +739,7 @@
   font-size: var(--text-XL-semibold-font-size);
 }
 
-.page .project-main-text-wrapper {
+.about-project .project-main-text-wrapper {
   position: relative;
   flex: 1;
   align-self: stretch;
@@ -574,20 +750,26 @@
   font-size: var(--text-m-regular-font-size);
 }
 
-.page .mock-up {
+.about-project .mock-up {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 514px;
   border-radius: 26px;
   border: 1px solid;
   border-color: var(--neutral-400-primary);
   aspect-ratio: 1.83;
-  background-image: url(https://c.animaapp.com/9JgdRVq9/img/mock-up-1.png);
   background-size: cover;
   background-position: 50% 50%;
 }
 
-.page .animation-formats {
+.about-project .mock-up-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 26px;
+}
+
+.about-project .animation-formats {
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
@@ -598,7 +780,7 @@
   position: relative;
 }
 
-.page .animation-formats-horizontally {
+.about-project .animation-formats-horizontally {
   height: 344px;
   align-items: center;
   gap: 64px;
@@ -615,13 +797,13 @@
   position: relative;
 }
 
-.page .div-3 {
+.about-project .div-3 {
   position: relative;
   width: 278px;
   height: 258.4px;
 }
 
-.page .polygon {
+.about-project .polygon {
   top: 192px;
   left: 101px;
   position: absolute;
@@ -629,7 +811,7 @@
   height: 66px;
 }
 
-.page .img {
+.about-project .img {
   top: 192px;
   left: 189px;
   position: absolute;
@@ -637,7 +819,7 @@
   height: 66px;
 }
 
-.page .polygon-2 {
+.about-project .polygon-2 {
   top: 192px;
   left: 13px;
   position: absolute;
@@ -645,7 +827,7 @@
   height: 66px;
 }
 
-.page .polygon-3 {
+.about-project .polygon-3 {
   top: 104px;
   left: 101px;
   position: absolute;
@@ -653,7 +835,7 @@
   height: 66px;
 }
 
-.page .line-left {
+.about-project .line-left {
   left: -2580px;
   position: absolute;
   width: 258px;
@@ -662,7 +844,7 @@
   object-fit: cover;
 }
 
-.page .line-right {
+.about-project .line-right {
   left: -2302px;
   position: absolute;
   width: 258px;
@@ -671,7 +853,7 @@
   object-fit: cover;
 }
 
-.page .animation-formats-3 {
+.about-project .animation-formats-3 {
   display: flex;
   align-items: flex-start;
   gap: 4px;
@@ -687,7 +869,7 @@
   background-color: var(--brand-400-primary);
 }
 
-.page .research-title-box {
+.page.research-title-box {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -715,7 +897,7 @@
   margin: 0;
 }
 
-.page .animation-formats-4 {
+.about-project .animation-formats-4 {
   display: flex;
   align-items: flex-start;
   gap: 16px;
@@ -725,7 +907,7 @@
   flex: 0 0 auto;
 }
 
-.page .animation-formats-5 {
+.about-project .animation-formats-5 {
   flex-direction: column;
   height: 600px;
   align-items: center;
@@ -743,7 +925,7 @@
   position: relative;
 }
 
-.page .small-square-up {
+.about-project .small-square-up {
   width: 28px;
   height: 31px;
   top: 20px;
@@ -755,7 +937,7 @@
   border-color: var(--neutral-500);
 }
 
-.page .square-down {
+.about-project .square-down {
   width: 53px;
   height: 59px;
   top: 150px;
@@ -767,7 +949,7 @@
   border-color: var(--neutral-500);
 }
 
-.page .square-up {
+.about-project .square-up {
   width: 55px;
   height: 60px;
   top: 40px;
@@ -779,7 +961,7 @@
   border-color: var(--neutral-500);
 }
 
-.page .small-square-meddel {
+.about-project .small-square-meddel {
   width: 29px;
   height: 33px;
   top: 79px;
@@ -791,7 +973,7 @@
   border-color: var(--neutral-500);
 }
 
-.page .small-square-down {
+.about-project .small-square-down {
   width: 28px;
   height: 31px;
   top: 227px;
@@ -803,7 +985,7 @@
   border-color: var(--neutral-500);
 }
 
-.page .quare-big {
+.about-project .quare-big {
   position: absolute;
   width: 97px;
   height: 108px;
@@ -815,7 +997,7 @@
   border-color: var(--neutral-500);
 }
 
-.page .overlap-group {
+.about-project .overlap-group {
   position: absolute;
   width: 205px;
   height: 223px;
@@ -823,7 +1005,7 @@
   left: -2688px;
 }
 
-.page .vector-b {
+.about-project .vector-b {
   position: absolute;
   width: 126px;
   height: 187px;
@@ -831,7 +1013,7 @@
   left: 0;
 }
 
-.page .vector-a {
+.about-project .vector-a {
   position: absolute;
   width: 190px;
   height: 155px;
@@ -839,7 +1021,7 @@
   left: 15px;
 }
 
-.page .research-box-yellow-and-text {
+.page  .research-box-yellow-and-text {
   display: flex;
   align-items: flex-start;
   gap: 4px;
@@ -849,7 +1031,7 @@
   flex: 0 0 auto;
 }
 
-.page .overlap {
+.about-project .overlap {
   position: relative;
   width: 216px;
   height: 166px;
@@ -857,7 +1039,7 @@
   left: 31px;
 }
 
-.page .overlap-group-2 {
+.about-project .overlap-group-2 {
   position: absolute;
   width: 216px;
   height: 155px;
@@ -865,7 +1047,7 @@
   left: 0;
 }
 
-.page .big-circle {
+.about-project .big-circle {
   position: absolute;
   width: 120px;
   height: 120px;
@@ -877,7 +1059,7 @@
   border-color: var(--neutral-500);
 }
 
-.page .circle-small {
+.about-project .circle-small {
   top: 115px;
   left: 137px;
   position: absolute;
@@ -889,7 +1071,7 @@
   border-color: var(--neutral-500);
 }
 
-.page .circle-small-2 {
+.about-project .circle-small-2 {
   top: 115px;
   left: 39px;
   position: absolute;
@@ -901,7 +1083,7 @@
   border-color: var(--neutral-500);
 }
 
-.page .circle-small-3 {
+.about-project .circle-small-3 {
   top: 88px;
   left: 176px;
   position: absolute;
@@ -913,7 +1095,7 @@
   border-color: var(--neutral-500);
 }
 
-.page .circle-small-4 {
+.about-project .circle-small-4 {
   top: 88px;
   left: 0;
   position: absolute;
@@ -925,7 +1107,7 @@
   border-color: var(--neutral-500);
 }
 
-.page .circle-small-5 {
+.about-project .circle-small-5 {
   top: 126px;
   left: 88px;
   position: absolute;
@@ -938,18 +1120,21 @@
 }
 
 
-.page .research-box {
+
+/* METHODOLOGY AND DESIGN */
+
+.methodology-design-text-part {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 126px;
+  gap: 80px;
   position: relative;
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
 }
 
-.page .research-methodology {
+.methodology-design-text-part .research-methodology {
   align-items: flex-start;
   gap: 65px;
   width: 100%;
@@ -960,7 +1145,7 @@
   align-self: stretch;
 }
 
-.page .research-methodology-2 {
+.methodology-design-text-part .research-methodology-2 {
   display: flex;
   align-items: flex-start;
   gap: 6rem; /* Converted from 96px */
@@ -970,7 +1155,7 @@
   flex: 0 0 auto;
 }
 
-.page .research-methodology-3 {
+.methodology-design-text-part .research-methodology-3 {
   position: relative;
   width: 40%;
   font-weight: var(--heading-400-regular-font-weight);
@@ -978,7 +1163,7 @@
   font-size: var(--heading-400-regular-font-size);
 }
 
-.page .div-wrapper {
+.methodology-design-text-part .div-wrapper {
   align-items: center;
   justify-content: center;
   display: flex;
@@ -989,7 +1174,7 @@
   flex-grow: 1;
 }
 
-.page .research-methodology-text {
+.methodology-design-text-part .research-methodology-text {
   position: relative;
   align-self: stretch;
   font-weight: var(--text-l-regular-font-weight);
@@ -998,7 +1183,7 @@
   margin: 0;
 }
 
-.page .graphics-and-accordion {
+.methodology-design-text-part .graphics-and-accordion {
   display: flex;
   height: 535px;
   align-items: flex-start;
@@ -1009,7 +1194,7 @@
   width: 100%;
 }
 
-.page .graphics-box-research {
+.methodology-design-text-part .graphics-box-research {
   width: 40%;
   align-items: center;
   justify-content: center;
@@ -1025,13 +1210,13 @@
   align-self: stretch;
 }
 
-.page .research-methodology-image {
+.methodology-design-text-part .research-methodology-image {
   position: relative;
   height: 80%;
   object-fit: cover;
 }
 
-.page .harmonica-box {
+.methodology-design-text-part .harmonica-box {
   align-items: flex-start;
   padding: 12px 16px 24px;
   align-self: stretch;
@@ -1042,13 +1227,12 @@
   box-shadow: 0px 2px 6px #f5f5f5;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   position: relative;
   flex: 1;
   flex-grow: 1;
 }
 
-.page .drop-category-more {
+.methodology-design-text-part .drop-category-more {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1063,7 +1247,7 @@
   border-color: var(--neutral-400-primary);
 }
 
-.page .drop-more-box {
+.methodology-design-text-part .drop-more-box {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1073,7 +1257,7 @@
   flex: 0 0 auto;
 }
 
-.page .drop-category-more-2 {
+.methodology-design-text-part .drop-category-more-2 {
   position: relative;
   flex: 1;
   font-weight: var(--text-XL-semibold-font-weight);
@@ -1081,14 +1265,13 @@
   font-size: var(--text-XL-semibold-font-size);
 }
 
-.page .keyboard-arrow-down {
+.methodology-design-text-part .keyboard-arrow-down {
   position: relative;
   width: 36px;
   height: 36px;
   aspect-ratio: 1;
 }
 
-/* ...existing code... */
 .drop-category-more {
   border: 1px solid var(--neutral-300-primary);
   padding: 0.75rem 1rem;
@@ -1158,7 +1341,7 @@
 }
 
 
-.page .design-part-box {
+.methodology-design-text-part .design-part-box {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -1168,7 +1351,7 @@
   flex: 0 0 auto;
 }
 
-.page .design-part-block {
+.methodology-design-text-part .design-part-block {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1179,7 +1362,7 @@
   width: 50%;
 }
 
-.page .design-part-text-box {
+.methodology-design-text-part .design-part-text-box {
   display: flex;
   flex-direction: column;
   height: 488px;
@@ -1195,12 +1378,12 @@
   box-shadow: 0px 2px 6px #f5f5f5;
 }
 
-.page .desing-part-icon {
+.methodology-design-text-part .design-part-icon {
   position: relative;
   flex: 0 0 auto;
 }
 
-.page .mock-up-small-box {
+.methodology-design-text-part .mock-up-small-box {
   position: relative;
   align-self: stretch;
   width: 100%;
@@ -1210,7 +1393,7 @@
   border-color: var(--neutral-400-primary);
   background-size: cover;
 }
-.page .mock-up-small-photo {
+.methodology-design-text-part .mock-up-small-photo {
   position: relative;
   width: 100%;
   height: 100%;
@@ -1218,7 +1401,11 @@
   object-fit: cover;
 }
 
-.page .conclusion-and-button-box{
+
+
+/* CONCLUSION*/
+
+.conclusion-and-button-box{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1227,9 +1414,10 @@
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
+  margin-top: 4rem; /* Converted from 64px */
 }
 
-.page .conclusion-part {
+.conclusion-and-button-box .conclusion-part {
   display: flex;
   align-items: flex-start;
   gap: 6rem;
@@ -1239,7 +1427,7 @@
 }
 
 
-.page .conclusion-title {
+.conclusion-and-button-box .conclusion-title {
   position: relative;
   width: fit-content;
   font-weight: var(--heading-600-regular-font-weight);
@@ -1247,7 +1435,7 @@
   font-size: var(--heading-600-regular-font-size);
 }
 
-.page .conclusion-text-box {
+.conclusion-and-button-box.conclusion-text-box {
   display: flex;
   width: 60%;
   align-items: flex-start;
@@ -1255,7 +1443,7 @@
   position: relative;
 }
 
-.page .conclusion-text {
+.conclusion-and-button-box .conclusion-text {
   position: relative;
   align-self: stretch;
   font-weight: 400;
@@ -1265,9 +1453,7 @@
   line-height: 27.4px;
 }
 
-
-
-.page .next-project-box {
+.conclusion-and-button-box .next-project-box {
   align-items: flex-start;
   align-self: stretch;
   width: 100%;
@@ -1277,7 +1463,7 @@
   position: relative;
 }
 
-.page .next-project-button {
+.conclusion-and-button-box .next-project-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;

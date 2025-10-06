@@ -53,3 +53,26 @@ function toggleAccordion(el) {
 // document.querySelectorAll('.drop-category-more').forEach(item => {
 //   item.addEventListener('click', () => toggleAccordion(item));
 // });
+
+
+
+// ...existing code...
+
+(function heroHoverFallback(){
+  const hero = document.getElementById('projectHero');
+  if (!hero) return;
+  let touchCapable = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  if (!touchCapable) return; // only for touch
+
+  hero.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hero.classList.toggle('hero-hovered');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!hero.contains(e.target)) {
+      hero.classList.remove('hero-hovered');
+    }
+  });
+})();

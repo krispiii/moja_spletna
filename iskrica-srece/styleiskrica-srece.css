@@ -347,6 +347,22 @@
   margin-right: 10%;
 }
 
+@media (max-width: 612px) {
+  .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rem; /* Converted from 96px */
+  position: relative;
+  align-self: stretch;
+  width: 90%;
+  flex: 0 0 auto;
+  margin-top: 5rem; 
+  margin-left: 5%; 
+  margin-right: 5%; 
+ }
+}
+
 .page .project-hero-box {
   display: inline-flex;
   flex-direction: column;
@@ -385,7 +401,7 @@
   font-size: var(--text-XS-semibold-font-size);
 }
 
-.page .div {
+.page .page-title {
   position: relative;
   width: fit-content;
   margin-bottom: -6.00px;
@@ -689,6 +705,7 @@
   margin: 0px;
 }
 
+
 .about-project .project-main-info-group {
   display: flex;
   flex-wrap: wrap;
@@ -750,6 +767,7 @@
   font-size: var(--text-m-regular-font-size);
 }
 
+
 .about-project .mock-up {
   position: relative;
   width: 100%;
@@ -797,13 +815,13 @@
   position: relative;
 }
 
-.about-project .div-3 {
+.about-project .shapes-graphic{
   position: relative;
   width: 278px;
   height: 258.4px;
 }
 
-.about-project .polygon {
+.about-project .polygon-1 {
   top: 192px;
   left: 101px;
   position: absolute;
@@ -811,7 +829,7 @@
   height: 66px;
 }
 
-.about-project .img {
+.about-project .polygon-2 {
   top: 192px;
   left: 189px;
   position: absolute;
@@ -819,7 +837,7 @@
   height: 66px;
 }
 
-.about-project .polygon-2 {
+.about-project .polygon-3 {
   top: 192px;
   left: 13px;
   position: absolute;
@@ -827,7 +845,7 @@
   height: 66px;
 }
 
-.about-project .polygon-3 {
+.about-project .polygon-4 {
   top: 104px;
   left: 101px;
   position: absolute;
@@ -853,6 +871,68 @@
   object-fit: cover;
 }
 
+/* ANIMATION POLYGON */
+/* Polygons: add smooth position transitions (keep original top/left as start) */
+.about-project .animation-formats-horizontally .polygon-1,
+.about-project .animation-formats-horizontally .polygon-2,
+.about-project .animation-formats-horizontally .polygon-3,
+.about-project .animation-formats-horizontally .polygon-4 {
+  transition:
+    top .8s cubic-bezier(.25,.6,.2,1),
+    left .8s cubic-bezier(.25,.6,.2,1),
+    transform .8s cubic-bezier(.25,.6,.2,1);
+  /* ensure they sit above background */
+  z-index: 2;
+}
+
+/* HOVER: move into a vertical line (centered horizontally) */
+.about-project .animation-formats-horizontally:hover .polygon-1 {
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+}
+.about-project .animation-formats-horizontally:hover .polygon-2 {
+  left: 50%;
+  top: 70px;
+  transform: translateX(-50%);
+}
+.about-project .animation-formats-horizontally:hover .polygon-3 {
+  left: 50%;
+  top: 130px;
+  transform: translateX(-50%);
+}
+.about-project .animation-formats-horizontally:hover .polygon-4 {
+  left: 50%;
+  top: 190px;
+  transform: translateX(-50%);
+}
+
+/* Optional subtle “breathing” once aligned */
+.about-project .animation-formats-horizontally:hover .polygon-1,
+.about-project .animation-formats-horizontally:hover .polygon-2,
+.about-project .animation-formats-horizontally:hover .polygon-3,
+.about-project .animation-formats-horizontally:hover .polygon-4 {
+  animation: polyVerticalBreath 4s ease-in-out infinite;
+}
+.about-project .animation-formats-horizontally:hover .polygon-2 { animation-delay:.15s; }
+.about-project .animation-formats-horizontally:hover .polygon-3 { animation-delay:.30s; }
+.about-project .animation-formats-horizontally:hover .polygon-4 { animation-delay:.45s; }
+
+@keyframes polyVerticalBreath {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%     { transform: translateX(-50%) translateY(-6px); }
+}
+
+/* Reduced motion: no breathing, just align */
+@media (prefers-reduced-motion: reduce) {
+  .about-project .animation-formats-horizontally:hover .polygon-1,
+  .about-project .animation-formats-horizontally:hover .polygon-2,
+  .about-project .animation-formats-horizontally:hover .polygon-3,
+  .about-project .animation-formats-horizontally:hover .polygon-4 {
+    animation: none;
+  }
+}
+
 .about-project .animation-formats-3 {
   display: flex;
   align-items: flex-start;
@@ -863,10 +943,16 @@
 }
 
 .page .primary-yellow-visual-degradation {
-  position: relative;
-  width: 8px;
+  width: 8px !important;     
+  min-width: 8px;
+  max-width: 8px;
   height: 24px;
+  display: block;            
+  flex: 0 0 8px;            
   background-color: var(--brand-400-primary);
+  box-sizing: border-box;     
+  margin: 0;
+  padding: 0;
 }
 
 .page.research-title-box {
@@ -905,6 +991,24 @@
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
+}
+
+.animation-formats-square{ 
+  flex-direction: column;
+  height: 600px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  flex: 1;
+  flex-grow: 1;
+  background-color: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: var(--neutral-400-primary);
+  box-shadow: 0px 2px 6px #f5f5f5;
+  display: flex;
+  position: relative;
 }
 
 .about-project .animation-formats-5 {
@@ -997,13 +1101,88 @@
   border-color: var(--neutral-500);
 }
 
-.about-project .overlap-group {
-  position: absolute;
-  width: 205px;
-  height: 223px;
-  top: -17127px;
-  left: -2688px;
+
+/* Generate project smaller */
+@media (max-width: 780px) {
+
+  .page .page-title{
+    font-size: var(--heading-300-bold-font-size);
+    font-weight: var(--heading-300-bold-font-weight);
+  }
+
+  .about-project .about-project-box{
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5rem; /* Converted from 24px */
+    margin-top: 3.5rem; /* Converted from 56px */
+    margin-bottom: 3.5rem; /* Converted from 56px */
+  }
+
+  .about-project .about-project-only{
+    margin-top: 0px;
+  }
+
+  .about-project .about-the-project-text{
+    font-size: var(--text-m-regular-font-size);
+    font-weight: var(--text-m-regular-font-weight);
+    margin: 0px;
+  }
 }
+
+
+/* Generate project smaller */
+@media (max-width: 614px) {
+  .page .page-title{
+    font-size: var(--heading-100-bold-font-size);
+    font-weight: var(--heading-100-bold-font-weight);
+  }
+
+  .about-project .about-project-box{
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5rem; /* Converted from 24px */
+    margin-top: 2rem; /* Converted from 32px */
+    margin-bottom: 1rem; /* Converted from 32px */
+  }
+
+  .about-project .about-the-project-text{
+    font-size: var(--text-s-regular-font-size);
+    font-weight: var(--text-s-regular-font-weight);
+    margin: 0px;
+  }
+  
+  .page .miniature-tertiary-title-yellow{
+    font-size: var(--text-XL-regular-font-size);
+    font-weight: var(--text-XL-regular-font-weight);
+  }
+
+  .about-project .project-main-info-box{
+    width: 163px;
+    height: 274px;
+  }
+
+  .about-project .project-main-title{
+    font-size: var(--text-m-semibold-font-size);
+    font-weight: var(--text-m-semibold-font-weight);
+  }
+
+  .about-project .project-main-text-wrapper {
+    font-size: var(--text-s-regular-font-size);
+    font-weight: var(--text-s-regular-font-weight);
+  }
+
+  .about-project .mock-up {
+    height: 260px;
+  }
+
+  .about-project .mock-up-image {
+    width: 100%;
+}
+}
+
+
+/* ANIMATION SQUARES */
+
 
 .about-project .vector-b {
   position: absolute;
@@ -1024,7 +1203,7 @@
 .page  .research-box-yellow-and-text {
   display: flex;
   align-items: flex-start;
-  gap: 4px;
+  gap: 1rem; /* Converted from 16px */
   position: relative;
   align-self: stretch;
   width: 100%;
@@ -1401,6 +1580,88 @@
   object-fit: cover;
 }
 
+/* Generate project smaller */
+@media (max-width: 880px) {
+
+  .methodology-design-text-part .research-methodology-2{
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5rem; /* Converted from 24px */
+  }
+
+  .methodology-design-text-part .graphics-and-accordion{
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5rem; /* Converted from 24px */
+    height: auto;
+  }
+  
+  .methodology-design-text-part .research-methodology-image{
+    height: 100%;
+  }
+
+  .methodology-design-text-part .graphics-box-research{
+    width: 100%;
+    height: 280px;
+  }
+
+  .methodology-design-text-part .design-part-box{
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem; /* Converted from 16px */
+  }
+
+  .methodology-design-text-part .design-part-block{
+    width: 100%;
+  }
+
+   .methodology-design-text-part .design-part-text-box{
+    height: auto;
+    gap: 2.5rem; /* Converted from 40px */
+   }
+
+  .methodology-design-text-part .research-text{
+    margin-top: 1rem; /* Converted from 16px */
+  }
+}
+
+/* Generate project smaller */
+@media (max-width: 614px) {
+  .methodology-design-text-part{
+    gap: 3rem; /* Converted from 80px */
+  }
+
+  .methodology-design-text-part .research-methodology-3{
+    width: 100%;
+    font-size: var(--heading-100-semibold-font-size);
+    font-weight: var(--heading-100-semibold-font-weight);
+    margin-top: 2rem; /* Converted from 32px */
+  }
+
+  .methodology-design-text-part .research-methodology-text{
+    font-size: var(--text-s-regular-font-size);
+    font-weight: var(--text-s-regular-font-weight);
+  }
+  
+  .methodology-design-text-part .drop-category-more-2{
+    font-size: var(--text-m-semibold-font-size);
+    font-weight: var(--text-m-semibold-font-weight);
+  }
+
+  .methodology-design-text-part .mock-up-small-box{
+    height: 240px;
+    width: 100%;
+  }
+
+  .methodology-design-text-part .research-title {
+    font-size: var(--text-l-bold-font-size);
+    font-weight: var(--text-l-bold-font-weight);
+  }
+ 
+  
+}
+
+
 
 
 /* CONCLUSION*/
@@ -1448,9 +1709,6 @@
   align-self: stretch;
   font-weight: 400;
   color: var(--font-500-primary);
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: 27.4px;
 }
 
 .conclusion-and-button-box .next-project-box {
@@ -1521,6 +1779,57 @@
   width: 31.12px;
   height: 31.12px;
 }
+
+
+/* Generate project smaller */
+@media (max-width: 880px) {
+  .conclusion-and-button-box .conclusion-part {
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5rem; /* Converted from 24px */
+    width: 100%;
+  }
+
+  .conclusion-and-button-box .conclusion-title{
+    font-size: var(--heading-400-semibold-font-size);
+    font-weight: var(--heading-400-semibold-font-weight);
+  }
+}
+
+/* Generate project smaller */
+@media (max-width: 614px) {
+
+  .page .project-info-box, .about-project{
+    gap: 4rem; /* Converted from 64px */
+  }
+
+  .conclusion-and-button-box .conclusion-title{
+    font-size: var(--heading-300-semibold-font-size);
+    font-weight: var(--heading-300-semibold-font-weight);
+  }
+  .conclusion-and-button-box .conclusion-text {
+    font-size: var(--text-s-regular-font-size);
+    font-weight: var(--text-s-regular-font-weight);
+    margin: 0px;
+  }
+
+  .conclusion-and-button-box .next-project-button {
+    max-width: 274px;
+    height: 72px;
+    gap: 1rem; /* Converted from 16px */
+  }
+
+  .conclusion-and-button-box .next-project-text {
+    font-size: var(--text-l-bold-font-size);
+    font-weight: var(--text-l-bold-font-weight);
+  }
+
+  .conclusion-and-button-box .vector {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 
 /* FOOTER */
 

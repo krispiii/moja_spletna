@@ -787,6 +787,84 @@
   border-radius: 26px;
 }
 
+/* Generate project smaller */
+@media (max-width: 780px) {
+
+  .page .page-title{
+    font-size: var(--heading-300-bold-font-size);
+    font-weight: var(--heading-300-bold-font-weight);
+  }
+
+  .about-project .about-project-box{
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5rem; /* Converted from 24px */
+    margin-top: 3.5rem; /* Converted from 56px */
+    margin-bottom: 3.5rem; /* Converted from 56px */
+  }
+
+  .about-project .about-project-only{
+    margin-top: 0px;
+  }
+
+  .about-project .about-the-project-text{
+    font-size: var(--text-m-regular-font-size);
+    font-weight: var(--text-m-regular-font-weight);
+    margin: 0px;
+  }
+}
+
+
+/* Generate project smaller */
+@media (max-width: 614px) {
+  .page .page-title{
+    font-size: var(--heading-100-bold-font-size);
+    font-weight: var(--heading-100-bold-font-weight);
+  }
+
+  .about-project .about-project-box{
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5rem; /* Converted from 24px */
+    margin-top: 2rem; /* Converted from 32px */
+    margin-bottom: 1rem; /* Converted from 32px */
+  }
+
+  .about-project .about-the-project-text{
+    font-size: var(--text-s-regular-font-size);
+    font-weight: var(--text-s-regular-font-weight);
+    margin: 0px;
+  }
+  
+  .page .miniature-tertiary-title-yellow{
+    font-size: var(--text-XL-regular-font-size);
+    font-weight: var(--text-XL-regular-font-weight);
+  }
+
+  .about-project .project-main-info-box{
+    width: 163px;
+    height: 274px;
+  }
+
+  .about-project .project-main-title{
+    font-size: var(--text-m-semibold-font-size);
+    font-weight: var(--text-m-semibold-font-weight);
+  }
+
+  .about-project .project-main-text-wrapper {
+    font-size: var(--text-s-regular-font-size);
+    font-weight: var(--text-s-regular-font-weight);
+  }
+
+  .about-project .mock-up {
+    height: 260px;
+  }
+
+  .about-project .mock-up-image {
+    width: 100%;
+}
+}
+
 .about-project .animation-formats {
   flex-direction: column;
   align-items: flex-start;
@@ -880,7 +958,9 @@
   transition:
     top .8s cubic-bezier(.25,.6,.2,1),
     left .8s cubic-bezier(.25,.6,.2,1),
-    transform .8s cubic-bezier(.25,.6,.2,1);
+    transform .8s cubic-bezier(.25,.6,.2,1),
+    box-shadow .6s ease;
+  background: transparent; /* keep */
   /* ensure they sit above background */
   z-index: 2;
 }
@@ -1011,7 +1091,7 @@
   position: relative;
 }
 
-.about-project .animation-formats-5 {
+.about-project .animation-formats-circles {
   flex-direction: column;
   height: 600px;
   align-items: center;
@@ -1101,104 +1181,80 @@
   border-color: var(--neutral-500);
 }
 
-
-/* Generate project smaller */
-@media (max-width: 780px) {
-
-  .page .page-title{
-    font-size: var(--heading-300-bold-font-size);
-    font-weight: var(--heading-300-bold-font-weight);
-  }
-
-  .about-project .about-project-box{
-    flex-direction: column;
-    align-items: start;
-    gap: 1.5rem; /* Converted from 24px */
-    margin-top: 3.5rem; /* Converted from 56px */
-    margin-bottom: 3.5rem; /* Converted from 56px */
-  }
-
-  .about-project .about-project-only{
-    margin-top: 0px;
-  }
-
-  .about-project .about-the-project-text{
-    font-size: var(--text-m-regular-font-size);
-    font-weight: var(--text-m-regular-font-weight);
-    margin: 0px;
-  }
-}
-
-
-/* Generate project smaller */
-@media (max-width: 614px) {
-  .page .page-title{
-    font-size: var(--heading-100-bold-font-size);
-    font-weight: var(--heading-100-bold-font-weight);
-  }
-
-  .about-project .about-project-box{
-    flex-direction: column;
-    align-items: start;
-    gap: 1.5rem; /* Converted from 24px */
-    margin-top: 2rem; /* Converted from 32px */
-    margin-bottom: 1rem; /* Converted from 32px */
-  }
-
-  .about-project .about-the-project-text{
-    font-size: var(--text-s-regular-font-size);
-    font-weight: var(--text-s-regular-font-weight);
-    margin: 0px;
-  }
-  
-  .page .miniature-tertiary-title-yellow{
-    font-size: var(--text-XL-regular-font-size);
-    font-weight: var(--text-XL-regular-font-weight);
-  }
-
-  .about-project .project-main-info-box{
-    width: 163px;
-    height: 274px;
-  }
-
-  .about-project .project-main-title{
-    font-size: var(--text-m-semibold-font-size);
-    font-weight: var(--text-m-semibold-font-weight);
-  }
-
-  .about-project .project-main-text-wrapper {
-    font-size: var(--text-s-regular-font-size);
-    font-weight: var(--text-s-regular-font-weight);
-  }
-
-  .about-project .mock-up {
-    height: 260px;
-  }
-
-  .about-project .mock-up-image {
-    width: 100%;
-}
-}
-
-
 /* ANIMATION SQUARES */
-
-
-.about-project .vector-b {
-  position: absolute;
-  width: 126px;
-  height: 187px;
-  top: 36px;
-  left: 0;
+/* Smooth position changes */
+.animation-formats-square .small-square-up,
+.animation-formats-square .square-down,
+.animation-formats-square .square-up,
+.animation-formats-square .small-square-meddel,
+.animation-formats-square .small-square-down,
+.animation-formats-square .quare-big {
+  transition: top .85s cubic-bezier(.25,.6,.2,1),
+              left .85s cubic-bezier(.25,.6,.2,1),
+              transform .85s cubic-bezier(.25,.6,.2,1);
 }
 
-.about-project .vector-a {
-  position: absolute;
-  width: 190px;
-  height: 155px;
-  top: 0;
-  left: 15px;
+/* Cancel old wander transforms/animations when structuring */
+.animation-formats-square:hover .small-square-up,
+.animation-formats-square:hover .square-down,
+.animation-formats-square:hover .square-up,
+.animation-formats-square:hover .small-square-meddel,
+.animation-formats-square:hover .small-square-down,
+.animation-formats-square:hover .quare-big {
+  animation: none !important;
+  transform: none;
 }
+
+/* Grid helper variables (adjust if needed) */
+.animation-formats-square { 
+  --col1: 20px;
+  --col2: 132px;
+  --col3: 244px;
+  --row1: 20px;
+  --row2: 140px;
+  --row3: 240px;
+}
+
+/* Big square centered (computed separately for visual balance) */
+.animation-formats-square:hover .quare-big {
+  left: 111px;  /* (320 - 97)/2 */
+  top: 106px;   /* (320 - 108)/2 */
+}
+
+/* Place other squares around it (no overlaps) */
+.animation-formats-square:hover .square-up            { left: var(--col1); top: var(--row1); }
+.animation-formats-square:hover .small-square-up      { left: var(--col2); top: var(--row1); }
+.animation-formats-square:hover .small-square-meddel  { left: var(--col3); top: var(--row2); }
+.animation-formats-square:hover .square-down          { left: var(--col2); top: var(--row3); }
+.animation-formats-square:hover .small-square-down    { left: var(--col3); top: var(--row3); }
+
+/* OPTIONAL: subtle unified breathing after arrangement (remove if not wanted) */
+.animation-formats-square:hover .square-up,
+.animation-formats-square:hover .small-square-up,
+.animation-formats-square:hover .small-square-meddel,
+.animation-formats-square:hover .square-down,
+.animation-formats-square:hover .small-square-down,
+.animation-formats-square:hover .quare-big {
+  animation: sqGridBreath 5s ease-in-out infinite .9s;
+}
+
+@keyframes sqGridBreath {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-6px); }
+}
+
+/* Reduced motion: no breathing */
+@media (prefers-reduced-motion: reduce) {
+  .animation-formats-square:hover .square-up,
+  .animation-formats-square:hover .small-square-up,
+  .animation-formats-square:hover .small-square-meddel,
+  .animation-formats-square:hover .square-down,
+  .animation-formats-square:hover .small-square-down,
+  .animation-formats-square:hover .quare-big {
+    animation: none !important;
+  }
+}
+
 
 .page  .research-box-yellow-and-text {
   display: flex;
@@ -1218,29 +1274,21 @@
   left: 31px;
 }
 
-.about-project .overlap-group-2 {
-  position: absolute;
-  width: 216px;
-  height: 155px;
-  top: 0;
-  left: 0;
-}
-
 .about-project .big-circle {
   position: absolute;
   width: 120px;
   height: 120px;
-  top: 0;
-  left: 48px;
+  top: 50px;
+  left: 68px;
   background-color: var(--brand-400-primary);
   border-radius: 89.1px;
   border: 1px solid;
   border-color: var(--neutral-500);
 }
 
-.about-project .circle-small {
-  top: 115px;
-  left: 137px;
+.about-project .circle-small-1 {
+  top: 135px;
+  left: 187px;
   position: absolute;
   width: 40px;
   height: 40px;
@@ -1251,8 +1299,8 @@
 }
 
 .about-project .circle-small-2 {
-  top: 115px;
-  left: 39px;
+  top: 165px;
+  left: 59px;
   position: absolute;
   width: 40px;
   height: 40px;
@@ -1263,8 +1311,8 @@
 }
 
 .about-project .circle-small-3 {
-  top: 88px;
-  left: 176px;
+  top: 168px;
+  left: 156px;
   position: absolute;
   width: 40px;
   height: 40px;
@@ -1275,8 +1323,8 @@
 }
 
 .about-project .circle-small-4 {
-  top: 88px;
-  left: 0;
+  top: 138px;
+  left: 20px;
   position: absolute;
   width: 40px;
   height: 40px;
@@ -1287,8 +1335,8 @@
 }
 
 .about-project .circle-small-5 {
-  top: 126px;
-  left: 88px;
+  top: 176px;
+  left: 108px;
   position: absolute;
   width: 40px;
   height: 40px;
@@ -1296,6 +1344,151 @@
   border-radius: 89.1px;
   border: 1px solid;
   border-color: var(--neutral-500);
+}
+
+/* ANIMATION CIRCLES */
+.about-project .animation-formats-circles .overlap,
+.about-project .animation-formats-circles .big-circle,
+.about-project .animation-formats-circles .circle-small-1,
+.about-project .animation-formats-circles .circle-small-2,
+.about-project .animation-formats-circles .circle-small-3,
+.about-project .animation-formats-circles .circle-small-4,
+.about-project .animation-formats-circles .circle-small-5 {
+  transition: top .9s cubic-bezier(.25,.6,.2,1),
+              left .9s cubic-bezier(.25,.6,.2,1),
+              transform .9s cubic-bezier(.25,.6,.2,1);
+}
+
+/* Center the OVERLAP block itself (it becomes a square stage) */
+.about-project .animation-formats-circles:hover .overlap {
+  width: 320px;
+  height: 320px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Big circle -> exact center */
+.about-project .animation-formats-circles:hover .big-circle {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* stays under */
+}
+
+/* Ring geometry (radius ~110px from big circle center).
+   We position by setting each small circle’s top/left so its CENTER sits on the ring.
+   (Small circle size = 40px -> subtract 20px to convert center to top-left.) */
+
+.about-project .animation-formats-circles:hover .circle-small-1 { /* TOP */
+  top: calc(50% - 110px - 20px);
+  left: calc(50% - 20px);
+  transform: translate(0,0);
+}
+.about-project .animation-formats-circles:hover .circle-small-2 { /* UPPER-RIGHT (approx 72deg) */
+  top: calc(50% - 68px - 20px);  /* 110 * sin(72°) ≈ 105 -> we use smaller to fit; adjust */
+  left: calc(50% + 90px - 20px); /* 110 * cos(32° approx) */
+  transform: translate(0,0);
+}
+.about-project .animation-formats-circles:hover .circle-small-3 { /* LOWER-RIGHT */
+  top: calc(50% + 60px - 20px);
+  left: calc(50% + 74px - 20px);
+  transform: translate(0,0);
+}
+.about-project .animation-formats-circles:hover .circle-small-4 { /* LOWER-LEFT */
+  top: calc(50% + 60px - 20px);
+  left: calc(50% - 74px - 20px);
+  transform: translate(0,0);
+}
+.about-project .animation-formats-circles:hover .circle-small-5 { /* UPPER-LEFT */
+  top: calc(50% - 68px - 20px);
+  left: calc(50% - 90px - 20px);
+  transform: translate(0,0);
+}
+
+/* Lift small circles above big */
+.about-project .animation-formats-circles .circle-small-1,
+.about-project .animation-formats-circles .circle-small-2,
+.about-project .animation-formats-circles .circle-small-3,
+.about-project .animation-formats-circles .circle-small-4,
+.about-project .animation-formats-circles .circle-small-5 {
+  z-index: 2;
+}
+
+/* Optional gentle breathing AFTER they settle (remove if not wanted) */
+.about-project .animation-formats-circles:hover .circle-small-1,
+.about-project .animation-formats-circles:hover .circle-small-2,
+.about-project .animation-formats-circles:hover .circle-small-3,
+.about-project .animation-formats-circles:hover .circle-small-4,
+.about-project .animation-formats-circles:hover .circle-small-5 {
+  animation: smallRingFloat 5s ease-in-out infinite;
+}
+.about-project .animation-formats-circles:hover .circle-small-2 { animation-delay:.3s; }
+.about-project .animation-formats-circles:hover .circle-small-3 { animation-delay:.6s; }
+.about-project .animation-formats-circles:hover .circle-small-4 { animation-delay:.9s; }
+.about-project .animation-formats-circles:hover .circle-small-5 { animation-delay:1.2s; }
+
+@keyframes smallRingFloat {
+  0%,100% { transform: translate(0,0); }
+  50%     { transform: translate(0,-8px); }
+}
+
+/* Reduced motion: no float */
+@media (prefers-reduced-motion: reduce) {
+  .about-project .animation-formats-circles:hover .circle-small-1,
+  .about-project .animation-formats-circles:hover .circle-small-2,
+  .about-project .animation-formats-circles:hover .circle-small-3,
+  .about-project .animation-formats-circles:hover .circle-small-4,
+  .about-project .animation-formats-circles:hover .circle-small-5 {
+    animation: none;
+  }
+}
+
+/* Generate project smaller */
+@media (max-width: 980px) {
+
+  .project-hero-box .animation-formats-horizontally {
+    height: auto;
+  }
+  
+  .project-hero-box .animation-formats-4{
+    flex-direction: column;
+    height: auto;
+  }
+
+  .project-hero-box .animation-formats-circles, .animation-formats-square{
+    gap: 3rem; /* Converted from 48px */
+ }
+ .project-hero-box .animation-formats-horizontally{
+    gap: 1rem; /* Converted from 16px */ 
+ }
+}
+
+/* Generate project smaller */
+@media (max-width: 614px) {
+
+  
+ .project-hero-box .animation-formats-horizontally{
+    gap: 2rem; /* Converted from 32px */
+    flex-direction: column;
+ }
+  
+ .project-hero-box .animation-formats-circles, .animation-formats-square{
+    gap: 2rem; /* Converted from 32px */
+ }
+
+ .project-hero-box .research-box-yellow-and-text{
+    gap: .5rem; /* Converted from 8px */
+ }
+
+ .project-hero-box .research-text{
+    margin-top: 1rem; /* Converted from 16px */
+ }
+
+ .project-hero-box .research-title{
+    font-size: var(--text-l-bold-font-size);
+    font-weight: var(--text-l-bold-font-weight);
+ }
 }
 
 

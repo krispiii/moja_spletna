@@ -1056,11 +1056,11 @@
 }
 
 .page .research-text{
+  margin-top: 1rem; /* Converted from 16px */
   position: relative;
   font-weight: var(--text-s-regular-font-weight);
   color: var(--font-500-primary);
   font-size: var(--text-s-regular-font-size);
-  margin: 0;
 }
 
 .about-project .animation-formats-4 {
@@ -1481,10 +1481,6 @@
     gap: .5rem; /* Converted from 8px */
  }
 
- .project-hero-box .research-text{
-    margin-top: 1rem; /* Converted from 16px */
- }
-
  .project-hero-box .research-title{
     font-size: var(--text-l-bold-font-size);
     font-weight: var(--text-l-bold-font-weight);
@@ -1852,9 +1848,6 @@ body.page-enter .hero-project-design-wrapper:not(.hero-loaded) .hero-image-box.h
     gap: 2.5rem; /* Converted from 40px */
    }
 
-  .methodology-design-text-part .research-text{
-    margin-top: 1rem; /* Converted from 16px */
-  }
 }
 
 /* Generate project smaller */

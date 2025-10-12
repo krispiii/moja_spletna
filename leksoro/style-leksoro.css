@@ -466,14 +466,14 @@
 }
 
 /* Horizontal anchor edges so they peek out */
-.hero-image-box.hero-left  { left: 50%; transform-origin: center; }
+.hero-image-box.hero-left  { left: 20%; transform-origin: center; }
 .hero-image-box.hero-right { right: 50%; transform-origin: center; }
 
 /* Image sizing */
 .hero-image {
-  width: 58vw;
-  max-width: 760px;
-  aspect-ratio: 16/9;
+  width: 10vw;
+  max-width: 260px;
+  aspect-ratio: 9/16;  
   object-fit: cover;
   border-radius: 16px;
   border: 1px solid var(--neutral-400-primary);
@@ -484,8 +484,8 @@
 /* Side images smaller (always use smaller width) */
 .hero-image-box.hero-left  .hero-image,
 .hero-image-box.hero-right .hero-image {
-  width: 36vw;
-  max-width: 420px;
+  width: 28vw;
+  max-width: 220px;
   box-shadow: 0 8px 24px -16px rgba(0,0,0,.18);
 }
 
@@ -528,10 +528,6 @@
     transform: none !important;
     pointer-events: auto;
   }
-  .hero-image {
-    width: 100%;
-    max-width: 100%;
-  }
 }
 
 /* Reduced motion: show all without transforms */
@@ -561,9 +557,9 @@
 .hero-image-box.hero-right { right: 0; }
 
 .hero-image {
-  width: 58vw;
-  max-width: 760px;
-  aspect-ratio: 16/9;
+  width: 28vw;
+  max-width: 260px;
+  aspect-ratio: 9/16;
   object-fit: cover;
   border-radius: 16px;
   border: 1px solid var(--neutral-400-primary);
@@ -602,10 +598,6 @@
     opacity: 1 !important;
     transform: none !important;
     pointer-events: auto;
-  }
-  .hero-image {
-    width: 100%;
-    max-width: 100%;
   }
 }
 
@@ -737,11 +729,10 @@
   background-color: var(--brand-400-primary);
 }
 
-.about-project .project-main-text-boxs{
+.about-project .project-main-text-box{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
   position: relative;
   flex: 1;
   align-self: stretch;
@@ -770,21 +761,50 @@
 
 .about-project .mock-up {
   position: relative;
-  width: 100%;
-  height: 514px;
+  /* Size: height drives layout now (portrait) */
+  aspect-ratio: 8 / 16;                  /* portrait ratio */
   border-radius: 26px;
-  border: 1px solid;
-  border-color: var(--neutral-400-primary);
-  aspect-ratio: 1.83;
+  border: 1px solid var(--neutral-400-primary);
   background-size: cover;
   background-position: 50% 50%;
+  margin-inline: auto;                   /* center horizontally */
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Image inside respects container shape */
 .about-project .mock-up-image {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   border-radius: 26px;
+  display: block;
+}
+
+/* Optional: add a modifier class if you only want SOME mock-ups portrait
+   (use <div class="mock-up mock-up--portrait"> ... ) */
+.about-project .mock-up--portrait {
+  aspect-ratio: 9 / 16;
+  width: clamp(260px, 42vw, 520px);
+  max-height: clamp(480px, 78vh, 920px);
+}
+
+/* Small screens: let it fill width but keep ratio */
+@media (max-width: 640px) {
+  .about-project .mock-up,
+  .about-project .mock-up--portrait {
+    width: 100%; 
+    max-width: 100%;
+    aspect-ratio: 9 / 16;
+    max-height: none;
+  }
+}
+
+/* Reduced motion: nothing extra needed (kept for parity if you later animate) */
+@media (prefers-reduced-motion: reduce) {
+  .about-project .mock-up,
+  .about-project .mock-up--portrait {
+    transition: none;
+  }
 }
 
 /* Generate project smaller */
@@ -842,8 +862,8 @@
   }
 
   .about-project .project-main-info-box{
-    width: 163px;
-    height: 274px;
+    width: 170px;
+    height: 320px;
   }
 
   .about-project .project-main-title{
@@ -855,14 +875,6 @@
     font-size: var(--text-s-regular-font-size);
     font-weight: var(--text-s-regular-font-weight);
   }
-
-  .about-project .mock-up {
-    height: 260px;
-  }
-
-  .about-project .mock-up-image {
-    width: 100%;
-}
 }
 
 .about-project .animation-formats {

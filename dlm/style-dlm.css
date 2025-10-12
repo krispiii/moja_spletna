@@ -737,11 +737,10 @@
   background-color: var(--brand-400-primary);
 }
 
-.about-project .project-main-text-boxs{
+.about-project .project-main-text-box{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
   position: relative;
   flex: 1;
   align-self: stretch;
@@ -771,7 +770,7 @@
 .about-project .mock-up {
   position: relative;
   width: 100%;
-  height: 514px;
+  aspect-ratio: 9/16; 
   border-radius: 26px;
   border: 1px solid;
   border-color: var(--neutral-400-primary);
@@ -842,8 +841,8 @@
   }
 
   .about-project .project-main-info-box{
-    width: 163px;
-    height: 274px;
+    width: 170px;
+    height: 320px;
   }
 
   .about-project .project-main-title{
@@ -855,14 +854,6 @@
     font-size: var(--text-s-regular-font-size);
     font-weight: var(--text-s-regular-font-weight);
   }
-
-  .about-project .mock-up {
-    height: 260px;
-  }
-
-  .about-project .mock-up-image {
-    width: 100%;
-}
 }
 
 .about-project .animation-formats {

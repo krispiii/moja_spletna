@@ -1202,6 +1202,9 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   left: 15%;
 }
 
+.unther-herp-project .project-overview-small{
+ display: none;
+}
 
 @media (max-width: 1480px) {
   
@@ -1263,7 +1266,7 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   }
 
    .unther-herp-project .card-box{
-    height: 962px;
+    height: 1080px;
   }
 
   .unther-herp-project .card-design {
@@ -1278,6 +1281,18 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
    top: 580px;
    right: 34%;
   }
+
+  .unther-herp-project .project-overview {
+   display: none;
+ }
+
+ .unther-herp-project .project-overview-small{
+  position: absolute;
+  width: 70%;
+  bottom: -20px;
+  left: 15%;
+  display: block;
+ }
 }
 
 @media (max-width: 750px) {
@@ -1310,7 +1325,7 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   }
   
   .unther-herp-project .card-box{
-    height: 962px;
+    height: 1080px;
   }
 
   .unther-herp-project .card-design {
@@ -1334,6 +1349,11 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
 }
 
 @media (max-width: 480px){
+
+  .unther-herp-project .card-box{
+    height: 1080px;
+  }
+
   .unther-herp-project .card-design {
    left: 12%;
  }
@@ -1347,6 +1367,13 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
    left: 12%;
    right: none;
   }
+
+  .unther-herp-project .project-overview-small{
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  bottom: -14px;
+ }
 }
 
 

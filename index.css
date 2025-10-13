@@ -883,8 +883,8 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   }
 
   .grid-box .text-all-about-me {
-    font-weight: var(--text-XS-regular-font-weight);
-    font-size: var(--text-XS-regular-font-size);
+    font-weight: var(--text-s-regular-font-weight);
+    font-size: var(--text-s-regular-font-size);
   }
 
   .grid-box .widget-about-me {
@@ -932,6 +932,7 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
    border-radius: 8px;
    gap: 1.25rem; /* Converted from 20px */
    padding: 0.75rem;
+   gap: 4px;
   }
 
   .grid-box .widget-job{
@@ -1691,8 +1692,8 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
  }
 
    .grupe-project .project-bio-text {
-    font-weight: var(--text-s-regular-font-weight);
-    font-size: var(--text-s-regular-font-size);
+    font-weight: var(--text-m-regular-font-weight);
+    font-size: var(--text-m-regular-font-size);
   }
 }
 
@@ -1863,7 +1864,7 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
     height: 100%;
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 1.75rem; /* Converted from 28px */
+    margin-bottom: 3rem; /* Converted from 48px */
     height: auto; 
     display: flex;
     flex-direction: column; /* Stack content vertically */

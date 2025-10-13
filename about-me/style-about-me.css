@@ -621,6 +621,16 @@ body.photo-in .about-me-photo-box {
   gap: 2rem; 
  }
 
+ .miniature-tertiary-title-yellow-small {
+  font-weight: var(--text-l-regular-font-weight);
+  font-size: var(--text-l-regular-font-size);
+ }
+
+  .introducing-myself-text {
+    font-weight: var(--text-m-regular-font-weight);
+    font-size: var(--text-m-regular-font-size);
+  }
+
   .about-me-title-box{
     gap: 0.5rem; /* Converted from 8px */
   }

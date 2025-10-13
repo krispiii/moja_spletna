@@ -858,6 +858,7 @@ body.contact-buttons-in .component-button-linkedIn {
 
 .collaboration-text-details {
   font-size: var(--text-m-regular-font-size);
+  font-weight: var(--text-m-regular-font-weight);
   color: var(--font-500-primary);
   padding: 0rem 1.5rem; /* Converted from 0 24px */
 }
@@ -916,8 +917,9 @@ body.contact-buttons-in .component-button-linkedIn {
 
 
   .collaboration-steps-2 {
-    font-size: var(--text-L-regular-font-size);
-    font-weight: var(--text-L-regular-font-weight);
+    font-size: var(--text-l-semibold-font-size);
+    font-weight: var(--text-l-semibold-font-weight);
+    color: var(--dark-200);
   }
 
   .keyboard-arrow-down {
@@ -926,8 +928,6 @@ body.contact-buttons-in .component-button-linkedIn {
   }
   
   .collaboration-text-details {
-  font-size: var(--text-s-regular-font-size);
-  color: var(--font-500-primary);
   padding-left: 0.5rem; /* Converted from 8px */
   padding-right: 0.5rem; /* Converted from 8px */
   padding-top: 0.5rem; /* Converted from 8px */

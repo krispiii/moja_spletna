@@ -877,15 +877,11 @@
   }
 }
 
-.about-project .animation-formats {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
-  display: flex;
-  position: relative;
+@media (max-width: 400px) {
+  .about-project .project-main-info-box{
+    width: 160px;
+    height: 320px;
+  }
 }
 
 .about-project .animation-formats-horizontally {

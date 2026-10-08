@@ -133,6 +133,37 @@ document.addEventListener("DOMContentLoaded", () => {
   board.forEach(cell => cell.addEventListener("click", handleClick));
 });
 
+// Process cards on mobile (≤600px): no hover there, so the jiggly elements
+// peek out once per card as it scrolls into place. Above 600px it's CSS hover.
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card-box > [class^='card-design']");
+  if (!cards.length || !("IntersectionObserver" in window)) return;
+
+  const mobile = window.matchMedia("(max-width: 600px)");
+
+  // Fires when the card's top passes the middle of the screen, which is where
+  // the scroll entrance in global/motion.js finishes, so the card has landed.
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting || !mobile.matches) return;
+      entry.target.classList.add("is-peeking");
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: "0px 0px -50% 0px" });
+
+  cards.forEach((card) => observer.observe(card));
+
+  // Resized into mobile with a card already past the trigger line: re-check.
+  mobile.addEventListener("change", (e) => {
+    if (!e.matches) return;
+    cards.forEach((card) => {
+      if (card.classList.contains("is-peeking")) return;
+      observer.unobserve(card);
+      observer.observe(card);
+    });
+  });
+});
+
 // ...existing code...
 document.addEventListener("DOMContentLoaded", () => {
   // Existing Tic Tac Toe setup stays (do not remove)

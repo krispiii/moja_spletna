@@ -1202,8 +1202,8 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   100% { rotate: var(--r); }
 }
 
-/* Hover only on devices with a real pointer, so taps on touch screens don't stick */
-@media (hover: hover) and (pointer: fine) {
+/* Above 600px: hover, only on devices with a real pointer so taps don't stick */
+@media (min-width: 601px) and (hover: hover) and (pointer: fine) {
   .unther-herp-project .card-design:hover,
   .unther-herp-project .card-design-2:hover,
   .unther-herp-project .card-design-3:hover {
@@ -1234,10 +1234,61 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   }
 }
 
+/* 600px and below: no hover. index.js adds .is-peeking once, when the card has
+   scrolled into place: the card lifts and settles, the elements emerge and stay. */
+@keyframes card-lift {
+  0%   { transform: rotate(var(--tilt)); }
+  35%  { transform: translateY(-5px) rotate(var(--tilt)) scale(1.025); }
+  100% { transform: rotate(var(--tilt)); }
+}
+
+@keyframes card-lift-shadow {
+  0%   { box-shadow: 0px 2px 6px #DFDFDF; }
+  35%  { box-shadow: 0px 14px 28px rgba(31, 31, 40, .11), 0px 3px 8px rgba(31, 31, 40, .05); }
+  100% { box-shadow: 0px 2px 6px #DFDFDF; }
+}
+
+/* Softer than the hover jiggle: touch screens get a calmer settle */
+@keyframes card-jiggle-soft {
+  0%   { rotate: var(--r); }
+  25%  { rotate: calc(var(--r) + 6deg); }
+  50%  { rotate: calc(var(--r) - 3.5deg); }
+  75%  { rotate: calc(var(--r) + 1.5deg); }
+  100% { rotate: var(--r); }
+}
+
+@media (max-width: 600px) {
+  .unther-herp-project .card-design.is-peeking,
+  .unther-herp-project .card-design-2.is-peeking,
+  .unther-herp-project .card-design-3.is-peeking {
+    animation: card-lift 1s cubic-bezier(.22,1,.36,1) both;
+  }
+
+  .unther-herp-project .card-design.is-peeking::before,
+  .unther-herp-project .card-design-2.is-peeking::before,
+  .unther-herp-project .card-design-3.is-peeking::before {
+    animation: card-lift-shadow 1s cubic-bezier(.22,1,.36,1) both;
+  }
+
+  .unther-herp-project .is-peeking .card-jiggle {
+    opacity: 1;
+    scale: 1;
+    translate: var(--x) var(--y);
+    transition:
+      translate .6s cubic-bezier(.34,1.25,.64,1) var(--delay),
+      scale .6s cubic-bezier(.34,1.25,.64,1) var(--delay),
+      opacity .2s ease var(--delay);
+    animation: card-jiggle-soft .8s ease-in-out calc(var(--delay) + .2s) both;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .unther-herp-project .card-design,
   .unther-herp-project .card-design-2,
   .unther-herp-project .card-design-3,
+  .unther-herp-project .card-design::before,
+  .unther-herp-project .card-design-2::before,
+  .unther-herp-project .card-design-3::before,
   .unther-herp-project .card-jiggle {
     transition-duration: .01s !important;
     animation: none !important;
@@ -1492,10 +1543,15 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
 
 /* PROJECT OVERVIEW */
 
+/* Project list
+   Same 80% width as the hero grid and footer so edges line up.
+   - up to 740px: image stacked above text
+   - 741–2199px: one card per row, image and text share the full width (1.7 : 1)
+   - 2200px+:    two columns; the first (newest) project is featured across the
+                 full row, the rest sit in pairs with the image on top */
 .grupe-project {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 96px;
   position: relative;
   width: 80%;
@@ -1504,12 +1560,11 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
 }
 
 .grupe-project .project-design {
-  display: inline-flex;
-  height: 459px;
-  width: 100%;
-  align-items: center;
-  gap: 2.25rem; /* Converted from 36px */
-  padding: 14px 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(300px, 1fr);
+  align-items: stretch;
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  padding: 14px;
   position: relative;
   background-color: var(--neutral-200);
   border-radius: 16px;
@@ -1517,11 +1572,15 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   box-shadow: 0px 2px 6px #f5f5f5;
 }
 
+/* The project shots carry text near their edges, so they are never cropped:
+   always shown whole at 16:9 and centred if the text column is taller. */
 .grupe-project .img-project-work {
+  display: block;
   position: relative;
-  align-self: stretch;
-  width: auto;
-  height: 100%;
+  align-self: center;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 12px;
 }
@@ -1529,13 +1588,11 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
 .grupe-project .projekt-group-box-text {
   display: flex;
   flex-direction: column;
-  width: 36%;
-  height: 100%;
+  min-width: 0;
   align-items: flex-start;
   justify-content: center;
   gap: 16px;
   position: relative;
-  align-self: stretch;
 }
 
 .grupe-project .project-overview-2 {
@@ -1721,36 +1778,86 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   height: 18.56px;
 }
 
-/* PROJECT OVERVIEW  Small Screens */
+/* PROJECT OVERVIEW  Wide desktop / ultrawide */
 
-@media (max-width: 1280px) {
-  .grupe-project .projekt-group-box-text {
-    width: 46%;
+@media (min-width: 2200px) {
+  .grupe-project {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(2.5rem, 2.5vw, 4.5rem);
+    row-gap: 72px;
   }
-  .grupe-project .img-project-work {
-    width: 54%;
+
+  /* Paired cards: image on top, text below */
+  .grupe-project .project-design {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Featured: the first project, and a leftover last card if the count is ever even */
+  .grupe-project .project-design:first-child,
+  .grupe-project .project-design:last-child:nth-child(even) {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1fr);
+    grid-template-rows: none;
+    gap: 2.5rem;
+  }
+
+  /* Featured text column is much taller than its copy: let the description box
+     fit its text and pin the button to the bottom instead of leaving a white void */
+  .grupe-project .project-design:first-child .project-overview-wrapper,
+  .grupe-project .project-design:last-child:nth-child(even) .project-overview-wrapper {
+    flex: 0 0 auto;
+  }
+  .grupe-project .project-design:first-child .to-project-button,
+  .grupe-project .project-design:last-child:nth-child(even) .to-project-button {
+    margin-top: auto;
+  }
+  .grupe-project .project-design:first-child .projekt-group-box-text,
+  .grupe-project .project-design:last-child:nth-child(even) .projekt-group-box-text {
+    justify-content: flex-start;
+  }
+
+  /* Type grows gently with the screen so text stays in proportion to the cards */
+  .grupe-project .project-title {
+    font-size: clamp(1.875rem, 1.25vw, 2.75rem);
+  }
+  .grupe-project .project-year-box {
+    width: auto;
+  }
+  .grupe-project .project-year-text,
+  .grupe-project .project-year-number,
+  .grupe-project .text-dive-deeper {
+    font-size: clamp(1rem, .6vw, 1.25rem);
+  }
+  .grupe-project .project-bio-text {
+    font-size: clamp(1rem, .62vw, 1.3rem);
+    line-height: 1.6;
+    max-width: 62ch;
+  }
+  .grupe-project .project-overview-2 {
+    padding: clamp(20px, 1.1vw, 32px) clamp(16px, 1.1vw, 32px);
+  }
+  .grupe-project .project-overview-wrapper {
+    padding: clamp(24px, 1.3vw, 40px);
+  }
+  .grupe-project .to-project-button {
+    height: clamp(52px, 2.6vw, 72px);
   }
 }
 
 /* PROJECT OVERVIEW  Small Screens */
 
-@media (max-width: 1280px) {
-  .grupe-project .projekt-group-box-text {
-    width: 46%;
-  }
-  .grupe-project .img-project-work {
-    width: 54%;
+/* Tablet and small laptop: not enough room for a side-by-side card without
+   cropping the image, so stack it (same composition as the paired cards above) */
+@media (max-width: 1100px) {
+  .grupe-project .project-design {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
   }
 }
 
 @media (max-width: 900px) {
-  .grupe-project .projekt-group-box-text {
-    width: 46%;
-  }
-  .grupe-project .img-project-work {
-    width: 54%;
-  }
-
   .grupe-project .project-overview-2 {
     padding: 1rem; /* Converted from 16px */
   }
@@ -1775,24 +1882,16 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   }
 
   .grupe-project .project-bio-text {
-    font-weight: var(--text-XS-regular-font-weight);
-    font-size: var(--text-XS-regular-font-size);
+    font-weight: var(--text-m-regular-font-weight);
+    font-size: var(--text-m-regular-font-size);
   }
 }
 
 @media (max-width: 740px) {
   .grupe-project .project-design {
-    flex-direction: column;
-    height: auto;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem; /* Converted from 24px */
     padding: 1.5rem; /* Converted from 24px */
-  }
-
-    .grupe-project .projekt-group-box-text {
-    width: 100%;
-  }
-  .grupe-project .img-project-work {
-    width: 100%;
   }
 }
 

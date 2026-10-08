@@ -58,32 +58,8 @@ function toggleAccordion(el) {
 
 // ...existing code...
 
-(function heroHoverFallback(){
-  const hero = document.getElementById('projectHero');
-  if (!hero) return;
-  let touchCapable = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-  if (!touchCapable) return; // only for touch
-
-  hero.addEventListener('click', (e) => {
-    e.stopPropagation();
-    hero.classList.toggle('hero-hovered');
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!hero.contains(e.target)) {
-      hero.classList.remove('hero-hovered');
-    }
-  });
-})();
-
 document.addEventListener('DOMContentLoaded', () => {
   requestAnimationFrame(() => {
     document.body.classList.add('page-enter');
-    const wrap = document.querySelector('.hero-project-design-wrapper');
-    if (wrap) {
-      // mark loaded after animations end so future hovers behave normally without re-running entrance
-      setTimeout(()=> wrap.classList.add('hero-loaded'), 1200);
-    }
   });
 });

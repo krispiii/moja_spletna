@@ -1,0 +1,38 @@
+/* Motion layer — paired with global/motion.js. Only active when JS adds .motion-on */
+
+/* The JS spring does the easing; native smooth-behavior would fight it. */
+html.motion-on {
+  scroll-behavior: auto;
+}
+
+/* Scroll reveals */
+html.motion-on [data-reveal] {
+  opacity: 0;
+  translate: 0 28px;
+}
+
+html.motion-on [data-reveal].is-revealed {
+  opacity: 1;
+  translate: none;
+}
+
+/* Images that drift inside their frame */
+html.motion-on .parallax-frame {
+  overflow: hidden;
+}
+
+html.motion-on .parallax-inner {
+  scale: 1.1;
+  will-change: translate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.motion-on [data-reveal] {
+    opacity: 1 !important;
+    translate: none !important;
+  }
+  html.motion-on .parallax-inner {
+    scale: none;
+    translate: none !important;
+  }
+}

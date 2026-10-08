@@ -1132,6 +1132,118 @@ body.anim-start .contact-button  { animation:slideInRight .6s .20s cubic-bezier(
   box-shadow: 0px 2px 6px #f5f5f5;
 }
 
+/* --- Process cards: hover lift + jiggly elements peeking out from underneath ---
+   The card's surface lives on ::before (z -1) and the jiggly elements sit
+   below it (z -2), so they only show where they slide past the card's edge. */
+.unther-herp-project .card-design,
+.unther-herp-project .card-design-2,
+.unther-herp-project .card-design-3 {
+  --tilt: 16deg;
+  overflow: visible;
+  isolation: isolate;
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  transition: transform .3s cubic-bezier(.4,0,.2,1);
+}
+.unther-herp-project .card-design-2 { --tilt: -3deg; }
+.unther-herp-project .card-design-3 { --tilt: -9deg; }
+
+.unther-herp-project .card-design::before,
+.unther-herp-project .card-design-2::before,
+.unther-herp-project .card-design-3::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  background-color: var(--white);
+  border: 1px solid var(--neutral-400-primary);
+  border-radius: 16px;
+  box-shadow: 0px 2px 6px #DFDFDF;
+  transition: box-shadow .3s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+}
+
+.unther-herp-project .card-jiggle {
+  --x: 0px;
+  --y: -40px;
+  --r: 0deg;
+  --delay: .16s;
+  position: absolute;
+  z-index: -2;
+  width: 54px;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  scale: .7;
+  rotate: var(--r);
+  /* Leaving: tuck back in quickly, no overshoot */
+  transition:
+    translate .28s cubic-bezier(.4,0,.2,1),
+    scale .28s cubic-bezier(.4,0,.2,1),
+    opacity .2s ease .08s;
+}
+
+/* Placement: where each element hides (inside the card) and where it peeks out to */
+.unther-herp-project .card-design .jiggle-a   { top: 10px; right: 34px; --x: 6px;   --y: -40px; --r: 12deg; }
+.unther-herp-project .card-design .jiggle-b   { bottom: 10px; left: 30px; width: 48px; --x: -6px; --y: 38px; --r: -14deg; --delay: .24s; }
+.unther-herp-project .card-design-2 .jiggle-a { top: 10px; left: 38px; width: 58px; --x: -4px; --y: -36px; --r: -8deg; }
+.unther-herp-project .card-design-2 .jiggle-b { top: 42%; right: 10px; width: 46px; --x: 40px; --y: -4px; --r: 18deg; --delay: .24s; }
+.unther-herp-project .card-design-3 .jiggle-a { top: 10px; right: 46px; --x: 4px; --y: -42px; --r: 8deg; }
+.unther-herp-project .card-design-3 .jiggle-b { top: 52%; left: 10px; width: 46px; --x: -40px; --y: 6px; --r: -20deg; --delay: .24s; }
+
+@keyframes card-jiggle {
+  0%   { rotate: var(--r); }
+  22%  { rotate: calc(var(--r) + 9deg); }
+  44%  { rotate: calc(var(--r) - 6deg); }
+  64%  { rotate: calc(var(--r) + 3deg); }
+  82%  { rotate: calc(var(--r) - 1deg); }
+  100% { rotate: var(--r); }
+}
+
+/* Hover only on devices with a real pointer, so taps on touch screens don't stick */
+@media (hover: hover) and (pointer: fine) {
+  .unther-herp-project .card-design:hover,
+  .unther-herp-project .card-design-2:hover,
+  .unther-herp-project .card-design-3:hover {
+    z-index: 2;
+    transform: translateY(-6px) rotate(var(--tilt)) scale(1.04);
+    transition: transform .5s cubic-bezier(.34,1.45,.64,1);
+  }
+
+  .unther-herp-project .card-design:hover::before,
+  .unther-herp-project .card-design-2:hover::before,
+  .unther-herp-project .card-design-3:hover::before {
+    box-shadow: 0px 18px 36px rgba(31, 31, 40, .12), 0px 4px 10px rgba(31, 31, 40, .06);
+    transition-duration: .5s;
+  }
+
+  .unther-herp-project .card-design:hover .card-jiggle,
+  .unther-herp-project .card-design-2:hover .card-jiggle,
+  .unther-herp-project .card-design-3:hover .card-jiggle {
+    opacity: 1;
+    scale: 1;
+    translate: var(--x) var(--y);
+    /* Arriving: springy pop with a little overshoot */
+    transition:
+      translate .55s cubic-bezier(.34,1.56,.64,1) calc(var(--delay) - .12s),
+      scale .55s cubic-bezier(.34,1.56,.64,1) calc(var(--delay) - .12s),
+      opacity .15s ease calc(var(--delay) - .12s);
+    animation: card-jiggle .9s ease-in-out var(--delay) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .unther-herp-project .card-design,
+  .unther-herp-project .card-design-2,
+  .unther-herp-project .card-design-3,
+  .unther-herp-project .card-jiggle {
+    transition-duration: .01s !important;
+    animation: none !important;
+  }
+}
+
 .unther-herp-project .concepts-into-box {
   display: flex;
   flex-direction: column;

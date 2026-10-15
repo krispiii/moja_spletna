@@ -1,0 +1,649 @@
+/*
+ * Project (case study) pages: Figma "project", node 1048:3558.
+ * Shared by every page in /aboutbuzz, /atlas, /dlm, /iskrica-srece, /leksoro.
+ *
+ * Structure: base → shared parts (split heading, mock-up, card) → sections in
+ * page order → layout breakpoints. Tokens live in global/tokens.css; layout
+ * helpers (.container, .section, .stack, .decor, .pill), header and footer in
+ * global/site-chrome.css; the hero showcase in global/project-hero.css.
+ *
+ * Spacing uses the fluid --space-* scale, so it shrinks in proportion on its
+ * own. Breakpoints change layout (columns, order, side-by-side vs stacked).
+ * Breakpoints: ≥1024 desktop · 600–1023 tablet · <600 mobile.
+ */
+
+/* ---------- Base ---------- */
+
+body {
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p, ul, dl, dd, figure {
+  margin: 0;
+  padding: 0;
+}
+
+ul { list-style: none; }
+
+img { display: block; }
+
+a { color: inherit; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: var(--space-3xs);
+}
+
+/* Bricolage Grotesque is set at opsz 14 in Figma for every size. */
+.project-hero__title,
+.split__title,
+.insight-card__title,
+.design-card__title,
+.next-project {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 14;
+}
+
+/* ---------- Shared: card surface ---------- */
+
+.fact-card,
+.insight-card,
+.accordion,
+.design-card {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-glass);
+  box-sizing: border-box;
+}
+
+.fact-card { box-shadow: var(--shadow-widget); }
+
+.insight-card,
+.accordion,
+.design-card { box-shadow: 0 4px 8px 2px rgba(141, 141, 141, 0.1); }
+
+/* ---------- Shared: title beside its text ---------- */
+
+/* About, Research Methodology and Conclusion open the same way: a heading on
+   the left, its text on the right. Each sets its own sizes. */
+.split {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2xl);
+}
+
+.split__title {
+  flex: 1 1 auto;
+  font-weight: 600;
+  line-height: 1.22;
+}
+
+.split__text {
+  flex: 0 1 var(--split-measure);
+  line-height: normal;
+}
+
+/* ---------- Shared: mock-up frame ---------- */
+
+.mockup {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1280 / 702;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 26px;
+  background: var(--color-surface-soft);
+  box-sizing: border-box;
+}
+
+/* The whole screen always shows: it scales down to fit the frame (never
+   cropped, never stretched); any spare space is the frame's soft background. */
+.mockup__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Portrait phone screens (Leksoro): the whole screen, centred in the frame. */
+.mockup--phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mockup--phone .mockup__image {
+  width: auto;
+  height: 88%;
+  object-fit: contain;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 14px;
+  box-shadow:
+    0 30px 60px -34px rgba(24, 24, 32, .26),
+    0 8px 20px -14px rgba(24, 24, 32, .12);
+}
+
+.mockup--small {
+  aspect-ratio: 632 / 360;
+  border-radius: var(--radius-md);
+}
+
+/* ---------- Hero (1049:2793) ---------- */
+
+.project-hero {
+  --section-pt: var(--space-5xl);
+  --section-pb: 0px;
+  /* clip, not hidden: the showcase frame pins with position: sticky. */
+  overflow: clip;
+}
+
+.project-hero__inner { --stack-gap: var(--space-3xl); }
+
+.project-hero__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+  text-align: center;
+}
+
+.project-hero__title {
+  font-size: var(--heading-display);
+  font-weight: 600;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+/* ---------- About the project (1049:2802) ---------- */
+
+.project-about {
+  --section-pt: var(--space-7xl);
+  --section-pb: var(--space-7xl);
+}
+
+.project-about__ribbon {
+  left: calc(50% - 1177px);
+  top: 112px;
+  transform: scaleY(-1);
+}
+
+.project-about__inner { --stack-gap: var(--space-6xl); }
+
+.split--about { --split-measure: 53.4375rem; }               /* 855 */
+.split--about .split__title { font-size: var(--heading-statement); }
+.split--about .split__text { font-size: var(--text-xl); }
+
+/* Year · Role · Contribution · Deliverables */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-s);
+}
+
+.fact-card {
+  display: grid;
+  grid-template-columns: 9px minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  align-content: start;
+  column-gap: var(--space-2xs);
+  row-gap: var(--space-s);
+  min-height: 15.0625rem;                                    /* 241 */
+  padding: var(--space-l);
+  line-height: normal;
+}
+
+/* Lime marker beside the label */
+.fact-card::before {
+  content: "";
+  grid-row: 1 / 3;
+  width: 9px;
+  height: 30px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-strong);
+}
+
+.fact-card dt {
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+.fact-card dd { font-size: var(--text-m); }
+
+/* ---------- Mock-up sections (1049:2829, 1049:2878) ---------- */
+
+.mockup-section {
+  --section-pt: 0px;
+  --section-pb: 0px;
+}
+
+.mockup-section--spaced { --section-pb: var(--space-7xl); }
+
+/* ---------- Industry · Problem · User groups (1049:2831) ---------- */
+
+.insights {
+  --section-pt: var(--space-7xl);
+  --section-pb: var(--space-7xl);
+}
+
+/* Lime panel holding the three cards, stacked. */
+.insight-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  padding: var(--space-3xl);
+  border: 1px solid var(--brand-300);
+  border-radius: var(--radius-lg);
+  background: var(--brand-100);
+  box-sizing: border-box;
+}
+
+/* Each card: label and title on the left, the text on the right.
+   The static tilt is a transform, so it stacks with the scroll "deal"
+   (global/motion.js), which writes the separate rotate/translate properties. */
+.insight-card {
+  --tilt: 0deg;
+  display: grid;
+  grid-template-columns: minmax(0, 25rem) minmax(0, 1fr);    /* 400 · rest */
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "label body"
+    "title body";
+  align-content: center;
+  column-gap: var(--space-3xl);
+  row-gap: var(--space-3xl);
+  padding: var(--space-xl);
+  transform: rotate(var(--tilt));
+}
+
+.insight-card:nth-child(1) { --tilt: 1deg; }
+.insight-card:nth-child(2) { --tilt: -0.5deg; }
+.insight-card:nth-child(3) { --tilt: 0.5deg; }
+
+.insight-card .pill {
+  grid-area: label;
+  align-self: start;
+  justify-self: start;
+}
+
+.insight-card__body { display: contents; }
+
+.insight-card__title {
+  grid-area: title;
+  font-size: var(--heading-s);
+  font-weight: 600;
+  line-height: 1.22;
+}
+
+.insight-card__body p {
+  grid-area: body;
+  font-size: var(--text-m);
+  line-height: normal;
+}
+
+/* ---------- Research Methodology (1049:2880) ---------- */
+
+.research {
+  --section-pt: var(--space-6xl);
+  --section-pb: var(--space-6xl);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+}
+
+.research__ribbon {
+  left: calc(50% - 1237.5px);
+  bottom: 85.5px;
+  transform: rotate(180deg);
+}
+
+.research__inner { --stack-gap: var(--space-5xl); }
+
+.split--research { --split-measure: 43.75rem; }             /* 700 */
+
+.split--research .split__title {
+  flex: 0 0 auto;
+  font-size: var(--heading-xl);
+  font-weight: 700;
+  line-height: normal;
+}
+
+.split--research .split__text { font-size: var(--text-l); }
+
+.research__body {
+  display: grid;
+  grid-template-columns: minmax(0, 27.375rem) minmax(0, 1fr); /* 438 · rest */
+  gap: var(--space-2xl);
+  min-height: 33.4375rem;                                     /* 535 */
+}
+
+.research__illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-s);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.research__illustration img {
+  width: min(100%, 292px);
+  height: auto;
+}
+
+/* Accordion (drop_category_more) */
+.accordion {
+  overflow: clip;
+  align-self: stretch;
+}
+
+.accordion__item { border-bottom: 1px solid var(--color-border-strong); }
+
+.accordion__item > h3 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+  padding: var(--space-3xl) var(--space-l) var(--space-s);
+  font-size: clamp(1.125rem, 0.97rem + 0.663vw, 1.5rem);      /* 18 → 24 */
+  line-height: normal;
+  text-align: left;
+  transition: background-color var(--duration) var(--ease-out);
+}
+
+.accordion__trigger:hover { background: var(--color-surface-glass-light); }
+.accordion__trigger:focus-visible { outline-offset: -3px; }
+
+.accordion__label { flex: 1 1 auto; }
+
+.accordion__icon {
+  flex: none;
+  width: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);               /* 28 → 36 */
+  height: auto;
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.accordion__item.is-open .accordion__icon { transform: rotate(180deg); }
+
+/* Height animates via grid rows. Panels only collapse once JS has wired the
+   buttons (data-enhanced), so without JS every answer stays readable. */
+.accordion__panel {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition:
+    grid-template-rows var(--duration) var(--ease-out),
+    visibility 0s;
+}
+
+.accordion__content {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.accordion__content p {
+  padding: var(--space-2xs) var(--space-l) var(--space-l);
+  font-size: var(--text-m);
+  line-height: 1.5;
+}
+
+.accordion[data-enhanced] .accordion__item:not(.is-open) .accordion__panel {
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows var(--duration) var(--ease-out),
+    visibility 0s var(--duration);
+}
+
+/* ---------- Design (1049:2914) ---------- */
+
+.design {
+  --section-pt: var(--space-7xl);
+  --section-pb: var(--space-7xl);
+}
+
+.design__orbit {
+  left: calc(50% + 21px);
+  top: calc(50% - 41px);
+  translate: -50% -50%;
+}
+
+/* Desktop: two staggered columns, card over image | image over card. */
+.design-grid {
+  display: flex;
+  gap: var(--space-s);
+}
+
+.design-col {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--space-s);
+  min-width: 0;
+}
+
+.design-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  min-height: 27.5rem;                                        /* 440 */
+  padding: var(--space-xl);
+  font-size: var(--text-m);
+  line-height: normal;
+}
+
+.design-card__title {
+  font-size: var(--heading-statement);
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* ---------- Conclusion + next project (1051:4468) ---------- */
+
+.conclusion {
+  --section-pt: var(--space-7xl);
+  --section-pb: 0px;                    /* the footer brings its own top space */
+}
+
+.conclusion__inner {
+  --stack-gap: var(--space-7xl);
+  align-items: center;
+}
+
+.split--conclusion {
+  --split-measure: 45.625rem;                                 /* 730 */
+  align-self: stretch;
+}
+
+.split--conclusion .split__title {
+  flex: 0 0 auto;
+  font-size: var(--heading-display);
+  line-height: 1.08;
+}
+
+.split--conclusion .split__text { font-size: var(--text-xl); }
+
+.next-project {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xl);
+  min-height: 5.375rem;                                       /* 86 */
+  padding-inline: var(--space-xl);
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  box-shadow: var(--shadow-soft);
+  box-sizing: border-box;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color var(--duration) var(--ease-out);
+}
+
+.next-project img { transition: transform var(--duration) var(--ease-out); }
+
+.next-project:hover { background: var(--color-accent-strong); }
+.next-project:hover img { transform: translateX(4px); }
+.next-project:active { background: var(--brand-300); }
+.next-project:focus-visible { border-radius: var(--radius-pill); }
+
+/* ---------- Layout: tablet (≤1023) ---------- */
+
+@media (max-width: 1023.98px) {
+  /* Headings sit above their text instead of beside it. */
+  .split {
+    flex-direction: column;
+    gap: var(--space-m);
+  }
+
+  .split__title,
+  .split__text { flex: none; }
+
+  .split__text { max-width: 42rem; }
+
+  /* Facts: 2 × 2 */
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .fact-card { min-height: 0; }
+
+  /* Insight cards: still side by side, the left column narrower. */
+  .insight-card {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    column-gap: var(--space-2xl);
+    row-gap: var(--space-l);
+  }
+
+  /* Research: illustration narrower beside the accordion. */
+  .research__body {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    min-height: 0;
+  }
+
+  /* Design: rows line up into a checkerboard, text and image side by side. */
+  .design-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "process shot-used"
+      "shot-process used";
+    gap: var(--space-s);
+  }
+
+  .design-col { display: contents; }
+
+  .design-card { min-height: 0; }
+  .design-card--process { grid-area: process; }
+  .design-card--used { grid-area: used; }
+
+  .design-grid .mockup--small {
+    aspect-ratio: auto;
+    min-height: 15rem;
+  }
+
+  .design-grid .mockup--small .mockup__image { position: absolute; inset: 0; }
+
+  .design-shot--process { grid-area: shot-process; }
+  .design-shot--used { grid-area: shot-used; }
+}
+
+/* ---------- Layout: mobile (≤599) ---------- */
+
+@media (max-width: 599.98px) {
+  .split--about .split__text,
+  .split--conclusion .split__text { font-size: var(--text-l); }
+
+  .split--research .split__text { font-size: var(--text-m); }
+
+  /* Facts: short ones paired, the lists full width. */
+  .fact-card:nth-child(n + 3) { grid-column: 1 / -1; }
+
+  .fact-card { padding: var(--space-m); }
+
+  .fact-card dt { font-size: var(--text-l); }
+
+  /* Phone mock-ups get a taller frame so the screen stays legible. */
+  .mockup { border-radius: var(--radius-lg); }
+  .mockup--phone { aspect-ratio: 4 / 5; }
+
+  /* Insight cards: label, title, then text, top to bottom; the panel's
+     padding tightens so the cards keep their reading width. */
+  .insight-list {
+    gap: var(--space-l);
+    padding: var(--space-s);
+  }
+
+  .insight-card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "label"
+      "title"
+      "body";
+    grid-template-rows: none;
+    row-gap: var(--space-s);
+    padding: var(--space-l);
+  }
+
+  .insight-card__title { margin-top: var(--space-2xs); }
+
+  /* Research: a short illustration banner, then the accordion. */
+  .research__body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-l);
+  }
+
+  .research__illustration { padding: var(--space-xl); }
+
+  .research__illustration img { width: 9.5rem; }
+
+  .accordion__trigger { padding-top: var(--space-xl); }
+
+  /* Design: each card followed by its own screen. */
+  .design-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "process"
+      "shot-process"
+      "used"
+      "shot-used";
+  }
+
+  .design-card { padding: var(--space-l); }
+
+  /* Extra space between the two card + screen pairs. */
+  .design-card--used { margin-top: var(--space-l); }
+
+  .design-grid .mockup--small {
+    aspect-ratio: 632 / 360;
+    min-height: 0;
+  }
+
+  /* The CTA spans the column so it is an easy thumb target. */
+  .next-project {
+    align-self: stretch;
+    justify-content: space-between;
+    min-height: 4.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion__panel,
+  .accordion__icon,
+  .accordion__trigger,
+  .next-project,
+  .next-project img { transition: none !important; }
+}

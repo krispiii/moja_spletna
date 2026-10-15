@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <title>SIMOPS – Kristina Stepan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;900&family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../global/globals.css" />
+    <link rel="stylesheet" href="../global/styleguide.css" />
+    <link rel="stylesheet" href="../global/tokens.css" />
+    <link rel="stylesheet" href="../global/site-chrome.css" />
+    <link rel="stylesheet" href="../global/motion.css" />
+    <link rel="stylesheet" href="../global/project-hero.css" />
+    <link rel="stylesheet" href="../global/project-page.css" />
+    <script src="../global/site-chrome.js"></script>
+    <script src="../global/project-page.js" defer></script>
+    <script src="../global/motion.js" defer></script>
+    <script src="../global/project-hero.js" defer></script>
+    <link rel="icon" type="image/svg+xml" href="../img/header-logo.svg">
+    <link rel="shortcut icon" href="../img/header-logo.svg">
+  </head>
+
+<body>
+  <!-- Shared header (global/site-chrome.js) -->
+  <site-header root="../" current="simops" offset></site-header>
+
+  <main id="main" class="project">
+
+    <!-- Hero (1064:5149) -->
+    <section class="project-hero section" aria-labelledby="project-title">
+      <div class="container project-hero__inner stack">
+        <header class="project-hero__heading">
+          <span class="pill pill--brand">Enterprise software</span>
+          <h1 class="project-hero__title" id="project-title">SIMOPS</h1>
+        </header>
+        <div class="hero-project-design-wrapper">
+          <div class="hero-project-design" id="projectHero">
+            <figure class="hero-image-box hero-left">
+              <img class="hero-image" src="../img/simops/simops-mockup-1.png" alt="Left project view">
+            </figure>
+            <figure class="hero-image-box hero-center">
+              <img class="hero-image" src="../img/simops/simops-main.png" alt="Main project view">
+            </figure>
+            <figure class="hero-image-box hero-right">
+              <img class="hero-image" src="../img/simops/simops-mockup-2.png" alt="Right project view">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the project (1064:5168) -->
+    <section class="project-about section" aria-labelledby="about-title">
+      <div class="decor" aria-hidden="true">
+        <img class="decor__item project-about__ribbon" src="../img/project/about-ribbon.svg" width="2254.28" height="524.545" alt="" />
+      </div>
+      <div class="container project-about__inner stack">
+        <div class="split split--about">
+          <h2 class="split__title" id="about-title">About the project</h2>
+          <p class="split__text">
+            A step-by-step instructor tool for configuring and launching military simulation exercises. The operator moves through: environment, mission type, simulator assignment, soldier placement, equipment loadout, tracking settings, review &amp; launch. Each step validates inputs and blocks progression on critical errors. Smart defaults keep setup fast; a final overview screen shows everything before the exercise goes live.
+          </p>
+        </div>
+        <dl class="facts">
+          <div class="fact-card">
+            <dt>Year</dt>
+            <dd>2026</dd>
+          </div>
+          <div class="fact-card">
+            <dt>Role</dt>
+            <dd>Freelancer Project</dd>
+          </div>
+          <div class="fact-card">
+            <dt>Contribution</dt>
+            <dd>Strategy <br />UX/UI <br />Research</dd>
+          </div>
+          <div class="fact-card">
+            <dt>Deliverables</dt>
+            <dd>Wireframes,<br />Design system,<br />Screen design,<br />Planning</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Mock-up (1064:5194) -->
+    <section class="mockup-section section">
+      <figure class="container mockup">
+        <img class="mockup__image" src="../img/simops/simops-mockup-1.png" alt="" />
+      </figure>
+    </section>
+
+    <!-- Industry · Problem · User groups (1064:5196) -->
+    <section class="insights section" aria-label="Project context">
+      <ul class="container insight-list">
+        <li class="insight-card">
+          <span class="pill pill--brand">Industry</span>
+          <div class="insight-card__body">
+            <h3 class="insight-card__title">Simulation training</h3>
+            <p>
+              An industry that uses software and hardware systems to replicate real-world scenarios replacing costly and resource-heavy live exercises with controlled, repeatable practice environments. Trainees can rehearse complex situations, build muscle memory and be evaluated all without the risks or logistics of the real thing.
+            </p>
+          </div>
+        </li>
+        <li class="insight-card">
+          <span class="pill pill--brand">The problem</span>
+          <div class="insight-card__body">
+            <h3 class="insight-card__title">Fast setup, clear choices</h3>
+            <p>
+              Instructors need to set up exercises quickly, but each configuration step carries real consequences every choice has limitations, affects what’s possible next and must be clearly understood before moving on. The challenge is designing a flow that is both fast and informed: operators should never feel lost about what they’re selecting, what’s off the table, or how their decisions shape the rest of the setup.
+            </p>
+          </div>
+        </li>
+        <li class="insight-card">
+          <span class="pill pill--brand">User groups</span>
+          <div class="insight-card__body">
+            <h3 class="insight-card__title">Simulation instructors</h3>
+            <p>
+              Instructors who plan and manage simulation training exercises. They are familiar with the equipment and scenarios but work under time pressure often configuring multiple sessions in a single day. They need the system to be efficient and unambiguous, not hand-holding.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Mock-up (1064:5279) -->
+    <section class="mockup-section mockup-section--spaced section">
+      <figure class="container mockup">
+        <img class="mockup__image" src="../img/simops/simops-mockup-2.png" alt="" />
+      </figure>
+    </section>
+
+    <!-- Design (1064:5228) -->
+    <section class="design section" aria-label="Design">
+      <div class="decor" aria-hidden="true">
+        <img class="decor__item design__orbit" src="../img/project/lime-orbit-outer.svg" width="1592" height="718" alt="" />
+        <img class="decor__item design__orbit" src="../img/project/lime-orbit-inner.svg" width="1088.8" height="396.8" alt="" />
+      </div>
+      <div class="container design-grid">
+        <div class="design-col">
+          <article class="design-card design-card--process">
+            <h2 class="design-card__title">Design process</h2>
+            <p>
+              The first step was mapping the full configuration flow as a decision tree each step branches into its possibilities, and each branch connects to the next. Every choice a user makes directly affects what’s available in the steps that follow, making dependencies visible rather than hidden. The visual structure shows all options without overwhelming enough information to decide confidently, nothing more.
+            </p>
+          </article>
+          <figure class="mockup mockup--small design-shot--process">
+            <img class="mockup__image" src="../img/simops/simops-design.png" alt="" />
+          </figure>
+        </div>
+        <div class="design-col">
+          <figure class="mockup mockup--small design-shot--used">
+            <img class="mockup__image" src="../img/simops/simops-main.png" alt="" />
+          </figure>
+          <article class="design-card design-card--used">
+            <h2 class="design-card__title">How it is used</h2>
+            <p>
+              The setup is broken into individual steps, each presented one at a time. The instructor makes a selection and moves forward or goes back to change a previous choice at any point. Depending on what was selected earlier, some options in later steps may be limited or unavailable. Nothing is locked away permanently, the flow stays flexible while keeping the path clear.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusion + next project (1064:5242) -->
+    <section class="conclusion section" aria-labelledby="conclusion-title">
+      <div class="container conclusion__inner stack">
+        <div class="split split--conclusion">
+          <h2 class="split__title" id="conclusion-title">Conclusion</h2>
+          <p class="split__text">
+            The goal was to design a setup flow that respects the instructor’s time without sacrificing clarity. Every step is intentional, every decision visible and the path from configuration to launch is as short and confident as possible.
+          </p>
+        </div>
+        <a class="next-project" href="../software-asset-management">
+          <span>Next Project</span>
+          <img src="../img/home/arrow-forward.svg" width="20" height="20" alt="" />
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared footer (global/site-chrome.js) -->
+  <site-footer root="../"></site-footer>
+</body>
+</html>

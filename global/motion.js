@@ -26,18 +26,16 @@
 
   var REVEAL_SELECTORS = [
     // home
-    '.concepts-into-box', '.project-overview', '.project-overview-small',
-    '.grupe-project .project-design',
+    '.section-intro', '.showcase-item', '.statement',
+    '.collection-heading', '.case-card',
     // project pages
-    '.about-project-box', '.project-main-info-box', '.mock-up', '.animation-formats',
-    '.research-title-box', '.harmonica-box', '.design-part-text-box',
-    '.mock-up-small-box', '.conclusion-text-box', '.next-project-box',
-    // about me
-    '.box-decorated-line-and-text', '.about-me-text-box', '.about-me-photo-box',
-    // contact
-    '.collaboration-text', '.collaboration-steps',
+    '.split', '.fact-card', '.mockup', '.research__body', '.design-card',
+    '.next-project',
+    // (about me blocks have their own load-in entrance in style-about-me.css)
+    // contact (the hero blocks have their own load-in entrance in style-contact.css)
+    '.collaboration__title', '.step',
     // all pages
-    '.footer-box'
+    '.site-footer__card'
   ];
 
   // Elements that drift at a different speed than the page (speed = share of viewport).
@@ -47,13 +45,18 @@
   // entrance works in every layout (row, triangle or stacked column).
   // [selector, drift speed, extra starting rotation in degrees, stagger 0–1]
   var DEAL_CARDS = [
-    ['.unther-herp-project .card-design', 0.04, -12, 0],
-    ['.unther-herp-project .card-design-2', 0.07, 10, 0.1],
-    ['.unther-herp-project .card-design-3', 0.055, -12, 0.2]
+    ['.process-panel:nth-child(1)', 0.04, -12, 0],
+    ['.process-panel:nth-child(2)', 0.07, 10, 0.1],
+    ['.process-panel:nth-child(3)', 0.055, -12, 0.2],
+    // project pages: Industry · Problem · User groups
+    ['.insight-card:nth-child(1)', 0.04, -4, 0],
+    ['.insight-card:nth-child(2)', 0.07, 3, 0.1],
+    ['.insight-card:nth-child(3)', 0.055, -3, 0.2]
   ];
 
-  // Images that move inside their (clipping) frame.
-  var PARALLAX_INNER = ['.mock-up-image', '.mock-up-small-photo'];
+  // Images that move inside their (clipping) frame. Empty: the drift zooms the
+  // image past its frame, and project mock-ups must always show in full.
+  var PARALLAX_INNER = [];
 
   /* ---------- Helpers ---------- */
 

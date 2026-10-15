@@ -1,363 +1,440 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="h.ttps://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
+    <title>Kristina Stepan – UX/UI designer &amp; user researcher</title>
+    <meta name="description" content="Kristina Stepan is a UX/UI designer and user researcher based in Ljubljana, Slovenia, designing enterprise software, websites and mobile apps." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;900&family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./global/globals.css" />
     <link rel="stylesheet" href="./global/styleguide.css" />
+    <link rel="stylesheet" href="./global/tokens.css" />
+    <link rel="stylesheet" href="./global/site-chrome.css" />
     <link rel="stylesheet" href="./global/motion.css" />
     <link rel="stylesheet" href="./index.css" />
-    <script src="./index.js"></script>
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="./global/site-chrome.js"></script>
+    <script src="./index.js" defer></script>
     <script src="./global/motion.js" defer></script>
-    <link rel="icon" type="image/svg+xml" href="./img/header-logo.svg">
-    <link rel="shortcut icon" href="./img/header-logo.svg">
+    <link rel="icon" type="image/svg+xml" href="./img/header-logo.svg" />
   </head>
 
-<body>
- <header class="header-desktop">
-    <div class="header-box-desktop">
-      <div class="dropdown-desktop">
-       <button class="primary-button-dropdown-desktop" id="projectsDropdownButton" onclick="toggleDropdown()">Projects</button>
-        <div class="dropdown-content-desktop" id="projectsDropdownContent">
-         <a href="../aboutbuzz">Aboutbuzz</a>
-         <a href="./leksoro">Leksoro</a>
-         <a href="./dlm">DLM</a>
-         <a href="./atlas">Atlas</a>
-         <a href="./iskrica-srece">Iskrica Sreče</a>
-        </div>
-      </div>
-      <a class="primary-button-desktop" href="./about-me"><div>About Me</div></a>
-      <a class="header-box-log" href="./index.html">
-        <div class="log-kristina"><img class="log-kristina" src="./img/logo-kristina.svg" /></div>
-      </a>
-      <a class="primary-button-desktop" href="./contact"><div>Contact</div></a>
-      <a href="./cv/resume-stepan-kristina.pdf" download="resume-stepan-kristina.pdf" class="primary-button-link-desktop">
-        <div>Get CV</div>
-      </a>
-     </div>
- </header>
+  <body>
+    <!-- Shared header (global/site-chrome.js) -->
+    <site-header root="./"></site-header>
 
- <header class="header-mobile">
-    <div class="header-box-mobile">
-        <a href="./cv/resume-stepan-kristina.pdf" download="resume-stepan-kristina.pdf" class="primary-button-link-desktop">
-            <div>Get CV</div>
-        </a>
-       <a class="header-box-log" href="./index.html">
-            <div class="log-kristina"><img class="log-kristina" src="./img/logo-kristina.svg" /></div>
-       </a>
-        <a class="header-burger">
-            <div class="burger-button" onclick="toggleMenu()">
-             <img class="burger-icon" src="./img/menu.svg" alt="Menu" />
-            </div>
-         </a>
-    </div>
+    <main id="main">
+      <!-- Hero (Figma 1034:3836) -->
+      <section class="hero section" aria-label="Introduction">
+        <div class="decor" aria-hidden="true">
+          <img class="decor__item hero__glow--right" src="./img/home/hero-glow-right.svg" width="1290.2" height="986.2" alt="" />
+          <img class="decor__item hero__glow--left" src="./img/home/hero-glow-left.svg" width="1301.6" height="909.6" alt="" />
+        </div>
 
-    <div class="header-links" id="headerLinksMobile">
-     <a href="./about-me">About Me</a>
-     <a href="./contact/">Contact</a>
-     <a href="../aboutbuzz">Aboutbuzz</a>
-     <a href="./leksoro">Leksoro</a>
-     <a href="./dlm">DLM</a>
-     <a href="./atlas">Atlas</a>
-     <a href="./iskrica-srece">Iskrica Sreče</a>
-    </div>
-</header>
- 
-  <div class="page-home">
-    <div class="grid-box" data-model-id="286:2338">
-      <div class="widget-program">
-        <div class="technologies-title-box">
-          <p class="technologies-i-have">Technologies I have <br />worked with</p>
-        </div>
-          <div class="program-logo-box">
-  <div class="program-logo-container">
-    <img class="program-logo-img" src="./img/figma.svg" alt="Figma" />
-    <span class="tooltip-text">Figma</span>
-  </div>
-  <div class="program-logo-container">
-    <img class="program-logo-img" src="./img/html.svg" alt="HTML" />
-    <span class="tooltip-text">HTML</span>
-  </div>
-  <div class="program-logo-container">
-    <img class="program-logo-img" src="./img/css.svg" alt="CSS" />
-    <span class="tooltip-text">CSS</span>
-  </div>
-  <div class="program-logo-container">
-    <img class="program-logo-img" src="./img/javascript-logo.svg" alt="JavaScript" />
-    <span class="tooltip-text">JavaScript</span>
-  </div>
-  <div class="program-logo-container">
-    <img class="program-logo-img" src="./img/framer.svg" alt="Framer" />
-    <span class="tooltip-text">Framer</span>
-  </div>
-  <div class="program-logo-container">
-    <img class="program-logo-img" src="./img/illustrator.svg" alt="Illustrator" />
-    <span class="tooltip-text">Illustrator</span>
-  </div>
-  <div class="program-logo-container">
-    <img class="program-logo-img" src="./img/photoshop.svg" alt="Photoshop" />
-    <span class="tooltip-text">Photoshop</span>
-  </div>
-  <div class="program-logo-container">
-    <img class="program-logo-img" src="./img/logo-google-analytics.svg" alt="Google Analytics" />
-    <span class="tooltip-text">Google Analytics</span>
-  </div>
-  <div class="program-logo-container">
-    <img class="program-logo-img" src="./img/notion.svg" alt="Notion" />
-    <span class="tooltip-text">Notion</span>
-  </div>
-  <div class="program-logo-container">
-    <img class="program-logo-img" src="./img/jira.svg" alt="Jira" />
-    <span class="tooltip-text">Jira</span>
-  </div>
-  <div class="program-logo-container">
-    <img class="program-logo-img" src="./img/azure.svg" alt="Azure" />
-    <span class="tooltip-text">Azure</span>
-  </div>
-</div>
-      </div>
-      <div class="widget-art">
-        <img class="skateboard-artwork" src="./img/skateboard.svg" />
-        <span class="hover-text">an original graphic</span>
-      </div>
-      <div class="widget-about-me">
-        <div class="text-wrapper-about-me">About me</div>
-        <p class="text-all-about-me">
-          I’m a UX/UI Designer specializing in user research and usability testing. I modernize legacy systems and
-          design enterprise software, working with global corporations, agile start-ups, and as a freelancer. My
-          research-driven approach ensures that business goals align with user needs for effective solutions.
-        </p>
-      </div>
-      <div class="widget-location">
-        <div class="widget-location-row-group">
-          <img class="years-icon" src="./img/year-5.svg" />
-          <div class="years-and-location">years of experience</div>
-        </div>
-        <div class="widget-location-row-group">
-          <img class="location-icon" src="./img/globe_location_pin.svg" />
-          <div class="years-and-location">Base in Ljubljana, Slovenia</div>
-        </div>
-      </div>
-      <div class="widget-center">
-       <img class="widget-center-photo" src="./img/kristina-main-box.svg" />
-      </div>
-      <div class="widget-job">
-        <p class="UX-UI-designer-user">UX/UI Designer <br />User Researcher <br />Freelancer</p>
-      </div>
-      <div class="widget-xo">
-      <div class="xo-board" id="xo-board">
-       <div class="xo-cell" data-cell></div>
-       <div class="xo-cell" data-cell></div>
-       <div class="xo-cell" data-cell></div>
-       <div class="xo-cell" data-cell></div>
-       <div class="xo-cell" data-cell></div>
-       <div class="xo-cell" data-cell></div>
-       <div class="xo-cell" data-cell></div>
-       <div class="xo-cell" data-cell></div>
-       <div class="xo-cell" data-cell></div>
-      </div>
-      </div>
-      <a class="contact-button" href="./contact">
-        <div class="contact-wrapper-text">Contact me</div>
-        <img class="vector" src="./img/vector-5.png" />
-      </a>
-    </div>
-    <div class="unther-herp-project">
-      <div class="unther-herp">
-        <div class="concepts-into-box">
-          <div class="concepts-into">Concepts into Structured</div>
-          <div class="text-box-normal">
-             <p class="miniature-tertiary-title-white">I take foundational ideas and build them into</p> 
-             <div class="primary-text-box"><p class="miniature-tertiary-title-yellow">logical, result-driven systems that deliver</p></div>
-             <p class="miniature-tertiary-title-white">clarity and measurable success.</p>
+        <div class="hero__grid container">
+          <!-- Technologies (1047:3018) -->
+          <article class="widget widget--tools">
+            <h2 class="widget-tools__title">Technologies I have <br />worked with</h2>
+            <img class="widget-tools__rule" src="./img/home/divider-line.svg" width="308" height="1" alt="" />
+            <ul class="tool-list" aria-label="Tools">
+              <li class="tool" data-tooltip="Figma"><img src="./img/home/tool-figma.svg" width="28" height="28" alt="Figma" /></li>
+              <li class="tool" data-tooltip="Claude"><img src="./img/home/tool-claude.svg" width="28" height="28" alt="Claude" /></li>
+              <li class="tool" data-tooltip="ChatGPT"><img src="./img/home/tool-chatgpt.svg" width="28" height="28" alt="ChatGPT" /></li>
+              <li class="tool" data-tooltip="Gemini"><img class="tool__img--flipped" src="./img/home/tool-gemini.svg" width="28" height="28" alt="Gemini" /></li>
+              <li class="tool tool--w23" data-tooltip="HTML"><img src="./img/home/tool-html.svg" width="19.7827" height="28" alt="HTML" /></li>
+              <li class="tool tool--w20" data-tooltip="CSS"><img src="./img/home/tool-css.svg" width="20" height="28.0001" alt="CSS" /></li>
+              <li class="tool" data-tooltip="JavaScript"><img src="./img/home/tool-javascript.svg" width="28" height="28" alt="JavaScript" /></li>
+              <li class="tool tool--w18" data-tooltip="Framer"><img src="./img/home/tool-framer.svg" width="18" height="28" alt="Framer" /></li>
+              <li class="tool tool--w29 tool--adobe" data-tooltip="Illustrator">
+                <img src="./img/home/tool-adobe-surface.svg" width="29" height="28" alt="Illustrator" />
+                <img class="tool__mark tool__mark--ai" src="./img/home/tool-illustrator-mark.svg" width="15.7947" height="13.5334" alt="" />
+              </li>
+              <li class="tool tool--w29 tool--adobe" data-tooltip="Photoshop">
+                <img src="./img/home/tool-adobe-surface.svg" width="29" height="28" alt="Photoshop" />
+                <img class="tool__mark tool__mark--ps" src="./img/home/tool-photoshop-mark.svg" width="16.9471" height="12.8173" alt="" />
+              </li>
+              <li class="tool" data-tooltip="Google Analytics"><img src="./img/home/tool-google-analytics.svg" width="23.7252" height="27.4657" alt="Google Analytics" /></li>
+              <li class="tool" data-tooltip="Notion"><img src="./img/home/tool-notion.svg" width="28" height="28" alt="Notion" /></li>
+              <li class="tool" data-tooltip="Jira"><img src="./img/home/tool-jira.svg" width="27.9998" height="28.0001" alt="Jira" /></li>
+              <li class="tool tool--w30" data-tooltip="Azure"><img src="./img/home/tool-azure.svg" width="29.9645" height="28" alt="Azure" /></li>
+              <li class="tool tool--w29" data-tooltip="GitHub"><img src="./img/home/tool-github.svg" width="29" height="28" alt="GitHub" /></li>
+            </ul>
+          </article>
+
+          <!-- Name (1034:3953) -->
+          <div class="widget widget--name">
+            <h1 class="widget-name__title">
+              <img src="./img/home/hero-title.svg" width="393.999" height="131.675" alt="Kristina Stepan" />
+            </h1>
           </div>
-        </div>
-        <div class="card-box">
-          <div class="card-design">
-            <img class="card-jiggle jiggle-a" src="./img/jiggly-element-4.svg" alt="" aria-hidden="true" />
-            <img class="card-jiggle jiggle-b" src="./img/jiggly-element-2.svg" alt="" aria-hidden="true" />
-            <div class="card-title">UX Research</div>
-            <div class="flexcontainer">
-              <p class="card-text-wrapper">I use a structured process to understand users and their needs. <br /></p>
-              <p class="card-text-wrapper">Then I analyze their struggles to find pain points and ways to improve.</p>
-            </div>
-          </div>
-          <div class="card-design-2">
-            <img class="card-jiggle jiggle-a" src="./img/jiggly-element-1.svg" alt="" aria-hidden="true" />
-            <img class="card-jiggle jiggle-b" src="./img/jiggly-element-4.svg" alt="" aria-hidden="true" />
-            <div class="card-title">Design Process</div>
-            <div class="flexcontainer">
-              <p class="card-text-wrapper">Design modular components that can be reused across the interface. <br/> </p>
-              <p class="card-text-wrapper">Make and test mock-ups, then improve them based on feedback.</p>
-            </div>
-          </div>
-          <div class="card-design-3">
-            <img class="card-jiggle jiggle-a" src="./img/jiggly-element-3.svg" alt="" aria-hidden="true" />
-            <img class="card-jiggle jiggle-b" src="./img/jiggly-element-2.svg" alt="" aria-hidden="true" />
-            <div class="card-title">Post-Implementation Research</div>
-            <div class="flexcontainer">
-              <p class="card-text-wrapper">Test designs to see what works and what doesn’t.<br /></p>
-              <p class="card-text-wrapper">Use numbers to measure results and understand how changes improve the product.</p>
-            </div>
-          </div>
-          </div>
-           <img class="project-overview" src="./img/project-overview.svg" />
-           <img class="project-overview-small" src="./img/project-overview-small.svg" />
-          </div>
-        </div>
-      <div class="grupe-project" data-model-id="286:2481">
-      <div class="project-design ">
-        <img class="img-project-work" src="./img/aboutbuzz.png" />
-        <div class="projekt-group-box-text">
-          <div class="project-overview-2">
-            <div class="project-title">Aboutbuzz</div>
-            <div class="project-year-box">
-              <div class="project-year-text">Year</div>
-              <div class="project-year-number">2026</div>
-            </div>
-          </div>
-          <div class="project-overview-wrapper">
-            <p class="project-bio-text">
-              This project was about designing a website for a marketing agency that offers video reviews 
-              for B2C companies. The website explains the service to businesses, shows examples of video 
-              reviews, and allows people to apply as video reviewers. I conducted user interviews, market research, 
-              and competitor analysis to understand the needs of both groups. 
+
+          <!-- Location (1034:3942) -->
+          <div class="widget widget--location">
+            <p class="fact">
+              <span class="fact__badge" aria-hidden="true">5+</span>
+              <span class="fact__text"><span class="visually-hidden">5+ </span>years of experience</span>
+            </p>
+            <p class="fact">
+              <img class="fact__icon" src="./img/home/globe-location-pin.svg" width="24" height="24" alt="" />
+              <span class="fact__text">Based in Ljubljana, Slovenia</span>
             </p>
           </div>
-          <a class="to-project-button" href="./aboutbuzz">
-            <div class="text-dive-deeper">DIVE DEEPER</div>
-            <img class="arrow-gray" src="./img/arrow-gray.svg"/>
-          </a>
-        </div>
-      </div>
-        <div class="project-design ">
-        <img class="img-project-work" src="./img/leksoro.png" />
-        <div class="projekt-group-box-text">
-          <div class="project-overview-2">
-            <div class="project-title">Leksoro</div>
-            <div class="project-year-box">
-              <div class="project-year-text">Year</div>
-              <div class="project-year-number">2025</div>
+
+          <!-- Artwork (1034:3937) -->
+          <div class="widget widget--art">
+            <div class="art-frame">
+              <img src="./img/home/hero-artwork.png" alt="Hand-drawn illustration of a girl riding a giant pencil" />
             </div>
           </div>
-          <div class="project-overview-wrapper">
-            <p class="project-bio-text">
-              A platform that helps people quickly find and connect with personal trainers based on their location,
-              specialty, pricing, and certifications. Trainers can present their unique approach and verified
-              credentials, while users can filter, compare, and book with confidence. Everything is structured to reduce
-              back-and-forth and make the whole process feel easy, clear, and trustworthy.
+
+          <!-- About me (1034:3939) -->
+          <article class="widget widget--about">
+            <h2 class="widget__heading">About me</h2>
+            <p class="widget-about__text">
+              I’m a UX/UI designer. What catches me is the craft of it taking something rough and working on it, bit by bit,
+              until it becomes a tool you can really use. I look for the spot where the user gets stuck, the pause, the many
+              small questions, the not knowing where to go or what to click, the moment of doubt when they wonder if the
+              product is really helping them. Then I find out what’s causing it and fix things until the user always knows
+              what to do next.
             </p>
+          </article>
+
+          <!-- Job (1034:3959) -->
+          <div class="widget widget--job">
+            <p class="widget__heading widget-job__text">UX/UI designer <br />User researcher</p>
           </div>
-          <a class="to-project-button" href="./leksoro">
-            <div class="text-dive-deeper">DIVE DEEPER</div>
-            <img class="arrow-gray" src="./img/arrow-gray.svg"/>
-          </a>
         </div>
-      </div>
-      <div class="project-design">
-        <img class="img-project-work" src="./img/dlm.jpg" />
-        <div class="projekt-group-box-text">
-          <div class="project-overview-2">
-            <div class="project-title">DLM</div>
-            <div class="project-year-box">
-              <div class="project-year-text">Year</div>
-              <div class="project-year-number">2025</div>
+      </section>
+
+      <!-- Built with Purpose (1034:3284) -->
+      <section class="showcase-section section" aria-labelledby="showcase-title">
+        <div class="section-intro container">
+          <h2 class="display-title" id="showcase-title">Built with Purpose</h2>
+          <p class="section-intro__context">I modernise legacy systems, design enterprise software and websites while giving products that final touch of wow.</p>
+        </div>
+
+        <!-- Each mock-up is grouped with its caption. Side by side from 600px up; below that both devices stack, then both captions. -->
+        <div class="showcase">
+          <!-- Lime glow behind the devices, sized as a share of the showcase so it scales with it. -->
+          <div class="showcase__glow" aria-hidden="true">
+            <img class="showcase__glow-wash" src="./img/home/showcase-lime-wash.svg" width="1224.6" height="564.6" alt="" />
+            <img class="showcase__glow-orbit" src="./img/home/showcase-lime-orbit.svg" width="1088.8" height="396.8" alt="" />
+          </div>
+
+          <figure class="showcase-item showcase-item--left">
+            <div class="showcase-item__stage">
+              <div class="device device--left">
+                <div class="device__screen">
+                  <img class="device__image device__image--cropped" src="./img/home/showcase-enterprise.png" alt="Enterprise software: a kanban-style planning board" loading="lazy" decoding="async" />
+                  <span class="device__toolbar"></span>
+                  <span class="device__address"></span>
+                  <span class="device__control device__control--square"></span>
+                  <img class="device__control device__control--circle" src="./img/home/browser-control-circle.svg" width="16.1826" height="16.1826" alt="" />
+                  <img class="device__control device__control--triangle" src="./img/home/browser-control-triangle.svg" width="18.3402" height="16.1826" alt="" />
+                </div>
+                <img class="device__camera device__camera--a" src="./img/home/browser-camera.svg" width="7.55187" height="7.55187" alt="" />
+                <span class="device__speaker"></span>
+                <img class="device__camera device__camera--b" src="./img/home/browser-camera.svg" width="7.55187" height="7.55187" alt="" />
+              </div>
             </div>
-          </div>
-          <div class="project-overview-wrapper">
-            <p class="project-bio-text">
-              A centralized platform developed for managing delivery routes, vehicles, and drivers at scale. It
-              calculates the most efficient paths, adapts in real time to traffic and delays, and helps users handle
-              daily planning with ease. All key data orders, times, trucks is shown in one visual hub, allowing for
-              faster decision-making and better logistics coordination.
-            </p>
-          </div>
-          <a class="to-project-button" href="./dlm">
-            <div class="text-dive-deeper">DIVE DEEPER</div>
-            <img class="arrow-gray" src="./img/arrow-gray.svg" />
-          </a>
-        </div>
-      </div>
-      <div class="project-design">
-        <img class="img-project-work" src="./img/atlas.png" />
-        <div class="projekt-group-box-text">
-          <div class="project-overview-2">
-            <div class="project-title">Atlas</div>
-            <div class="project-year-box">
-              <div class="project-year-text">Year</div>
-              <div class="project-year-number">2024</div>
+            <figcaption class="caption">
+              <span class="pill">Enterprise software</span>
+              <span class="caption__discipline">Beyond Dashboards</span>
+            </figcaption>
+          </figure>
+
+          <figure class="showcase-item showcase-item--right">
+            <div class="showcase-item__stage">
+              <div class="device device--right">
+                <div class="device__screen">
+                  <img class="device__image" src="./img/home/showcase-website.png" alt="Website design for an apartment rental business: “From where you are to where you want to be”" loading="lazy" decoding="async" />
+                  <span class="device__toolbar"></span>
+                  <span class="device__address"></span>
+                  <span class="device__control device__control--square"></span>
+                  <img class="device__control device__control--circle" src="./img/home/browser-control-circle.svg" width="16.1826" height="16.1826" alt="" />
+                  <img class="device__control device__control--triangle" src="./img/home/browser-control-triangle.svg" width="18.3402" height="16.1826" alt="" />
+                </div>
+                <img class="device__camera device__camera--a" src="./img/home/browser-camera.svg" width="7.55187" height="7.55187" alt="" />
+                <span class="device__speaker"></span>
+                <img class="device__camera device__camera--b" src="./img/home/browser-camera.svg" width="7.55187" height="7.55187" alt="" />
+              </div>
             </div>
-          </div>
-          <div class="project-overview-wrapper">
-            <p class="project-bio-text">
-              A digital tool built to support daily warehouse tasks across various industries, from food to metal. It
-              simplifies shipment tracking, inventory management, and goods inspection by keeping everything clear and
-              task-focused. Designed to reduce confusion and errors, the platform keeps cognitive load low and guides
-              users through actions even when problems arise.
-            </p>
-          </div>
-          <a class="to-project-button" href="./atlas">
-            <div class="text-dive-deeper">DIVE DEEPER</div>
-            <img class="arrow-gray" src="./img/arrow-gray.svg" />
-          </a>
+            <figcaption class="caption">
+              <span class="pill pill--brand">Website design</span>
+              <span class="caption__discipline">Visual Identity</span>
+            </figcaption>
+          </figure>
         </div>
-      </div>
-      <div class="project-design">
-        <img class="img-project-work" src="./img/iskrica-srece-home.png" />
-        <div class="projekt-group-box-text">
-          <div class="project-overview-2">
-            <div class="project-title">Iskrica Sreče</div>
-            <div class="project-year-box">
-              <div class="project-year-text">Year</div>
-              <div class="project-year-number">2024</div>
+      </section>
+
+      <!-- Purposeful by Design (1034:3325) -->
+      <section class="process-section section" aria-labelledby="process-eyebrow">
+        <div class="decor" aria-hidden="true">
+          <img class="decor__item process-section__ribbon" src="./img/home/overview-ribbon.svg" width="2254.28" height="588.026" alt="" />
+        </div>
+
+        <div class="container process-section__inner stack">
+          <div class="statement stack">
+            <div class="eyebrow">
+              <h2 class="eyebrow__label" id="process-eyebrow">Purposeful by Design</h2>
+              <span class="eyebrow__rule" aria-hidden="true"></span>
             </div>
+            <p class="statement__text">I look beyond the idea itself, connecting the dots to build systems where every decision has a purpose and every outcome has meaning.</p>
           </div>
-          <div class="project-overview-wrapper">
-            <p class="project-bio-text">
-              I’m a UX/UI Designer specializing in user research and usability testing. I modernize legacy systems and
-              design enterprise software, working with global corporations, agile startups, and as a freelancer. My
-              research-driven approach
-            </p>
+
+          <ul class="process-list">
+            <li class="process-panel stack">
+              <div class="illustration" aria-hidden="true">
+                <span class="il il--note-lime" style="--x:78.898; --y:4.374; --w:126; --h:72; --r:-5deg"></span>
+                <span class="il il--note-white" style="--x:100.53; --y:12.355; --w:126; --h:74; --r:6.86deg"></span>
+                <span class="il il--line il--line-light" style="--x:117.445; --y:67.848; --w:46; --h:3; --r:6.86deg"></span>
+                <span class="il il--line il--line-light" style="--x:118.796; --y:57.323; --w:68; --h:3; --r:6.86deg"></span>
+                <span class="il il--line il--line-dark" style="--x:150.159; --y:30.162; --w:56; --h:4; --r:6.86deg"></span>
+                <img class="il" src="./img/home/process-participant.svg" width="22" height="22" alt="" style="--x:120.256; --y:17.526; --w:22; --h:22; --r:6.86deg" />
+                <span class="il il--icon-box" style="--x:208; --y:50.54; --w:37; --h:37">
+                  <img src="./img/home/process-experiment.svg" width="31" height="31" alt="" />
+                </span>
+              </div>
+              <div class="process-panel__content stack">
+                <h3 class="process-panel__title">UX Research</h3>
+                <p>I use a structured process to understand users and their needs.</p>
+                <p>Then I analyze their struggles to find pain points and ways to improve.</p>
+              </div>
+            </li>
+
+            <li class="process-panel stack">
+              <div class="illustration" aria-hidden="true">
+                <img class="illustration__svg" src="./img/home/process-design.svg" width="320" height="96" alt="" />
+              </div>
+              <div class="process-panel__content stack">
+                <h3 class="process-panel__title">Design Process</h3>
+                <p>Design modular components that can be reused across the interface.</p>
+                <p>Make and test mock-ups, then improve them based on feedback.</p>
+              </div>
+            </li>
+
+            <li class="process-panel stack">
+              <div class="illustration" aria-hidden="true">
+                <span class="il il--note-lime" style="--x:152.1; --y:8.294; --w:126; --h:72; --r:5.39deg"></span>
+                <span class="il il--note-white" style="--x:83.04; --y:10.0035; --w:154; --h:82; --r:-3deg"></span>
+                <span class="il il--bar" style="--x:190.409; --y:41.7435; --w:17; --h:30.982; --r:-3deg; --c:var(--brand-500)"></span>
+                <span class="il il--bar" style="--x:161.085; --y:27.5625; --w:17; --h:46.872; --r:-3deg; --c:var(--brand-400-primary)"></span>
+                <span class="il il--bar" style="--x:132.381; --y:37.829; --w:17; --h:38.306; --r:-3deg; --c:var(--brand-200)"></span>
+                <span class="il il--bar" style="--x:103.8375; --y:53.408; --w:17; --h:24.418; --r:-3deg; --c:var(--brand-300)"></span>
+                <span class="il il--line il--line-light" style="--x:101.488; --y:75.1325; --w:114; --h:1; --r:-3deg"></span>
+                <img class="il" src="./img/home/process-graph.svg" width="30" height="30" alt="" style="--x:69; --y:7.54; --w:30; --h:30" />
+              </div>
+              <div class="process-panel__content stack">
+                <h3 class="process-panel__title">Post-Implementation Research</h3>
+                <p>Test designs to see what works and what doesn’t.</p>
+                <p>Use numbers to measure results and understand how changes improve the product.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Project Overview (1034:3375) -->
+      <section class="portfolio-section section" aria-labelledby="portfolio-title">
+        <div class="decor" aria-hidden="true">
+          <img class="decor__item portfolio-section__wash portfolio-section__wash--1" src="./img/home/portfolio-wash-1.svg" width="1009.6" height="590.6" alt="" />
+          <img class="decor__item portfolio-section__wash portfolio-section__wash--2" src="./img/home/portfolio-wash-2.svg" width="1009.6" height="1340.6" alt="" />
+          <img class="decor__item portfolio-section__wash portfolio-section__wash--3" src="./img/home/portfolio-wash-3.svg" width="662.6" height="1340.6" alt="" />
+          <img class="decor__item portfolio-section__wash portfolio-section__wash--4" src="./img/home/portfolio-wash-4.svg" width="965.6" height="1060.6" alt="" />
+        </div>
+
+        <div class="container portfolio-section__inner stack">
+          <header class="collection-heading stack">
+            <span class="pill pill--brand">Case Studies</span>
+            <h2 class="display-title" id="portfolio-title">Project Overview</h2>
+          </header>
+
+          <div class="case-collection stack">
+          <ul class="case-list stack" id="case-list">
+            <!--
+              Case card component. Data lives in the markup so new projects are one <li> each.
+              A card without a case-study page gets .button--disabled instead of a link.
+              The first four show by default; the "Show more" button below reveals the rest (one-way).
+            -->
+            <li class="case-card">
+              <div class="case-card__overview">
+                <h3 class="case-card__title">Web Academy</h3>
+                <dl class="case-meta">
+                  <div class="case-meta__row"><dt>Year</dt><dd>2026</dd></div>
+                  <div class="case-meta__row"><dt>Role</dt><dd>UX/UI designer</dd></div>
+                </dl>
+              </div>
+              <div class="case-card__media media-frame">
+                <img src="./img/home/case-web-academy.png" width="593" height="416" alt="Web Academy shown on a laptop" loading="lazy" decoding="async" />
+              </div>
+              <div class="case-card__bio">
+                <p class="case-card__text">A website for an online course aimed at short-term rental operators who want to scale their business, with a working system across different markets worldwide. I designed it from scratch, keeping it visually consistent with the existing platform. The focus is on professionalism, years of hands-on experience, and deep market knowledge, helping visitors see that the course is worth their time and money.</p>
+                <a class="button" href="./flex-academy">
+                  <span class="button__label">Dive deeper <span class="visually-hidden">into the Web Academy website</span></span>
+                  <img class="button__icon" src="./img/home/arrow-forward.svg" width="20" height="20" alt="" />
+                </a>
+              </div>
+            </li>
+
+            <li class="case-card">
+              <div class="case-card__overview">
+                <h3 class="case-card__title">Simulation training software</h3>
+                <dl class="case-meta">
+                  <div class="case-meta__row"><dt>Year</dt><dd>2026</dd></div>
+                  <div class="case-meta__row"><dt>Role</dt><dd>UX/UI designer</dd></div>
+                </dl>
+              </div>
+              <div class="case-card__media media-frame">
+                <img src="./img/home/case-simulation.jpg" width="593" height="416" alt="Simulation training software on a desktop monitor" loading="lazy" decoding="async" />
+              </div>
+              <div class="case-card__bio">
+                <p class="case-card__text">A simulation setup platform that brings the whole preparation process into one place. Users define the people, equipment, location and tracking methodology and the system guides them through the right order of steps. It shows how each choice affects the rest of the setup, presenting all available options alongside their limitations, such as locations that can’t support certain simulations. The goal was to make a complex, interdependent process clear, structured and easy to plan.</p>
+                <a class="button" href="./simops">
+                  <span class="button__label">Dive deeper <span class="visually-hidden">into the simulation training software</span></span>
+                  <img class="button__icon" src="./img/home/arrow-forward.svg" width="20" height="20" alt="" />
+                </a>
+              </div>
+            </li>
+
+            <li class="case-card">
+              <div class="case-card__overview">
+                <h3 class="case-card__title">Enterprise software</h3>
+                <dl class="case-meta">
+                  <div class="case-meta__row"><dt>Year</dt><dd>2026</dd></div>
+                  <div class="case-meta__row"><dt>Role</dt><dd>UX/UI designer</dd></div>
+                </dl>
+              </div>
+              <div class="case-card__media media-frame">
+                <img src="./img/home/case-enterprise.png" width="593" height="416" alt="Enterprise software dashboard on a laptop" loading="lazy" decoding="async" />
+              </div>
+              <div class="case-card__bio">
+                <p class="case-card__text">An enterprise SaaS management platform that gives companies one place to oversee all their software. It shows who has access to each tool, who owns it, and who is responsible for it, along with budgets and spend. The goal was to bring order to a growing software stack and give teams a clear, big-picture view that makes managing and planning software easier.</p>
+                <a class="button" href="./software-asset-management">
+                  <span class="button__label">Dive deeper <span class="visually-hidden">into the software asset management platform</span></span>
+                  <img class="button__icon" src="./img/home/arrow-forward.svg" width="20" height="20" alt="" />
+                </a>
+              </div>
+            </li>
+
+            <li class="case-card">
+              <div class="case-card__overview">
+                <h3 class="case-card__title">Website</h3>
+                <dl class="case-meta">
+                  <div class="case-meta__row"><dt>Year</dt><dd>2026</dd></div>
+                  <div class="case-meta__row"><dt>Role</dt><dd>UX/UI designer</dd></div>
+                  <div class="case-meta__row"><dt>Product</dt><dd>aboutbuzz</dd></div>
+                </dl>
+              </div>
+              <div class="case-card__media media-frame">
+                <img src="./img/home/case-aboutbuzz.png" width="593" height="416" alt="aboutbuzz website pages" loading="lazy" decoding="async" />
+              </div>
+              <div class="case-card__bio">
+                <p class="case-card__text">This project was about designing a website for a marketing agency that offers video reviews for B2C companies. The website explains the service to businesses, shows examples of video reviews, and allows people to apply as video reviewers. I conducted user interviews, market research, and competitor analysis to understand the needs of both groups.</p>
+                <a class="button" href="./aboutbuzz">
+                  <span class="button__label">Dive deeper <span class="visually-hidden">into the aboutbuzz website</span></span>
+                  <img class="button__icon" src="./img/home/arrow-forward.svg" width="20" height="20" alt="" />
+                </a>
+              </div>
+            </li>
+
+            <li class="case-card">
+              <div class="case-card__overview">
+                <h3 class="case-card__title">Mobile app</h3>
+                <dl class="case-meta">
+                  <div class="case-meta__row"><dt>Year</dt><dd>2025</dd></div>
+                  <div class="case-meta__row"><dt>Role</dt><dd>UX/UI designer<br>Research</dd></div>
+                  <div class="case-meta__row"><dt>Product</dt><dd>Leksoro</dd></div>
+                </dl>
+              </div>
+              <div class="case-card__media media-frame">
+                <img src="./img/home/case-leksoro.png" width="593" height="416" alt="Leksoro mobile app screens" loading="lazy" decoding="async" />
+              </div>
+              <div class="case-card__bio">
+                <p class="case-card__text">A platform that helps people quickly find and connect with personal trainers based on their location, specialty, pricing, and certifications. Trainers can present their unique approach and verified credentials, while users can filter, compare, and book with confidence. Everything is structured to reduce back-and-forth and make the whole process feel easy, clear, and trustworthy.</p>
+                <a class="button" href="./leksoro">
+                  <span class="button__label">Dive deeper <span class="visually-hidden">into the Leksoro mobile app</span></span>
+                  <img class="button__icon" src="./img/home/arrow-forward.svg" width="20" height="20" alt="" />
+                </a>
+              </div>
+            </li>
+
+            <li class="case-card">
+              <div class="case-card__overview">
+                <h3 class="case-card__title">Enterprise software</h3>
+                <dl class="case-meta">
+                  <div class="case-meta__row"><dt>Year</dt><dd>2025</dd></div>
+                  <div class="case-meta__row"><dt>Role</dt><dd>UX/UI designer<br>Research</dd></div>
+                  <div class="case-meta__row"><dt>Product</dt><dd>DLM</dd></div>
+                </dl>
+              </div>
+              <div class="case-card__media media-frame">
+                <img src="./img/home/case-atlas-map.png" width="593" height="416" alt="Route map interface on a laptop" loading="lazy" decoding="async" />
+              </div>
+              <div class="case-card__bio">
+                <p class="case-card__text">A centralized platform developed for managing delivery routes, vehicles and drivers at scale. It calculates the most efficient paths, adapts in real time to traffic and delays, and helps users handle daily planning with ease. All key data orders, times, trucks is shown in one visual hub, allowing for faster decision-making and better logistics coordination.</p>
+                <a class="button" href="./dlm">
+                  <span class="button__label">Dive deeper <span class="visually-hidden">into the route planning software</span></span>
+                  <img class="button__icon" src="./img/home/arrow-forward.svg" width="20" height="20" alt="" />
+                </a>
+              </div>
+            </li>
+
+            <li class="case-card">
+              <div class="case-card__overview">
+                <h3 class="case-card__title">Enterprise software</h3>
+                <dl class="case-meta">
+                  <div class="case-meta__row"><dt>Year</dt><dd>2024</dd></div>
+                  <div class="case-meta__row"><dt>Role</dt><dd>UX/UI designer<br>Research</dd></div>
+                  <div class="case-meta__row"><dt>Product</dt><dd>Atlas</dd></div>
+                </dl>
+              </div>
+              <div class="case-card__media media-frame">
+                <img src="./img/home/case-atlas-tablet.jpg" width="593" height="416" alt="Atlas warehouse software on a tablet" loading="lazy" decoding="async" />
+              </div>
+              <div class="case-card__bio">
+                <p class="case-card__text">A digital tool built to support daily warehouse tasks across various industries, from food to metal. It simplifies shipment tracking, inventory management, and goods inspection by keeping everything clear and task-focused. Designed to reduce confusion and errors, the platform keeps cognitive load low and guides users through actions even when problems arise.</p>
+                <a class="button" href="./atlas">
+                  <span class="button__label">Dive deeper <span class="visually-hidden">into the Atlas warehouse software</span></span>
+                  <img class="button__icon" src="./img/home/arrow-forward.svg" width="20" height="20" alt="" />
+                </a>
+              </div>
+            </li>
+
+            <li class="case-card">
+              <div class="case-card__overview">
+                <h3 class="case-card__title">Website</h3>
+                <dl class="case-meta">
+                  <div class="case-meta__row"><dt>Year</dt><dd>2024</dd></div>
+                  <div class="case-meta__row"><dt>Role</dt><dd>UX/UI designer<br>Developed</dd></div>
+                  <div class="case-meta__row"><dt>Company</dt><dd>Iskrica sreče</dd></div>
+                </dl>
+              </div>
+              <div class="case-card__media media-frame">
+                <img src="./img/home/case-iskrica-srece.png" width="593" height="416" alt="Iskrica sreče wedding planner website on a laptop" loading="lazy" decoding="async" />
+              </div>
+              <div class="case-card__bio">
+                <p class="case-card__text">A website for a wedding planner, the person you hire to organise and manage your wedding from start to finish.The goal was to present the full range of wedding options clearly and make the booking process simple and smooth, while keeping the brand’s personality at the centre. Visitors get a clear sense of the style, the approach and the values behind the service before they reach out.</p>
+                <a class="button" href="./iskrica-srece">
+                  <span class="button__label">Dive deeper <span class="visually-hidden">into the Iskrica sreče website</span></span>
+                  <img class="button__icon" src="./img/home/arrow-forward.svg" width="20" height="20" alt="" />
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Same pill as the "Next Project" button on the case-study pages. Shown by index.js; removed once clicked. -->
+          <button class="pill-cta case-toggle" type="button" aria-controls="case-list" aria-expanded="false" hidden>
+            <span class="pill-cta__label">Show more</span>
+            <img class="pill-cta__icon" src="./img/home/arrow-forward.svg" width="20" height="20" alt="" />
+          </button>
           </div>
-          <a class="to-project-button" href="./iskrica-srece">
-            <div class="text-dive-deeper">DIVE DEEPER</div>
-            <img class="arrow-gray" src="./img/arrow-gray.svg" />
-          </a>
         </div>
-      </div>
-   </div>
-  </div>
-  <footer class="footer" data-model-id="311:4020">
-  <img class="footer-background" src="./img/background.svg" alt="Desktop Background" />
-  <img class="footer-background-mobile" src="./img/background-small.svg" alt="Mobile Background" />
-  <div class="footer-box-photo">
-    <div class="footer-box">
-      <p class="footer-title">
-        <span class="text-title-regular">Let&#39;s work&nbsp;</span>
-        <span class="text-title-bold">together</span>
-      </p>
-      <div class="footer-text-box">
-        <div class="footer-link-box">
-          <a class="footer-link-button" href="mailto:stepankristina419@gmail.com" target="_blank">
-            <img class="mail-footer" src="./img/mail-footer.svg" alt="Mail" />
-            <div class="text-link-box-line">stepankristina419@gmail.com</div>
-          </a>
-          <a class="footer-link-button" href="https://www.linkedin.com/in/kristina-stepan/" target="_blank">
-            <img class="linkedin-footer" src="./img/linkedin-footer.svg" alt="LinkedIn" />
-            <div class="text-link-box-line">Kristina Stepan</div>
-          </a>
-        </div>
-        <p class="footer-text">
-          Working on a digital product or need design advice? <br />Ping me for a collaboration or just to chat things
-          through.
-        </p>
-      </div>
-    </div>
-  </div>
-</footer>
-</body>
+      </section>
+    </main>
+
+    <!-- Shared footer (global/site-chrome.js) -->
+    <site-footer root="./"></site-footer>
+  </body>
 </html>
-

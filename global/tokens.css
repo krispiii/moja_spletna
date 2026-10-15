@@ -1,0 +1,94 @@
+/*
+ * Design tokens (Figma "Kristina Spletna" variables + spacing/type scale).
+ * Shared by every page; load after styleguide.css, whose palette these map to.
+ *
+ * Spacing: every step is fluid between a 375px and a 1280px viewport (its Figma value).
+ */
+
+:root {
+  /* Colour (Figma variables; styleguide.css holds the shared palette) */
+  --color-text: var(--font-500-primary);          /* Font/500 #31323a */
+  --color-text-muted: var(--font-400);            /* Font/400 #767676 */
+  --color-text-strong: var(--dark-400);           /* Dark/400 #26272d */
+  --color-surface: var(--white);
+  --color-surface-soft: var(--neutral-100);       /* Neutral/100 #fafafa */
+  --color-surface-glass: rgba(255, 255, 255, 0.7);
+  --color-surface-glass-strong: rgba(255, 255, 255, 0.8);
+  --color-surface-glass-light: rgba(255, 255, 255, 0.5);
+  --color-border-subtle: #efefef;                 /* Figma Neutral/200 (styleguide --neutral-200 is #f5f5f5) */
+  --color-border: var(--neutral-300);             /* Neutral/300 #e7e7e7 */
+  --color-border-strong: var(--neutral-400-primary);
+  --color-accent: var(--brand-400-primary);       /* Brand/400 #dfffad */
+  --color-accent-strong: var(--brand-500);        /* Brand/500 #d3f2a4 */
+  --color-badge: var(--dark-300-primary);
+  --color-link-rule: var(--dark-100);
+  --color-focus: var(--dark-300-primary);
+
+  /* Effects */
+  --shadow-widget: 0 4px 16px 2px rgba(141, 141, 141, 0.1);
+  --shadow-footer: 0 4px 16px 0 rgba(141, 141, 141, 0.1);
+  --shadow-header: 0 2px 16px 4px rgba(141, 141, 141, 0.1);
+  --shadow-soft: 0 2px 6px 0 #f5f5f5;
+  --shadow-lift: var(--shadow-general);           /* general_shadow */
+
+  /* Radius */
+  --radius-xs: 0.1875rem;                                   /* 3 */
+  --radius-sm: 0.5rem;                                      /* 8 */
+  --radius-md: 1rem;                                        /* 16 */
+  --radius-lg: clamp(1.25rem, 1.0428rem + 0.884vw, 1.5rem); /* 20 → 24 */
+  --radius-xl: clamp(1.25rem, 0.9428rem + 1.326vw, 1.75rem); /* 20 → 28 */
+  --radius-pill: 999px;
+
+  /*
+   * Spacing scale — mobile (375) → desktop (1280).
+   * clamp(min, intercept + slope·vw, max), linear between the two viewports.
+   */
+  --space-3xs: 0.25rem;                                        /*   4 →   4 */
+  --space-2xs: 0.5rem;                                         /*   8 →   8 */
+  --space-xs:  clamp(0.625rem, 0.5732rem + 0.221vw, 0.75rem);  /*  10 →  12 */
+  --space-s:   clamp(0.75rem, 0.6464rem + 0.442vw, 1rem);      /*  12 →  16 */
+  --space-m:   clamp(1rem, 0.8964rem + 0.442vw, 1.25rem);      /*  16 →  20 */
+  --space-l:   clamp(1rem, 0.7928rem + 0.884vw, 1.5rem);       /*  16 →  24 */
+  --space-xl:  clamp(1.25rem, 0.9392rem + 1.326vw, 2rem);      /*  20 →  32 */
+  --space-2xl: clamp(1.5rem, 1.0856rem + 1.768vw, 2.5rem);     /*  24 →  40 */
+  --space-3xl: clamp(1.75rem, 1.2321rem + 2.21vw, 3rem);       /*  28 →  48 */
+  --space-4xl: clamp(2rem, 1.3785rem + 2.652vw, 3.5rem);       /*  32 →  56 */
+  --space-5xl: clamp(2.25rem, 1.5249rem + 3.094vw, 4rem);      /*  36 →  64 */
+  --space-6xl: clamp(2.75rem, 1.8177rem + 3.978vw, 5rem);      /*  44 →  80 */
+  /* Section-level steps shrink harder: two of them meet between every pair of sections. */
+  --space-7xl: clamp(2.5rem, 0.4282rem + 8.8398vw, 7.5rem);    /*  40 → 120 */
+  --space-8xl: clamp(3rem, 0.0994rem + 12.376vw, 10rem);       /*  48 → 160 */
+  --space-9xl: clamp(4rem, 0.4779rem + 15.0276vw, 12.5rem);    /*  64 → 200 */
+
+  /* Layout */
+  --container: 80rem;                                          /* 1280 */
+  --measure-statement: 59rem;                                  /* 944 */
+  --measure-context: 18rem;                                    /* 287 */
+  --gutter: clamp(1rem, 0.5856rem + 1.768vw, 2rem);            /* 16 → 32 */
+  --header-height: 3.5rem;                                     /* 56 */
+
+  /* Type families */
+  --font-body: "Open Sans", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Open Sans", system-ui, sans-serif;
+  --font-accent: "Archivo", "Open Sans", system-ui, sans-serif;
+
+  /* Type sizes */
+  --text-xs: 0.75rem;                                       /* 12 */
+  --text-s: 0.875rem;                                       /* 14 */
+  --text-m: 1rem;                                           /* 16 */
+  --text-l: 1.125rem;                                       /* 18 */
+  --text-xl: 1.25rem;                                       /* 20 */
+  --heading-xs: 1.125rem;                                   /* 18 */
+  --heading-s: 1.5rem;                                      /* 24 */
+  --heading-m: clamp(1.5rem, 1rem + 1.25vw, 2rem);          /* 32 */
+  --heading-statement: clamp(1.5rem, 1rem + 1.6vw, 2.25rem); /* 36 */
+  --heading-l: clamp(1.75rem, 1.25rem + 1.6vw, 2.5rem);     /* 40 */
+  --heading-xl: clamp(2rem, 1.5856rem + 1.768vw, 3rem);     /* 32 → 48 */
+  --heading-footer: clamp(2.5rem, 1rem + 4.4vw, 4.5rem);    /* 72 */
+  --heading-display: clamp(2.75rem, 1.2rem + 5.2vw, 5rem);  /* 80 */
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 160ms;
+  --duration: 260ms;
+}

@@ -1,0 +1,28 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="320" height="96" viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Process illustration" clip-path="url(#clip0_0_18)">
+<rect id="Research note" x="95.4999" y="1.55572" width="116.051" height="66.3148" rx="8" transform="rotate(14.8213 95.4999 1.55572)" fill="#EFFFD6"/>
+<g id="Modular interface">
+<g clip-path="url(#clip1_0_18)">
+<rect x="100.621" y="-0.291099" width="127.94" height="74.1336" rx="7.17422" transform="rotate(7.95218 100.621 -0.291099)" fill="white"/>
+<rect id="Supporting component" x="182.545" y="52.804" width="27.5012" height="20.3269" rx="2.98926" transform="rotate(7.95218 182.545 52.804)" fill="#EFEFEF"/>
+<rect id="Supporting component_2" x="149.388" y="48.1741" width="26.9033" height="20.3269" rx="2.98926" transform="rotate(7.95218 149.388 48.1741)" fill="#EFFFD6"/>
+<rect id="Heading component" x="151.703" y="31.5944" width="60.9808" height="9.56562" rx="2.39141" transform="rotate(7.95218 151.703 31.5944)" fill="#EFEFEF"/>
+<rect id="Primary component" x="107.887" y="25.473" width="35.8711" height="37.0668" rx="4.18496" transform="rotate(7.95218 107.887 25.473)" fill="#DFFFAD"/>
+<path id="Toolbar" d="M100.22 6.8988C100.722 3.3017 104.046 0.793012 107.643 1.29549L220.142 17.0105C223.739 17.513 226.248 20.8364 225.745 24.4335L224.67 32.1308L99.1445 14.5961L100.22 6.8988Z" fill="#EFEFEF"/>
+<circle id="Browser control" cx="119.759" cy="9.62445" r="1.1957" transform="rotate(7.95218 119.759 9.62445)" fill="#8D8D8D"/>
+<circle id="Browser control_2" cx="113.838" cy="8.79906" r="1.1957" transform="rotate(7.95218 113.838 8.79906)" fill="#8D8D8D"/>
+<circle id="Browser control_3" cx="107.918" cy="7.97174" r="1.1957" transform="rotate(7.95218 107.918 7.97174)" fill="#8D8D8D"/>
+</g>
+<rect x="100.876" y="0.0463077" width="127.342" height="73.5357" rx="6.87529" transform="rotate(7.95218 100.876 0.0463077)" stroke="#D3D3D3" stroke-width="0.597851"/>
+</g>
+<path id="Interface cursor" d="M226.352 83.272L220.097 84.2936L219.843 84.335L219.689 84.5422L215.942 89.5692L213.502 73.0395L226.352 83.272Z" fill="white" stroke="#76767C" stroke-width="1.275"/>
+</g>
+<defs>
+<clipPath id="clip0_0_18">
+<rect width="320" height="96" fill="white"/>
+</clipPath>
+<clipPath id="clip1_0_18">
+<rect x="100.621" y="-0.291099" width="127.94" height="74.1336" rx="7.17422" transform="rotate(7.95218 100.621 -0.291099)" fill="white"/>
+</clipPath>
+</defs>
+</svg>

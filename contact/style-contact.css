@@ -166,6 +166,32 @@ img { display: block; }
   height: auto;
 }
 
+/* Tooltip, as on the home artwork. The frame clips, so it drops in inside the
+   empty band above the figure (figure starts ~9% down), centred over it. */
+.contact-art::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 2%;
+  left: 42.88%;                                             /* figure centre */
+  translate: -50% calc(-1 * var(--space-3xs));
+  padding: var(--space-3xs) var(--space-2xs);
+  border-radius: var(--radius-sm);
+  background: var(--color-badge);
+  color: var(--white);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast), translate var(--duration-fast) var(--ease-out);
+  z-index: 2;
+}
+
+.contact-art:hover::after {
+  opacity: 1;
+  translate: -50% 0;
+}
+
 /* ---------- Contact cards ---------- */
 
 .contact-cards {
@@ -335,6 +361,32 @@ img { display: block; }
 }
 
 .step.is-open .step__text { padding-bottom: var(--space-l); }
+
+/* ---------- Desktop: hero fills one screen ---------- */
+
+/* Header + section top padding + hero = the visible screen height, so the
+   whole hero is seen without scrolling. dvh where supported, vh otherwise.
+   The illustration scales by height; the title shrinks on short screens. */
+@media (min-width: 1100px) {
+  .contact { --viewport-h: 100vh; }
+
+  @supports (height: 100dvh) {
+    .contact { --viewport-h: 100dvh; }
+  }
+
+  .contact-hero {
+    --hero-h: max(34rem, var(--viewport-h) - var(--header-height) - var(--section-pt) - var(--space-l));
+    height: var(--hero-h);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .contact-hero__title { font-size: min(var(--heading-display), 8.5vh); }
+
+  .contact-art {
+    width: min(100%, var(--hero-h) * 632 / 732);
+    justify-self: center;
+  }
+}
 
 /* ---------- Below desktop: one column ---------- */
 

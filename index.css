@@ -681,8 +681,8 @@ button {
 
 .case-collection > .case-list { align-self: stretch; }
 
-/* Collapsed: only the first four projects. Needs JS, so without it all show. */
-.js .case-list[data-collapsed] > .case-card:nth-child(n + 5) { display: none; }
+/* Collapsed: only the first three projects. Needs JS, so without it all show. */
+.js .case-list[data-collapsed] > .case-card:nth-child(n + 4) { display: none; }
 
 /* Pill CTA — same look as the "Next Project" button on the case-study pages
    (global/project-page.css .next-project): label left, chevron right. */

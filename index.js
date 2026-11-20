@@ -2,11 +2,11 @@
 // (Header/footer behaviour lives in global/site-chrome.js.)
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Project Overview: first four cases; "Show more" reveals the rest. One-way:
+  // Project Overview: first three cases; "Show more" reveals the rest. One-way:
   // once clicked the button goes away and there is no "Show less".
   const caseList = document.getElementById("case-list");
   const caseToggle = document.querySelector(".case-toggle");
-  const VISIBLE_CASES = 4;
+  const VISIBLE_CASES = 3;
 
   if (caseList && caseToggle && caseList.children.length > VISIBLE_CASES) {
     caseList.setAttribute("data-collapsed", "");

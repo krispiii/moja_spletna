@@ -543,7 +543,7 @@ button {
   transform: scaleX(-1);
 }
 
-.process-section__inner { --stack-gap: var(--space-7xl); }
+.process-section__inner { --stack-gap: var(--space-9xl); }
 
 .statement { --stack-gap: var(--space-s); }
 

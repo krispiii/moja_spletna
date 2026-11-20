@@ -6,7 +6,7 @@
  *   <site-footer root="../"></site-footer>
  *
  * root     path from the page to the site root ("./" on the home page, "../" one level down)
- * current  optional: about-me | contact | flex-academy | simops | software-asset-management | dlm | atlas
+ * current  optional: about-me | contact | flex-academy | simops | software-asset-management | atlas
  *          marks that link with aria-current="page"
  * offset   optional: adds a spacer the height of the fixed header, for pages
  *          whose content starts at the top (the home hero handles this itself)
@@ -21,7 +21,6 @@
     ['flex-academy', 'Flex Academy'],
     ['simops', 'SIMOPS'],
     ['software-asset-management', 'Software Asset Management'],
-    ['dlm', 'DLM'],
     ['atlas', 'Atlas']
   ];
 

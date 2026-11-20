@@ -539,7 +539,7 @@ button {
 
 .process-section__ribbon {
   left: calc(50% - 1203.3px);
-  top: 24.86%;
+  top: -6%;
   transform: scaleX(-1);
 }
 

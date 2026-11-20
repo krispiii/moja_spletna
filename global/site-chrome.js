@@ -6,7 +6,7 @@
  *   <site-footer root="../"></site-footer>
  *
  * root     path from the page to the site root ("./" on the home page, "../" one level down)
- * current  optional: about-me | contact | flex-academy | simops | software-asset-management | aboutbuzz | leksoro | dlm | atlas | iskrica-srece
+ * current  optional: about-me | contact | flex-academy | simops | software-asset-management | dlm | atlas
  *          marks that link with aria-current="page"
  * offset   optional: adds a spacer the height of the fixed header, for pages
  *          whose content starts at the top (the home hero handles this itself)
@@ -21,11 +21,8 @@
     ['flex-academy', 'Flex Academy'],
     ['simops', 'SIMOPS'],
     ['software-asset-management', 'Software Asset Management'],
-    ['aboutbuzz', 'Aboutbuzz'],
-    ['leksoro', 'Leksoro'],
     ['dlm', 'DLM'],
-    ['atlas', 'Atlas'],
-    ['iskrica-srece', 'Iskrica Sreče']
+    ['atlas', 'Atlas']
   ];
 
   function rootOf(el) {

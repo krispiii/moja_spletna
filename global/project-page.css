@@ -1,6 +1,6 @@
 /*
  * Project (case study) pages: Figma "project", node 1048:3558.
- * Shared by every page in /aboutbuzz, /atlas, /dlm, /iskrica-srece, /leksoro.
+ * Shared by every page in /atlas, /dlm (and the hidden pages in /_hidden-projects).
  *
  * Structure: base → shared parts (split heading, mock-up, card) → sections in
  * page order → layout breakpoints. Tokens live in global/tokens.css; layout
